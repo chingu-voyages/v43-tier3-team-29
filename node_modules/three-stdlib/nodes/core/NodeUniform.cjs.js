@@ -1,0 +1,1 @@
+"use strict";class e{constructor(e,t,s,o){this.name=e,this.type=t,this.node=s,this.needsUpdate=o}get value(){return this.node.value}set value(e){this.node.value=e}}e.prototype.isNodeUniform=!0,module.exports=e;

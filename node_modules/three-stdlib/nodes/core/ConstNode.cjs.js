@@ -1,0 +1,1 @@
+"use strict";var e=require("./InputNode.cjs.js");require("./Node.cjs.js"),require("./constants.cjs.js"),require("./NodeUtils.cjs.js"),require("three");class t extends e{generateConst(e){return e.getConst(this.getNodeType(e),this.value)}generate(e,t){const s=this.getNodeType(e);return e.format(this.generateConst(e),s,t)}}t.prototype.isConstNode=!0,module.exports=t;

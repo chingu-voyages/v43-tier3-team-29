@@ -1,0 +1,1 @@
+"use strict";var s=require("three");class e extends s.MaterialLoader{constructor(s){super(s),this.nodes={}}parse(s){const e=super.parse(s),r=this.nodes,t=s.inputNodes;for(const s in t){const o=t[s];e[s]=r[o]}return e}setNodes(s){return this.nodes=s,this}}module.exports=e;

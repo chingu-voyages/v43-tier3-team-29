@@ -1,0 +1,1 @@
+"use strict";var e=require("../core/UniformNode.cjs.js");require("../core/InputNode.cjs.js"),require("../core/Node.cjs.js"),require("../core/constants.cjs.js"),require("../core/NodeUtils.cjs.js"),require("three");class r extends e{constructor(e,r,s=0){super(e,r),this.bufferType=r,this.bufferCount=s}getInputType(){return"buffer"}}r.prototype.isBufferNode=!0,module.exports=r;

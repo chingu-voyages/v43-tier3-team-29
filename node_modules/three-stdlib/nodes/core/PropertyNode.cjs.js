@@ -1,0 +1,1 @@
+"use strict";var e=require("./Node.cjs.js");require("./constants.cjs.js"),require("./NodeUtils.cjs.js"),require("three");module.exports=class extends e{constructor(e=null,s="vec4"){super(s),this.name=e}getHash(e){return this.name||super.getHash(e)}generate(e){const s=e.getVarFromNode(this,this.getNodeType(e)),r=this.name;return null!==r&&(s.name=r),e.getPropertyName(s)}};

@@ -1,0 +1,1 @@
+"use strict";var e=require("./Object3DNode.cjs.js");require("@babel/runtime/helpers/defineProperty"),require("three"),require("../core/Node.cjs.js"),require("../core/constants.cjs.js"),require("../core/NodeUtils.cjs.js"),require("../core/UniformNode.cjs.js"),require("../core/InputNode.cjs.js");class r extends e{constructor(e=r.VIEW_MATRIX){super(e)}}module.exports=r;

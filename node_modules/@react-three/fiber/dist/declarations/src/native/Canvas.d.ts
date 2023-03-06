@@ -1,0 +1,8 @@
+import * as React from 'react';
+import { View, ViewProps, ViewStyle } from 'react-native';
+import { RenderProps } from '../core';
+export interface Props extends Omit<RenderProps<HTMLCanvasElement>, 'size' | 'dpr'>, ViewProps {
+    children: React.ReactNode;
+    style?: ViewStyle;
+}
+export declare const Canvas: React.ForwardRefExoticComponent<Props & React.RefAttributes<View>>;

@@ -1,0 +1,1 @@
+"use strict";var e=require("../core/NodeParser.cjs.js"),r=require("./WGSLNodeFunction.cjs.js");require("../core/NodeFunction.cjs.js"),require("../core/NodeFunctionInput.cjs.js");module.exports=class extends e{parseFunction(e){return new r(e)}};

@@ -1,0 +1,11 @@
+import * as React from 'react';
+import type { Options as ResizeOptions } from 'react-use-measure';
+import { RenderProps } from '../core';
+export interface Props extends Omit<RenderProps<HTMLCanvasElement>, 'size'>, React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+    fallback?: React.ReactNode;
+    resize?: ResizeOptions;
+    eventSource?: HTMLElement | React.MutableRefObject<HTMLElement>;
+    eventPrefix?: 'offset' | 'client' | 'page' | 'layer' | 'screen';
+}
+export declare const Canvas: React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLCanvasElement>>;

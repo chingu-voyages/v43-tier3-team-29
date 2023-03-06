@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("three"),r=require("./LineSegmentsGeometry.cjs.js");class t extends r.LineSegmentsGeometry{constructor(r){super(),this.isWireframeGeometry2=!0,this.type="WireframeGeometry2",this.fromWireframeGeometry(new e.WireframeGeometry(r))}}exports.WireframeGeometry2=t;
