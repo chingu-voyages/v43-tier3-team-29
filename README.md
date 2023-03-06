@@ -1,14 +1,8 @@
-# voyage-tasks
+TO START:
+1) git clone https://github.com/chingu-voyages/v43-tier3-team-29.git
+2) npm i
+3) npm run start
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
-
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
-
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
-
-> Own it & Make it your Own!
+RESOURCES CREDIT:
+Monitor by Poly by Google [CC-BY] via Poly Pizza
+Desk lamp by Poly by Google [CC-BY] via Poly Pizzaz
