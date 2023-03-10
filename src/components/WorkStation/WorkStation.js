@@ -31,7 +31,7 @@ export function WorkStation() {
     }
   };
   return (
-    <primitive object={tableModel.scene}>
+    <primitive position={[4.3, -0.7, 7.4]} rotation={[0, - Math.PI + 0.6, 0]} object={tableModel.scene}>
       <primitive
         object={chairModel.scene}
         position={[-0.3, 0, 1.2]}
