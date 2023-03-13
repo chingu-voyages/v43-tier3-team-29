@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('models/island/Floating Port-transformed.glb')
+  const { nodes, materials } = useGLTF('/Floating Port-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
@@ -16,14 +16,12 @@ export function Model(props) {
         <mesh geometry={nodes['Bamboo_1_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[2.74, 2.67, 7.04]} />
         <mesh geometry={nodes.Bamboo_2.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-9.41, 2.67, 3.86]} />
       </group>
-      { /* 
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
         <mesh geometry={nodes.Bird.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.73, 7.91, -1.51]} rotation={[-2.68, 0.84, 2.92]} />
         <mesh geometry={nodes['Bird_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-6.55, 7.84, -4.84]} rotation={[-1.4, -1.05, -1.16]} />
         <mesh geometry={nodes['Bird_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[0.01, 8.43, 3.42]} rotation={[-2.55, -0.08, -2.8]} />
         <mesh geometry={nodes['Bird_(3)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-8.58, 8.07, -4.7]} rotation={[-2.68, 0.53, 2.99]} />
       </group>
-      */ }
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
         <mesh geometry={nodes.Box_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.73, 2.75, 0.04]} rotation={[Math.PI, -0.94, -Math.PI]} />
         <mesh geometry={nodes['Box_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.74, 2.75, 0.27]} rotation={[Math.PI, -0.14, -Math.PI]} />
@@ -241,4 +239,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('models/island/Floating Port-transformed.glb')
+useGLTF.preload('/Floating Port-transformed.glb')
