@@ -148,7 +148,7 @@ export function Model(props) {
         <mesh geometry={nodes['Tree_6_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[5.74, 2.62, -1.37]} />
         <mesh geometry={nodes['Tree_6_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[0.91, 2.48, 4.78]} />
         <mesh geometry={nodes.Trunk_3.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-5.94, 2.66, -1.63]} rotation={[3.05, -0.2, -3.13]} />
-        <mesh geometry={nodes['Trunk_3_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.07, 2.64, 3.04]} rotation={[3.05, 0.03, -3.11]} />
+        <mesh geometry={nodes['Trunk_3_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.56, 2.63, 1.62]} rotation={[3.05, 0.03, -3.11]} />
         <mesh geometry={nodes['Trunk_3_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-6.12, 2.68, -3.15]} rotation={[3.1, 0.03, -3.11]} />
       </group>
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
@@ -160,8 +160,8 @@ export function Model(props) {
         <mesh geometry={nodes['Trunk_Wood_2_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-6.35, 2.73, 1.39]} rotation={[1.58, -0.23, -3.13]} />
       </group>
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
-        <mesh geometry={nodes.Wood_Box_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.33, 2.85, 0.46]} rotation={[3.13, 0, 1.84]} />
-        <mesh geometry={nodes['Wood_Box_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.56, 2.69, 0.46]} rotation={[-3.12, 0.06, 3.13]} />
+        <mesh geometry={nodes.Wood_Box_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.04, 2.78, 1.9]} rotation={[3.13, 0, 1.84]} />
+        <mesh geometry={nodes['Wood_Box_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-3.05, 2.69, 0.14]} rotation={[-3.12, 0.06, 3.13]} />
       </group>
       <mesh geometry={nodes.Big_Rock.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[13.68, 4.67, 3.38]} rotation={[0, 0.13, 0]} scale={[1.19, 1.07, 2.1]} />
       <mesh geometry={nodes.Floting_Base.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[0.09, -0.96, 4.62]} scale={1.33} />
@@ -187,7 +187,7 @@ export function Model(props) {
       <mesh geometry={nodes['M_Grass-13'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-3.46, 5.46, 5.25]} rotation={[0.08, 0.57, -0.01]} scale={0.71} />
       <mesh geometry={nodes['M_Grass-14'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.69, 5.88, -1.29]} rotation={[0.08, 0.57, -0.01]} scale={0.71} />
       <mesh geometry={nodes.M_Grass_Roll.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.04, 5.87, -0.96]} rotation={[-3.08, -0.05, -3.08]} scale={0.71} />
-      <mesh geometry={nodes.M_House.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.39, 6.85, 6.76]} rotation={[0.08, 0.31, -0.01]} scale={0.71} />
+      <mesh geometry={nodes.M_House.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.38, 7.19, 6.81]} rotation={[0.01, 0.31, 0.01]} scale={0.71} />
       <mesh geometry={nodes.M_Out_door_Stone_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.58, 5.6, 2.46]} rotation={[-2.89, 1.26, 2.96]} scale={0.71} />
       <mesh geometry={nodes.M_Out_door_Stone_2.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.82, 5.57, 2.62]} rotation={[-2.66, 1.25, 2.74]} scale={0.71} />
       <mesh geometry={nodes.M_Out_door_Stone_3.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.92, 5.56, 2.46]} rotation={[-2.67, 1.24, 2.74]} scale={0.71} />
