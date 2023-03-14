@@ -1,0 +1,39 @@
+html,
+body,
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+canvas{
+  touch-action: none;
+}
+
+.browser iframe{
+  width: 1024px;
+  height: 620px;
+  border: none;
+  border-radius: 20px;
+  border-top-left-radius: 0px;
+  background-color: white;
+}
+
+.browser-tab > button{
+  width: 100px;
+  height: 40px;
+  border-right: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 200;
+}
+
+.browser-tab > button.active {
+  background-color: rgb(233, 106, 106);
+  color: white;
+}
