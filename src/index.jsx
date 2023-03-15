@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, BakeShadows } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
-import { Effects } from "./Effects";
+import { Effects } from "./components/PostProcessing/Effects";
 
 function App() {
   return (
