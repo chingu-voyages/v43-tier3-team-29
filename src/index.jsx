@@ -7,6 +7,7 @@ import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
 
 function App() {
+  
   return (
     <Canvas>
       <color args={["#1E1E1E"]} attach="background" />
