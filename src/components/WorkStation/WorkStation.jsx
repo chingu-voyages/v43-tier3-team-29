@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { Bounds } from "@react-three/drei";
+import { MdOutlineOpenInNew } from 'react-icons/md'
 
 export function WorkStation() {
   const tableModel = useGLTF(
@@ -31,7 +32,7 @@ export function WorkStation() {
     }
   };
   return (
-    // <Bounds fit clip observe margin={0.5}>
+    <Bounds fit clip observe margin={0.5}>
       <primitive
         position={[4.3, -0.7, 7.4]}
         rotation={[0, -Math.PI + 0.6, 0]}
@@ -61,30 +62,42 @@ export function WorkStation() {
                 className={activeTab === 1 ? "active" : ""}
               >
                 Project 1
+                <a target="_blank" href="https://danneytrieu.design/">
+                  <MdOutlineOpenInNew />
+                </a>
               </button>
               <button
                 onClick={() => handleTabClick(2)}
                 className={activeTab === 2 ? "active" : ""}
               >
                 Project 2
+                <a target="_blank" href="https://nam-cung.com/">
+                  <MdOutlineOpenInNew />
+                </a>
               </button>
               <button
                 onClick={() => handleTabClick(3)}
                 className={activeTab === 3 ? "active" : ""}
               >
                 Project 3
+                <a target="_blank" href="https://www.vrarlesfestival.com/">
+                  <MdOutlineOpenInNew />
+                </a>
               </button>
               <button
                 onClick={() => handleTabClick(4)}
                 className={activeTab === 4 ? "active" : ""}
               >
                 Project 4
+                <a target="_blank" href="https://bloquo.cc/">
+                  <MdOutlineOpenInNew />
+                </a>
               </button>
             </div>
             <iframe title={`project ${activeTab}`} src={getIframeSource()} />
           </Html>
         </primitive>
       </primitive>
-    // </Bounds>
+    </Bounds>
   );
 }
