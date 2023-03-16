@@ -1,14 +1,25 @@
-import { useGLTF } from "@react-three/drei";
+import { useEffect } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 const Animal = () => {
   // Fox
-  const cat = useGLTF("./models/animal/fox.glb");
+  const fox = useGLTF("./models/animal/fox.glb");
+
+  // Animations
+  const animations = useAnimations(fox.animations, fox.scene);
+
+  // Animate
+  useEffect(() => {
+    const action = animations.actions["Survey"];
+    action.play();
+  }, []);
+
   return (
     <primitive
       scale={0.01}
       position={[-8, -0.63, 3.5]}
       rotation-y={0.8}
-      object={cat.scene}
+      object={fox.scene}
     />
   );
 };
