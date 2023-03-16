@@ -1,8 +1,35 @@
-import React from "react";
-import { useState } from "react";
+import * as THREE from "three";
+import React,{useEffect} from "react";
+import { useState, useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { Bounds } from "@react-three/drei";
-import { MdOutlineOpenInNew } from 'react-icons/md'
+import { MdOutlineOpenInNew } from "react-icons/md";
+import { useThree, useFrame } from "@react-three/fiber";
+
+function CameraController({ targetRef, children }) {
+  const { camera } = useThree();
+  const [focused, setFocused] = useState(false);
+
+  useFrame(() => {
+    if (focused && targetRef.current) {
+      const screenPosition = new THREE.Vector3(0.225, 0.95, -0.25);
+      targetRef.current.localToWorld(screenPosition);
+      const offset = new THREE.Vector3(0, 0, -1); // Adjust the offset values to set the camera distance from the screen
+      const targetPosition = screenPosition.clone().add(offset);
+      camera.position.lerp(targetPosition, 0.020);
+      camera.lookAt(screenPosition);
+    }
+  });
+
+  return (
+    <group>
+      {React.cloneElement(children, {
+        ref: targetRef,
+        onClick: () => setFocused(!focused),
+      })}
+    </group>
+  );
+}
 
 export function WorkStation() {
   const tableModel = useGLTF(
@@ -13,6 +40,7 @@ export function WorkStation() {
   );
   const laptopModel = useGLTF("./models/laptop/laptop.glb");
 
+  // Change browser tabs
   const [activeTab, setActiveTab] = useState(1);
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
@@ -31,8 +59,13 @@ export function WorkStation() {
         return "https://danneytrieu.design/";
     }
   };
+
+  const laptopRef = useRef();
+  
+
   return (
-    <Bounds fit clip observe margin={0.5}>
+    // <Bounds fit clip observe margin={0.5}>
+    <CameraController targetRef={laptopRef}>
       <primitive
         position={[4.3, -0.7, 7.4]}
         rotation={[0, -Math.PI + 0.6, 0]}
@@ -98,6 +131,8 @@ export function WorkStation() {
           </Html>
         </primitive>
       </primitive>
-    </Bounds>
+    </CameraController>
+
+    // </Bounds>
   );
 }

@@ -7,9 +7,8 @@ import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
 
 function App() {
-  
   return (
-    <Canvas>
+    <Canvas camera={{ position: [-2, 3, -6] }}>
       <color args={["#1E1E1E"]} attach="background" />
       <Perf />
       <OrbitControls makeDefault />
