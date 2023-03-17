@@ -1,10 +1,9 @@
 import * as THREE from "three";
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import { MdOutlineOpenInNew } from "react-icons/md";
-import { Bounds } from "@react-three/drei";
 
 function CameraController({
   targetRef,
@@ -15,6 +14,31 @@ function CameraController({
 }) {
   const { camera } = useThree();
   const initialCameraPosition = useRef(null); // Add this line to store the initial camera position
+
+  useEffect(() => {
+    const boundingBox = new THREE.Box3().setFromObject(targetRef.current);
+    targetRef.current.boundingBox = boundingBox;
+
+    const handleClick = (event) => {
+      const mouse = new THREE.Vector2(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1
+      );
+      const raycaster = new THREE.Raycaster();
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObject(targetRef.current, true);
+      if (intersects.length === 0 && focused) {
+        setFocused(false);
+        setHtmlVisible(false);
+      }
+    };
+
+    window.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [focused, setFocused, setHtmlVisible, targetRef, camera]);
 
   useFrame(() => {
     if (!initialCameraPosition.current) {
@@ -35,9 +59,8 @@ function CameraController({
   });
 
   return (
-    <group>
+    <group ref={targetRef}>
       {React.cloneElement(children, {
-        ref: targetRef,
         onClick: (e) => {
           e.stopPropagation();
           setFocused(!focused);
@@ -51,6 +74,10 @@ export function WorkStation() {
   const workStationRef = useRef();
   const [focused, setFocused] = useState(false);
   const [htmlVisible, setHtmlVisible] = useState(false);
+
+  useEffect(() => {
+    console.log("focused state", focused);
+  }, [focused]);
 
   const renderHtml = (visible) => {
     if (visible) {
