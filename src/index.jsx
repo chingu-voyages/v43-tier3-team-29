@@ -8,9 +8,9 @@ import { Experience } from "./Experience";
 
 function App() {
   return (
-    <Canvas camera={{ position: [-2, 3, -6] }}>
+    <Canvas camera={{ position: [-2, 3, -6] }} >
       <color args={["#1E1E1E"]} attach="background" />
-      <Perf />
+      {/* <Perf /> */}
       <OrbitControls makeDefault />
       <ambientLight intensity={0.1} />
       <directionalLight />

@@ -26,7 +26,7 @@ function CameraController({
       targetRef.current.localToWorld(screenPosition);
       const offset = new THREE.Vector3(-0.2, 0.05, -1); // Adjust offset of laptop on focus
       const targetPosition = screenPosition.clone().add(offset);
-      camera.position.lerp(targetPosition, 0.03); // Adjust speed of camera movement on focus
+      camera.position.lerp(targetPosition, 0.02); // Adjust speed of camera movement on focus
       camera.lookAt(screenPosition);
     } else {
       camera.position.lerp(initialCameraPosition.current, 0.03); // Move the camera back to the initial position when not focused
