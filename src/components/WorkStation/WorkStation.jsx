@@ -6,11 +6,21 @@ import { useThree, useFrame } from "@react-three/fiber";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { Bounds } from "@react-three/drei";
 
-function CameraController({ targetRef, children, renderHtml, setHtmlVisible }) {
+function CameraController({
+  targetRef,
+  children,
+  focused,
+  setHtmlVisible,
+  setFocused,
+}) {
   const { camera } = useThree();
-  const [focused, setFocused] = useState(false);
+  const initialCameraPosition = useRef(null); // Add this line to store the initial camera position
 
   useFrame(() => {
+    if (!initialCameraPosition.current) {
+      initialCameraPosition.current = camera.position.clone(); // Store the initial camera position when available
+    }
+
     if (focused && targetRef.current) {
       const screenPosition = new THREE.Vector3(0.3, 0.95, 0); // Adjust laptop on focus
       targetRef.current.localToWorld(screenPosition);
@@ -18,6 +28,9 @@ function CameraController({ targetRef, children, renderHtml, setHtmlVisible }) {
       const targetPosition = screenPosition.clone().add(offset);
       camera.position.lerp(targetPosition, 0.03); // Adjust speed of camera movement on focus
       camera.lookAt(screenPosition);
+    } else {
+      camera.position.lerp(initialCameraPosition.current, 0.03); // Move the camera back to the initial position when not focused
+      camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the center of the scene when not focused
     }
   });
 
@@ -25,7 +38,8 @@ function CameraController({ targetRef, children, renderHtml, setHtmlVisible }) {
     <group>
       {React.cloneElement(children, {
         ref: targetRef,
-        onClick: () => {
+        onClick: (e) => {
+          e.stopPropagation();
           setFocused(!focused);
           setHtmlVisible((prevHtmlVisible) => !prevHtmlVisible);
         },
@@ -33,9 +47,9 @@ function CameraController({ targetRef, children, renderHtml, setHtmlVisible }) {
     </group>
   );
 }
-
 export function WorkStation() {
   const workStationRef = useRef();
+  const [focused, setFocused] = useState(false);
   const [htmlVisible, setHtmlVisible] = useState(false);
 
   const renderHtml = (visible) => {
@@ -126,8 +140,9 @@ export function WorkStation() {
   return (
     <CameraController
       targetRef={workStationRef}
+      focused={focused}
+      setFocused={setFocused}
       setHtmlVisible={setHtmlVisible}
-      renderHtml={(focused) => renderHtml(focused)}
     >
       <group position={[1, -0.7, 2]} rotation={[0, -Math.PI + 0.8, 0]}>
         <primitive object={tableModel.scene} />
