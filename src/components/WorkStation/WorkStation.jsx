@@ -1,84 +1,14 @@
-import * as THREE from "three";
-import React from "react";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
-import { useThree, useFrame } from "@react-three/fiber";
 import { MdOutlineOpenInNew } from "react-icons/md";
+import { CameraController } from "./camera/CameraController";
 
-function CameraController({
-  targetRef,
-  children,
-  focused,
-  setHtmlVisible,
-  setFocused,
-}) {
-  const { camera } = useThree();
-  const initialCameraPosition = useRef(null); // Add this line to store the initial camera position
-
-  useEffect(() => {
-    const boundingBox = new THREE.Box3().setFromObject(targetRef.current);
-    targetRef.current.boundingBox = boundingBox;
-
-    const handleClick = (event) => {
-      const mouse = new THREE.Vector2(
-        (event.clientX / window.innerWidth) * 2 - 1,
-        -(event.clientY / window.innerHeight) * 2 + 1
-      );
-      const raycaster = new THREE.Raycaster();
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObject(targetRef.current, true);
-      if (intersects.length === 0 && focused) {
-        setFocused(false);
-        setHtmlVisible(false);
-      }
-    };
-
-    window.addEventListener("click", handleClick);
-
-    return () => {
-      window.removeEventListener("click", handleClick);
-    };
-  }, [focused, setFocused, setHtmlVisible, targetRef, camera]);
-
-  useFrame(() => {
-    if (!initialCameraPosition.current) {
-      initialCameraPosition.current = camera.position.clone(); // Store the initial camera position when available
-    }
-
-    if (focused && targetRef.current) {
-      const screenPosition = new THREE.Vector3(0.3, 0.95, 0); // Adjust laptop on focus
-      targetRef.current.localToWorld(screenPosition);
-      const offset = new THREE.Vector3(-0.2, 0.05, -1); // Adjust offset of laptop on focus
-      const targetPosition = screenPosition.clone().add(offset);
-      camera.position.lerp(targetPosition, 0.02); // Adjust speed of camera movement on focus
-      camera.lookAt(screenPosition);
-    } else {
-      camera.position.lerp(initialCameraPosition.current, 0.03); // Move the camera back to the initial position when not focused
-      camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the center of the scene when not focused
-    }
-  });
-
-  return (
-    <group ref={targetRef}>
-      {React.cloneElement(children, {
-        onClick: (e) => {
-          e.stopPropagation();
-          setFocused(!focused);
-          setHtmlVisible((prevHtmlVisible) => !prevHtmlVisible);
-        },
-      })}
-    </group>
-  );
-}
 export function WorkStation() {
   const workStationRef = useRef();
   const [focused, setFocused] = useState(false);
   const [htmlVisible, setHtmlVisible] = useState(false);
 
-  useEffect(() => {
-    console.log("focused state", focused);
-  }, [focused]);
-
+  // Render the Html element
   const renderHtml = (visible) => {
     if (visible) {
       return (
@@ -86,7 +16,7 @@ export function WorkStation() {
           transform
           wrapperClass="browser"
           distanceFactor={0.97}
-          position={[0.025, 0.85, -0.65]} // Adjust the position to be in front of the laptop
+          position={[0.025, 0.85, -0.65]}
           occlude={true}
         >
           <div className="browser-tab">
@@ -135,7 +65,7 @@ export function WorkStation() {
     }
   };
 
-  //Model imports
+  // Import the 3D models for the table, chair, and laptop
   const tableModel = useGLTF(
     "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/table-wood/model.gltf"
   );
@@ -144,11 +74,13 @@ export function WorkStation() {
   );
   const laptopModel = useGLTF("./models/laptop/laptop.glb");
 
-  // Change browser tabs
+  // Function to handle tab clicks and update the activeTab state
   const [activeTab, setActiveTab] = useState(1);
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
   };
+
+  // Function to get the iframe source URL based on the active tab
   const getIframeSource = () => {
     switch (activeTab) {
       case 1:
@@ -165,6 +97,7 @@ export function WorkStation() {
   };
 
   return (
+    // Render the CameraController component with the 3D models and the Html element
     <CameraController
       targetRef={workStationRef}
       focused={focused}
