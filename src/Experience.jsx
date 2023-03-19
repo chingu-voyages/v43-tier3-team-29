@@ -1,7 +1,8 @@
-import React, { Suspense } from "react";
+import React, { useState, useCallback, Suspense } from "react";
 import { WorkStation } from "./components/WorkStation/WorkStation";
-import { Model as Island } from "./components/Island/Scene";
+import { Model as Island } from "./components/Island/Island";
 import Animal from "./components/Animal/Animal";
+import Human from "./components/Human/Human";
 
 export function Experience() {
   return (
@@ -9,6 +10,7 @@ export function Experience() {
       <Island />
       <WorkStation />
       <Animal />
+      <Human />
     </Suspense>
   );
 }
