@@ -9,7 +9,13 @@ import { Effects } from "./components/PostProcessing/Effects";
 
 function App() {
   return (
-    <Canvas shadows camera={{ position: [-2, 3, -6], fov: 65 }}>
+    <Canvas
+      shadows
+      camera={{
+        position: [-5, 18, -50],
+        fov: 35,
+      }}
+    >
       <color args={["#111111"]} attach="background" />
       <Perf />
       <OrbitControls makeDefault target={[0, 0, 5]} />
@@ -25,5 +31,7 @@ function App() {
     </Canvas>
   );
 }
+
 const root = createRoot(document.getElementById("root"));
+
 root.render(<App />);
