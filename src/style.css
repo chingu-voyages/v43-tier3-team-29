@@ -10,12 +10,12 @@ body,
   height: 100%;
   overflow: hidden;
 }
-
-canvas{
+canvas {
   touch-action: none;
 }
 
-.browser iframe{
+/* Browser */
+.browser iframe {
   width: 1024px;
   height: 620px;
   border: none;
@@ -23,8 +23,7 @@ canvas{
   border-top-left-radius: 0px;
   background-color: white;
 }
-
-.browser-tab > button{
+.browser-tab > button {
   width: 100px;
   height: 40px;
   border-right: 5px;
@@ -32,8 +31,13 @@ canvas{
   cursor: pointer;
   font-weight: 200;
 }
-
 .browser-tab > button.active {
   background-color: rgb(233, 106, 106);
   color: white;
+}
+.browser-tab > button > a {
+  color: white;
+}
+.browser-tab > button > a:hover {
+  color: black;
 }
