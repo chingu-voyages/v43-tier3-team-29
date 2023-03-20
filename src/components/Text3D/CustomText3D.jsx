@@ -13,7 +13,7 @@ export function CustomText3D({
   return (
     <>
       <Text3D
-        font='./fonts/helvetiker_regular.typeface.json'
+        font='./fonts/Bebas Neue_Regular.json'
         size={4}
         height={1}
         curveSegments={20}
@@ -22,7 +22,7 @@ export function CustomText3D({
         bevelSize={0.15}
         bevelOffset={0}
         bevelSegments={1}
-        letterSpacing={0.1}
+        letterSpacing={0.2}
         position={[-5, 20, 2]}
         {...props}
       >
