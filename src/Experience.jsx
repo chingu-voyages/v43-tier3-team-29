@@ -1,7 +1,10 @@
-import React, { Suspense } from 'react';
-import { WorkStation } from './components/WorkStation/WorkStation';
-import { Model as Island } from './components/Island/Scene';
-import Animal from './components/Animal/Animal';
+
+import React, { useState, useCallback, Suspense } from "react";
+import { WorkStation } from "./components/WorkStation/WorkStation";
+import { Model as Island } from "./components/Island/Island";
+import Animal from "./components/Animal/Animal";
+import Human from "./components/Human/Human";
+import Background from "./components/Background/Background";
 import { CustomText3D } from './components/CustomText3D/CustomText3D';
 
 export function Experience() {
@@ -11,6 +14,8 @@ export function Experience() {
       <Island />
       <WorkStation />
       <Animal />
+      <Human />
+      <Background />
     </Suspense>
   );
 }

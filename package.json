@@ -16,6 +16,7 @@
     "leva": "^0.9.34",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-spring": "^9.7.1",
     "three": "^0.150.1",
     "use-gesture": "^1.0.0",
