@@ -7,7 +7,7 @@ import { CustomText3D } from './components/Text3D/CustomText3D';
 export function Experience() {
   return (
     <Suspense fallback={null}>
-      <CustomText3D text='Portfolio' />
+      <CustomText3D text='Welcome to the developer island' />
       <Island />
       <WorkStation />
       <Animal />

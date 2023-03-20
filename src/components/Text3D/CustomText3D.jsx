@@ -1,4 +1,4 @@
-import { Text3D, useMatcapTexture } from '@react-three/drei';
+import { Text3D, useMatcapTexture, Center } from '@react-three/drei';
 
 /** Displaying 3D text */
 export function CustomText3D({
@@ -23,7 +23,7 @@ export function CustomText3D({
         bevelOffset={0}
         bevelSegments={1}
         letterSpacing={0.2}
-        position={[-5, 20, 2]}
+        position={[-35, 20, 2]}
         {...props}
       >
         {text}
