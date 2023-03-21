@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.css";
 import { createRoot } from "react-dom/client";
-import { Canvas } from "@react-three/fiber";
+import * as THREE from 'three'
+import { Canvas } from '@react-three/fiber'
 import { OrbitControls, BakeShadows } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
@@ -28,5 +29,4 @@ function App() {
 }
 
 const root = createRoot(document.getElementById("root"));
-
 root.render(<Intro><App /></Intro>);
