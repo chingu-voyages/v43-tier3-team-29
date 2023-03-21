@@ -3,8 +3,6 @@ import { useGLTF } from '@react-three/drei';
 function Board(props) {
   const boardModel = useGLTF('/models/board/board.glb');
 
-  console.log(boardModel);
-
   return (
     <>
       <primitive

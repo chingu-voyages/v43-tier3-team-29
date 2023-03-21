@@ -15,6 +15,7 @@ export function Experience() {
       <WorkStation />
       <Animal />
       <Human />
+      <Board />
       <Background />
     </Suspense>
   );
