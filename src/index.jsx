@@ -6,6 +6,7 @@ import { OrbitControls, BakeShadows } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
 import { Effects } from "./components/PostProcessing/Effects";
+import Intro from './Intro'
 
 function App() {
   return (
@@ -20,8 +21,7 @@ function App() {
       <Perf />
       <OrbitControls makeDefault target={[0, 0, 5]} />
       <ambientLight intensity={0.02} />
-
-      <Experience />
+      <Experience/>
       {/* <Effects /> */}
     </Canvas>
   );
@@ -29,4 +29,4 @@ function App() {
 
 const root = createRoot(document.getElementById("root"));
 
-root.render(<App />);
+root.render(<Intro><App /></Intro>);
