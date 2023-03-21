@@ -63,7 +63,7 @@ export function Model(props) {
         <mesh castShadow receiveShadow geometry={nodes['Rock_4_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[3.85, 2.69, -2.15]} rotation={[0, 0.6, 0]} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_4_(5)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-7.78, 2.49, -5.03]} rotation={[0, -0.63, 0]} scale={1.13} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_4_(6)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-7.4, 2.49, -3.59]} rotation={[0.01, 0.57, -0.06]} scale={3.36} />
-        <mesh castShadow receiveShadow geometry={nodes.Rock_5.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[3, 2.55, -5.94]} rotation={[2.93, 0.52, 2.91]} />
+        {/* <mesh castShadow receiveShadow geometry={nodes.Rock_5.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[3, 2.55, -5.94]} rotation={[2.93, 0.52, 2.91]} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_5_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[2.32, 2.4, -9.32]} rotation={[2.93, 0.52, 2.91]} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_5_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[8.72, 2.36, -4.59]} rotation={[2.84, 0.98, -3.05]} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_5_(3)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.22, 2.68, -1.52]} rotation={[2.84, 0.98, -3.05]} scale={0.38} />
@@ -88,7 +88,7 @@ export function Model(props) {
         <mesh castShadow receiveShadow geometry={nodes['Rock_8_(4)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[7.97, 2.45, -5.11]} rotation={[2.69, 1.15, -2.82]} scale={1.2} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_8_(5)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.37, 2.73, -1.9]} rotation={[1.21, 1.28, -1.14]} scale={0.47} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_8_(6)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.43, 2.73, -2.03]} rotation={[0.1, -1.07, 0.18]} scale={0.47} />
-        <mesh castShadow receiveShadow geometry={nodes['Rock_8_(7)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.52, 2.74, -2.16]} rotation={[1.28, 1.43, -1.2]} scale={0.47} />
+        <mesh castShadow receiveShadow geometry={nodes['Rock_8_(7)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.52, 2.74, -2.16]} rotation={[1.28, 1.43, -1.2]} scale={0.47} /> 
         <mesh castShadow receiveShadow geometry={nodes['Rock_8_(8)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[2, 2.71, -1.84]} rotation={[0.97, -1.23, 0.99]} scale={0.61} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_8_(9)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[2.12, 2.69, -1.73]} rotation={[3.08, 0.77, -3]} scale={0.61} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_8_(10)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[2.38, 2.71, -1.5]} rotation={[0.48, -1.28, 0.54]} scale={0.61} />
@@ -105,7 +105,7 @@ export function Model(props) {
         <mesh castShadow receiveShadow geometry={nodes['Rock_10_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-7.86, 2.52, -3.41]} rotation={[-0.01, 0.22, -0.05]} scale={0.51} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_10_(2)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-7.87, 2.53, -3.81]} rotation={[2.61, 1.07, -3.04]} scale={0.79} />
         <mesh castShadow receiveShadow geometry={nodes['Rock_10_(3)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-7.11, 2.7, -0.57]} rotation={[0, -0.63, 0]} />
-        <mesh castShadow receiveShadow geometry={nodes.Rock_11.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-6.49, 2.38, 5.76]} rotation={[-0.89, -0.52, 0.1]} />
+        <mesh castShadow receiveShadow geometry={nodes.Rock_11.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-6.49, 2.38, 5.76]} rotation={[-0.89, -0.52, 0.1]} />*/}
       </group>
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
         <mesh castShadow receiveShadow geometry={nodes.Bench.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-4.64, 2.59, -5.87]} rotation={[Math.PI / 2, 0, -1.05]} />
@@ -182,7 +182,7 @@ export function Model(props) {
       <mesh castShadow receiveShadow geometry={nodes['M_Grass-14'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.69, 5.88, -1.29]} rotation={[0.08, 0.57, -0.01]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes.M_Grass_Roll.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.04, 5.87, -0.96]} rotation={[-3.08, -0.05, -3.08]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes.M_House.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-0.38, 7.19, 6.81]} rotation={[0.01, 0.31, 0.01]} scale={0.71} />
-      <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.58, 5.6, 2.46]} rotation={[-2.89, 1.26, 2.96]} scale={0.71} />
+      {/* <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.58, 5.6, 2.46]} rotation={[-2.89, 1.26, 2.96]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_2.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.82, 5.57, 2.62]} rotation={[-2.66, 1.25, 2.74]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_3.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.92, 5.56, 2.46]} rotation={[-2.67, 1.24, 2.74]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes['M_Out_door_Stone_3-1'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.08, 5.59, 1.41]} rotation={[0.01, 1.23, 0.08]} scale={0.71} />
@@ -199,9 +199,9 @@ export function Model(props) {
       <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_8.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.1, 5.56, 1.79]} rotation={[-2.66, 1.25, 2.74]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes['M_Out_door_Stone_8-1'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.53, 5.55, 0.42]} rotation={[-2.62, 1.24, 2.65]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_9.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-1.93, 5.61, 1.2]} rotation={[0.06, 0.31, 0.06]} scale={0.71} />
-      <mesh castShadow receiveShadow geometry={nodes['M_Out_door_Stone_9-1'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.38, 5.63, -0.17]} rotation={[0.14, 0.3, 0.05]} scale={0.71} />
+      <mesh castShadow receiveShadow geometry={nodes['M_Out_door_Stone_9-1'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.38, 5.63, -0.17]} rotation={[0.14, 0.3, 0.05]} scale={0.71} /> 
       <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_10.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.17, 5.59, 1.01]} rotation={[-0.05, 0.31, 0.1]} scale={0.71} />
-      <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_11.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.37, 5.57, 1.08]} rotation={[-2.88, 1.24, 2.81]} scale={0.71} />
+      <mesh castShadow receiveShadow geometry={nodes.M_Out_door_Stone_11.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-2.37, 5.57, 1.08]} rotation={[-2.88, 1.24, 2.81]} scale={0.71} />*/}
       <mesh castShadow receiveShadow geometry={nodes.M_Rock_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-4.37, 5.04, 8.92]} rotation={[-3.11, 0.8, 1.61]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes['M_Rock_1-1'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[2.58, 5.49, 1.75]} rotation={[-3.11, 0.8, 1.61]} scale={0.71} />
       <mesh castShadow receiveShadow geometry={nodes.M_Rock_2.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-5.59, 5.65, 1.86]} rotation={[-2.73, 1.24, 2.93]} scale={0.71} />

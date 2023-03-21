@@ -20,12 +20,7 @@ function App() {
       <Perf />
       <OrbitControls makeDefault target={[0, 0, 5]} />
       <ambientLight intensity={0.02} />
-      <pointLight
-        distance={26}
-        castShadow
-        shadow-bias={-0.0001}
-        position={[-5, 4, 1]}
-      />
+
       <Experience />
       {/* <Effects /> */}
     </Canvas>
