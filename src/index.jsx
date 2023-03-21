@@ -12,16 +12,16 @@ function App() {
     <Canvas
       shadows
       camera={{
-        position: [-5, 18, -50],
+        position: [-5, 10, -50],
         fov: 35,
       }}
     >
       <color args={["#111111"]} attach="background" />
-      <Perf />
+      {/* <Perf /> */}
       <OrbitControls makeDefault target={[0, 0, 5]} />
       <ambientLight intensity={0.02} />
       <pointLight
-        distance={26}
+        distance={40} // default 26
         castShadow
         shadow-bias={-0.0001}
         position={[-5, 4, 1]}

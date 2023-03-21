@@ -9,7 +9,7 @@ import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 export function Experience() {
   return (
     <Suspense fallback={null}>
-      <CustomText3D text="3JS Portfolio" />
+      <CustomText3D text="Portfolio" />
       <Island />
       <WorkStation />
       <Animal />

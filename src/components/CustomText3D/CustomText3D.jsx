@@ -12,10 +12,10 @@ export function CustomText3D({
 
   return (
     <>
-      <Text3D
+      {/* <Text3D
         font="./fonts/Bebas Neue_Regular.json"
-        size={4}
-        height={1}
+        size={2}
+        height={0.5}
         curveSegments={20}
         bevelEnabled={true}
         bevelThickness={0.15}
@@ -23,8 +23,44 @@ export function CustomText3D({
         bevelOffset={0}
         bevelSegments={1}
         letterSpacing={0.2}
-        position={[13, 8, 6]}
-        rotation={[0, -Math.PI + 0.3, 0]}
+        position={[1, -1, -9]}
+        rotation={[0, -Math.PI + 0.12, 0]}
+        {...props}
+      >
+        {text}
+        <meshMatcapMaterial matcap={matcapTexture} wireframes={true} />
+      </Text3D> */}
+      {/* <Text3D
+        font="./fonts/Bebas Neue_Regular.json"
+        size={2}
+        height={0.5}
+        curveSegments={20}
+        bevelEnabled={true}
+        bevelThickness={0.15}
+        bevelSize={0.15}
+        bevelOffset={0}
+        bevelSegments={1}
+        letterSpacing={0.2}
+        position={[30, 4, 3]}
+        rotation={[0, -Math.PI + 0.9, 0.35]}
+        {...props}
+      >
+        {text}
+        <meshMatcapMaterial matcap={matcapTexture} wireframes={true} />
+      </Text3D> */}
+      <Text3D
+        font="./fonts/Bebas Neue_Regular.json"
+        size={3.5}
+        height={0.5}
+        curveSegments={20}
+        bevelEnabled={true}
+        bevelThickness={0.15}
+        bevelSize={0.15}
+        bevelOffset={0}
+        bevelSegments={1}
+        letterSpacing={0.2}
+        position={[5, 5, -20]}
+        rotation={[0, -Math.PI + 0.12, 0]}
         {...props}
       >
         {text}
