@@ -45,6 +45,13 @@ export default function Campfire() {
     <>
       <SheetProvider sheet={campFireSheet}>
         <e.pointLight
+          theatreKey="campFireBlueLight"
+          distance={20}                    
+          position={[-0.5, 5.7, -0.5]}
+          color={0x217dc4}
+          intensity={1.5}
+        />
+        <e.pointLight
           theatreKey="campFireLight"
           distance={20}
           castShadow
@@ -53,7 +60,7 @@ export default function Campfire() {
           color={0xff7700}
           intensity={1.5}
         />
-        <e.group theatreKey="particles" position={[0, 5, 0]}>
+        <e.group theatreKey="particles" position={[-0.5, 2.5, -0.5]}>
           <InstancedParticles {...props} />
         </e.group>
       </SheetProvider> 
