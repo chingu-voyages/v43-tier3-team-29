@@ -14,7 +14,7 @@ export default function App() {
       }}
     >
       <color args={["#111111"]} attach="background" />
-      <Perf />
+      {/* <Perf /> */}
       <OrbitControls makeDefault target={[0, 0, 5]} />
       <ambientLight color={0x217dc4} intensity={0.05} />
       <Experience/>

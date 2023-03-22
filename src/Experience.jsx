@@ -24,6 +24,7 @@ export function Experience() {
   return (
     <Suspense fallback={null}>
       {/* <CustomText3D text="3JS Portfolio" /> */}
+      
       <group position={[0, -11.9, 0]}>
         <Island />
         { ready && <PositionalAudio autoplay loop url="audio/Crickets.mp3" distance={3} /> }
