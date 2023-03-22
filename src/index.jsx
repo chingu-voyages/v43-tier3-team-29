@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { createRoot } from "react-dom/client";
 import * as THREE from 'three'
