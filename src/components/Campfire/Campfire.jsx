@@ -8,6 +8,7 @@ import {editable as e, SheetProvider} from '@theatre/r3f'
 
 import { Model as CampfireModel } from "./CampfireModel" 
 import InstancedParticles from './InstancedParticles/InstancedParticles'
+import Sparks from './Sparks/Sparks' 
 import animationState from "./Chingu29.theatre-project-state.json"
 
 // use this first line if you don't have a saved json yet
@@ -34,7 +35,7 @@ export default function Campfire() {
     curl: { value: 0.25, min: 0.01, max: 0.5, step: 0.01 }
   }) */
   const props = useControls({ 
-    range: { value: 100, min: 0, max: 300, step: 10 } 
+    range: { value: 150, min: 0, max: 300, step: 10 } 
   })
 
   useEffect(() => {    
@@ -62,6 +63,9 @@ export default function Campfire() {
         />
         <e.group theatreKey="particles" position={[-0.5, 2.5, -0.5]}>
           <InstancedParticles {...props} />
+        </e.group>
+        <e.group theatreKey="particlesSparks" position={[-0.5, 0.5, -0.5]}>
+          <Sparks count={30} colors={['#edad2d', '#fdc555', '#e9bf6b', '#ebd4a7']} />
         </e.group>
       </SheetProvider> 
       <CampfireModel />

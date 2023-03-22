@@ -1,3 +1,4 @@
+// https://codesandbox.io/s/8fo01?file=/src/App.js:1696-1803
 import * as THREE from 'three'
 import { useRef, useState, useMemo, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -29,13 +30,13 @@ function Boxes({data, range}) {
     for (let i = 0; i < range; i++) {
       const t = Math.random() * 100
       const factor = 2 + Math.random() * 100
-      const speed = 0.01 + Math.random() / 200
+      const speed = 0.05 + Math.random() / 200
       const xFactor = 0 + Math.random() * 100
       const yFactor = 0 + Math.random() * 100
       const zFactor = 0 + Math.random() * 100      
-      const x = THREE.MathUtils.randFloatSpread(1)
+      const x = THREE.MathUtils.randFloatSpread(1.2)
       const y = Math.random() * maxHeight
-      const z = THREE.MathUtils.randFloatSpread(1)
+      const z = THREE.MathUtils.randFloatSpread(1.2)
       temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0, x, y, z })
     }
     return temp
@@ -68,8 +69,8 @@ function Boxes({data, range}) {
 
       if (particle.y >= maxHeight) {
         particle.y = 0;
-        particle.x = THREE.MathUtils.randFloatSpread(1);  
-        particle.z = THREE.MathUtils.randFloatSpread(1);  
+        particle.x = THREE.MathUtils.randFloatSpread(1.2);  
+        particle.z = THREE.MathUtils.randFloatSpread(1.2);  
       } else {
         particle.x += Math.sign(particle.x) * THREE.MathUtils.mapLinear(particle.y, minHeight, maxHeight, 0, 0.01)
         particle.z += Math.sign(particle.z) * THREE.MathUtils.mapLinear(particle.y, minHeight, maxHeight, 0, 0.01)
