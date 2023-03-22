@@ -13,6 +13,36 @@
             "intensity": 1.5,
             "decay": 2,
             "distance": 19.619189276647113
+          },
+          "particles": {
+            "position": {
+              "z": -0.5,
+              "x": -0.5,
+              "y": 1.5
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          },
+          "campFireBlueLight": {
+            "color": {
+              "r": 0.12941176470588237,
+              "g": 0.49019607843137253,
+              "b": 0.7686274509803922,
+              "a": 1
+            },
+            "distance": 20,
+            "decay": 2,
+            "intensity": 0.5
+          },
+          "particlesSparks": {
+            "position": {
+              "y": 0.4299999999999995,
+              "x": -0.45999999999999963,
+              "z": -0.44999999999999973
+            }
           }
         }
       },
@@ -820,6 +850,7 @@
   },
   "definitionVersion": "0.4.0",
   "revisionHistory": [
+    "jk6zRzr-074sEiY-",
     "oMJ6VBhpD0U6i6IH"
   ]
 }

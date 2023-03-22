@@ -35,7 +35,7 @@ export default function Campfire() {
     curl: { value: 0.25, min: 0.01, max: 0.5, step: 0.01 }
   }) */
   const props = useControls({ 
-    range: { value: 150, min: 0, max: 300, step: 10 } 
+    range: { value: 250, min: 0, max: 300, step: 10 } 
   })
 
   useEffect(() => {    
@@ -65,7 +65,7 @@ export default function Campfire() {
           <InstancedParticles {...props} />
         </e.group>
         <e.group theatreKey="particlesSparks" position={[-0.5, 0.5, -0.5]}>
-          <Sparks count={30} colors={['#edad2d', '#fdc555', '#e9bf6b', '#ebd4a7']} />
+          <Sparks count={20} colors={['#edad2d', '#fdc555', '#e9bf6b', '#ebd4a7']} />
         </e.group>
       </SheetProvider> 
       <CampfireModel />

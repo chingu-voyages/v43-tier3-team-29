@@ -110,7 +110,7 @@ function Boxes({data, range}) {
       <boxGeometry args={[0.6, 0.6, 0.6]}>
         <instancedBufferAttribute attach="attributes-color" args={[colorArray, 4]} />
       </boxGeometry>
-      <meshStandardMaterial transparent toneMapped={true} vertexColors vertexAlphas/>
+      <meshStandardMaterial depthTest={true} depthWrite={true} transparent toneMapped={true} vertexColors vertexAlphas/>
     </instancedMesh>
   )
 }

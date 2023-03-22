@@ -20,19 +20,20 @@ function Fatline({ curve, width, color, speed }) {
     <mesh>
       <meshLineGeometry points={curve} />
       {/* <meshLineMaterial ref={material} transparent depthTest={false} lineWidth={width} color={color} dashArray={0.05} dashRatio={0.95} /> */}
-      <meshLineMaterial ref={material} transparent depthTest={true} lineWidth={width} color={color} dashArray={0.05} dashRatio={0.90} />
+      <meshLineMaterial ref={material} transparent depthTest={true} depthWrite={true} lineWidth={width} color={color} dashArray={0.05} dashRatio={0.90} />
     </mesh>
   )
 }
 
-export default function Sparks({ count, colors, radius = 0.2 }) {
+export default function Sparks({ count, colors, radius = 0.25 }) {
   const lines = useMemo(
     () =>
       new Array(count).fill().map((_, index) => {
         const pos = new THREE.Vector3(Math.sin(0) * radius * r(), Math.cos(0) * radius * r(), 0)
-        const points = new Array(10).fill().map((_, index) => {
+        const initialY = THREE.MathUtils.randFloat(0, 0.2);
+        const points = new Array(20).fill().map((_, index) => {
           const angle = (index) * Math.PI * 8 * r()
-          return pos.add(new THREE.Vector3(Math.sin(angle) * radius + THREE.MathUtils.randFloatSpread(1.2)* radius , index / 20, Math.sin(angle) * radius + THREE.MathUtils.randFloatSpread(1.2)* radius)).clone()
+          return pos.add(new THREE.Vector3(Math.sin(angle) * radius + THREE.MathUtils.randFloatSpread(1.2)* radius , initialY + index / 100, Math.sin(angle) * radius + THREE.MathUtils.randFloatSpread(1.2)* radius)).clone()
           /* const angle = (index / 20) * Math.PI * 2
           return pos.add(new THREE.Vector3(Math.sin(angle) * radius * r(), Math.cos(angle) * radius * r(), Math.sin(angle) * radius * r())).clone() */
         })
@@ -40,7 +41,7 @@ export default function Sparks({ count, colors, radius = 0.2 }) {
         return {
           color: colors[parseInt(colors.length * Math.random())],
           width: Math.max(0.009, (0.2 * index) / 200),
-          speed: Math.max(0.002, 0.007 * Math.random()),
+          speed: Math.max(0.003, 0.009 * Math.random()),
           curve
         }
       }),
