@@ -20,7 +20,7 @@ function Fatline({ curve, width, color, speed }) {
     <mesh>
       <meshLineGeometry points={curve} />
       {/* <meshLineMaterial ref={material} transparent depthTest={false} lineWidth={width} color={color} dashArray={0.05} dashRatio={0.95} /> */}
-      <meshLineMaterial ref={material} transparent depthTest={true} lineWidth={width} color={color} dashArray={0.05} dashRatio={0.95} />
+      <meshLineMaterial ref={material} transparent depthTest={true} lineWidth={width} color={color} dashArray={0.05} dashRatio={0.90} />
     </mesh>
   )
 }
@@ -39,7 +39,7 @@ export default function Sparks({ count, colors, radius = 0.2 }) {
         const curve = new THREE.CatmullRomCurve3(points).getPoints(1000)
         return {
           color: colors[parseInt(colors.length * Math.random())],
-          width: Math.max(0.009, (0.2 * index) / 100),
+          width: Math.max(0.009, (0.2 * index) / 200),
           speed: Math.max(0.002, 0.007 * Math.random()),
           curve
         }
