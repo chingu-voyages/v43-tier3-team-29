@@ -9,7 +9,7 @@ import { useGLTF } from '@react-three/drei'
 export function Model(props) {
   const { nodes, materials } = useGLTF('/Floating Port-transformed.glb')
   return (
-    <group {...props} dispose={null}>
+    <group scale={2} position={[0, -11.9, 0]} {...props} dispose={null}>
       <group position={[0.09, 2.02, 4.64]} scale={1.33}>
         <mesh geometry={nodes.Bamboo_1.geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[-10.81, 2.67, -1.92]} />
         <mesh geometry={nodes['Bamboo_1_(1)'].geometry} material={materials.Lowpoly_Flaoting_Islands_PortTexture} position={[5.75, 2.67, -8.01]} />

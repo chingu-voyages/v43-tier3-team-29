@@ -1,35 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { createRoot } from "react-dom/client";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, BakeShadows } from "@react-three/drei";
-import { Perf } from "r3f-perf";
-import { Experience } from "./Experience";
-import { Effects } from "./components/PostProcessing/Effects";
-import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
-
-function App() {
-  return (
-    <>
-      <ScrollingIcon scrollTimeoutValue={300} />
-      <Canvas shadows camera={{ position: [-5, 18, -50], fov: 35 }}>
-        <color args={["#111111"]} attach="background" />
-        <OrbitControls makeDefault target={[0, 0, 5]} />
-        <ambientLight intensity={0.02} />
-        <pointLight
-          distance={26}
-          castShadow
-          shadowBias={-0.0001}
-          position={[-5, 4, 1]}
-        />
-        <Experience />
-        {/* <Perf /> */}
-        {/* <Effects /> */}
-      </Canvas>
-    </>
-  );
-}
+import * as THREE from 'three'
+import Intro from './Intro'
+import App from './App'
 
 const root = createRoot(document.getElementById("root"));
-
-root.render(<App />);
+root.render(<Intro><App /></Intro>);
