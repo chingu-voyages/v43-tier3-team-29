@@ -7,7 +7,7 @@ import {getProject, val} from '@theatre/core'
 import {editable as e, SheetProvider} from '@theatre/r3f'
 
 import { Model as CampfireModel } from "./CampfireModel" 
-import { Particles } from './Particles/Particles'
+import InstancedParticles from './InstancedParticles/InstancedParticles'
 import animationState from "./Chingu29.theatre-project-state.json"
 
 // use this first line if you don't have a saved json yet
@@ -26,12 +26,15 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default function Campfire() {
-  const props = useControls({
+/*   const props = useControls({
     focus: { value: 5.1, min: 3, max: 7, step: 0.01 },
-    speed: { value: 100, min: 0.1, max: 100, step: 0.1 },
+    speed: { value: 2, min: 0.1, max: 100, step: 0.1 },
     aperture: { value: 1.8, min: 1, max: 5.6, step: 0.1 },
     fov: { value: 50, min: 0, max: 200 },
     curl: { value: 0.25, min: 0.01, max: 0.5, step: 0.01 }
+  }) */
+  const props = useControls({ 
+    range: { value: 100, min: 0, max: 300, step: 10 } 
   })
 
   useEffect(() => {    
@@ -51,7 +54,7 @@ export default function Campfire() {
           intensity={1.5}
         />
         <e.group theatreKey="particles" position={[0, 5, 0]}>
-          <Particles {...props} />
+          <InstancedParticles {...props} />
         </e.group>
       </SheetProvider> 
       <CampfireModel />

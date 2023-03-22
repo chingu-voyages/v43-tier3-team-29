@@ -6,7 +6,7 @@ import { useFBO } from '@react-three/drei'
 import './shaders/simulationMaterial'
 import './shaders/dofPointsMaterial'
 
-export function Particles({ speed, fov, aperture, focus, curl, size = 32, ...props }) {
+export default function GPUParticles({ speed, fov, aperture, focus, curl, size = 32, ...props }) {
   const simRef = useRef()
   const renderRef = useRef()
   // Set up FBO
