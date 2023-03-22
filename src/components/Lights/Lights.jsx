@@ -28,6 +28,20 @@ export default function Lights() {
         color={0x217dc4}
         intensity={intensity}
       />   
+
+
+      <pointLight
+        distance={10}        
+        position={[16, 10, 13]}
+        color={0xff7700}
+        intensity={0.6}
+      />
+      <pointLight
+        distance={15}        
+        position={[-10, 1, 25]}
+        color={0xff7700}
+        intensity={0.6}
+      />   
     </>
   );
 }
