@@ -34,9 +34,12 @@ export default function Campfire() {
     fov: { value: 50, min: 0, max: 200 },
     curl: { value: 0.25, min: 0.01, max: 0.5, step: 0.01 }
   }) */
-  const props = useControls({ 
+  /* const props = useControls({ 
     range: { value: 250, min: 0, max: 300, step: 10 } 
-  })
+  }) */
+  const props = { 
+    range: 250
+  }
 
   useEffect(() => {    
     campFireSheet.project.ready.then(() => campFireSheet.sequence.play({ rate: 1, iterationCount: Infinity, range: [0, 3.31]}))    
