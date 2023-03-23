@@ -30,7 +30,7 @@ export function CustomText3D({
         {text}
         <meshMatcapMaterial matcap={matcapTexture} wireframes={true} />
       </Text3D> */}
-      {/* <Text3D
+      <Text3D
         font="./fonts/Bebas Neue_Regular.json"
         size={2}
         height={0.5}
@@ -41,14 +41,14 @@ export function CustomText3D({
         bevelOffset={0}
         bevelSegments={1}
         letterSpacing={0.2}
-        position={[30, 4, 3]}
-        rotation={[0, -Math.PI + 0.9, 0.35]}
+        position={[30, 6, 4]}
+        rotation={[0, -Math.PI + 0.9, 0]}
         {...props}
       >
         {text}
         <meshMatcapMaterial matcap={matcapTexture} wireframes={true} />
-      </Text3D> */}
-      <Text3D
+      </Text3D>
+      {/* <Text3D
         font="./fonts/Bebas Neue_Regular.json"
         size={3.5}
         height={0.5}
@@ -65,7 +65,7 @@ export function CustomText3D({
       >
         {text}
         <meshMatcapMaterial matcap={matcapTexture} wireframes={true} />
-      </Text3D>
+      </Text3D> */}
     </>
   );
 }
