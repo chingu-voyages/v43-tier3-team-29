@@ -1,10 +1,10 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, BakeShadows } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
 import { Effects } from "./components/PostProcessing/Effects";
 import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
-     
+
 export default function App() {
   return (
     <>
@@ -20,9 +20,9 @@ export default function App() {
         {/* <Perf /> */}
         <OrbitControls makeDefault target={[0, 0, 5]} />
         <ambientLight color={0x217dc4} intensity={0.05} />
-        <Experience/>
+        <Experience />
         {/* <Effects /> */}
       </Canvas>
-      </>
+    </>
   );
 }
