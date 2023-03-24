@@ -21,6 +21,24 @@ function Board(props) {
       >
         <iframe frameborder='0' />
       </Html>
+
+      <Html
+        transform
+        distanceFactor={0.1}
+        // rotation
+        rotation-x={-0.19}
+        rotation-y={0.085}
+        rotation-z={0.025}
+        // position
+        position-x={0.002}
+        position-y={0.01}
+        position-z={0.028}
+        wrapperClass='board-frame'
+        // Now it won't show through the board
+        occlude={true}
+      >
+        <iframe frameborder='0' />
+      </Html>
     </primitive>
   );
 }
