@@ -42,18 +42,9 @@ canvas {
   color: black;
 }
 
-/* Board */
-.board-links-container {
-  height: 400px;
-  width: 500px;
-  background-color: red;
-  display: flex;
-}
-
-.board-link-container {
-  background-color: blue;
-}
-
-.board-link {
-  font-size: 50px;
+.board-frame iframe {
+  width: 530px;
+  height: 1000px;
+  border: none;
+  background-color: bisque;
 }
