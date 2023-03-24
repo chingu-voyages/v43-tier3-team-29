@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense, useEffect, useMemo } from "react";
 
 import { AudioLoader } from "three";
 import { PositionalAudio } from "@react-three/drei";
@@ -15,17 +15,21 @@ import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import { Cloud, Sky } from "@react-three/drei";
 
 function RandomClouds() {
-  const clouds = [];
+  const clouds = useMemo(() => {
+    const cloudArray = [];
 
-  for (let i = 0; i < 20; i++) {
-    const position = [
-      Math.floor(Math.random() * 50) - 25, // random x position between -25 and 25
-      Math.floor(Math.random() * 20) + 5, // random y position between 10 and 30
-      Math.floor(Math.random() * 20) - 80, // random z position between -100 and -80
-    ];
+    for (let i = 0; i < 20; i++) {
+      const position = [
+        Math.floor(Math.random() * 50) - 25,
+        Math.floor(Math.random() * 20) + 5,
+        Math.floor(Math.random() * 20) - 80,
+      ];
 
-    clouds.push(<Cloud key={i} position={position} />);
-  }
+      cloudArray.push(<Cloud key={i} position={position} />);
+    }
+
+    return cloudArray;
+  }, []);
 
   return <>{clouds}</>;
 }
@@ -39,12 +43,10 @@ export function Experience() {
 
   return (
     <Suspense fallback={null}>
-      <Suspense fallback={null}>
-        <RandomClouds />
-        {ready && (
-          <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={3} />
-        )}
-      </Suspense>
+      <RandomClouds />
+      {ready && (
+        <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={1} />
+      )}
 
       <hemisphereLight
         skyColor={"#ffffff"}
@@ -55,6 +57,7 @@ export function Experience() {
       <CustomText3D text="Portfolio" />
       <group position={[0, -11.9, 0]}>
         <Island />
+
         {ready && (
           <PositionalAudio
             autoplay
@@ -83,3 +86,4 @@ export function Experience() {
 // need to understand why this is necessary, and it's not in the example https://codesandbox.io/s/gkfhr?file=/src/App.js
 useLoader.preload(AudioLoader, "audio/Fire.mp3");
 useLoader.preload(AudioLoader, "audio/Crickets.mp3");
+useLoader.preload(AudioLoader, "audio/Wind.mp3");
