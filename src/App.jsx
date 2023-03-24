@@ -12,13 +12,13 @@ export default function App() {
       <Canvas
         shadows
         camera={{
-          position: [-5, 18, -50],
+          position: [-5, 20, -110],
           fov: 35,
         }}
       >
         <color args={["#111111"]} attach="background" />
-        {/* <Perf /> */}
-        <OrbitControls makeDefault target={[0, 0, 5]} />
+        <Perf />
+        <OrbitControls makeDefault target={[0, 0, 5]} zoomSpeed={0.25} />
         <ambientLight color={0x217dc4} intensity={0.05} />
         <Experience />
         {/* <Effects /> */}
