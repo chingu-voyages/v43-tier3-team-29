@@ -19,7 +19,7 @@ function RandomClouds() {
 
   for (let i = 0; i < 20; i++) {
     const position = [
-      Math.floor(Math.random() * 50) -25, // random x position between -25 and 25
+      Math.floor(Math.random() * 50) - 25, // random x position between -25 and 25
       Math.floor(Math.random() * 20) + 5, // random y position between 10 and 30
       Math.floor(Math.random() * 20) - 80, // random z position between -100 and -80
     ];
@@ -41,29 +41,11 @@ export function Experience() {
     <Suspense fallback={null}>
       <Suspense fallback={null}>
         <RandomClouds />
+        {ready && (
+          <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={3} />
+        )}
       </Suspense>
-      {/* <Suspense fallback={null}>
-        <Cloud position={[-15, 20, -70]} />
-        <Cloud position={[-10, 20, -70]} />
-        <Cloud position={[-5, 20, -50]} />
-        <Cloud position={[0, 20, -40]} />
-        <Cloud position={[5, 20, -70]} />
-        <Cloud position={[10, 20, -70]} />
 
-        <Cloud position={[-8, 15, -70]} />
-        <Cloud position={[-7, 15, -70]} />
-        <Cloud position={[-3, 15, -70]} />
-        <Cloud position={[0, 15, -70]} />
-        <Cloud position={[5, 15, -70]} />
-
-        <Cloud position={[-15, 10, -70]} />
-        <Cloud position={[-10, 5, -75]} />
-        <Cloud position={[-5, 10, -60]} />
-        <Cloud position={[5, 3, -60]} />
-        <Cloud position={[0, 10, -50]} />
-        <Cloud position={[5, 10, -75]} />
-        <Cloud position={[10, 5, -70]} />
-      </Suspense> */}
       <hemisphereLight
         skyColor={"#ffffff"}
         groundColor={"#44444400"}
