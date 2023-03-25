@@ -35,7 +35,7 @@ export function Effects() {
   /////////////
   // Leva
 
-  // DepthOfField
+  // Depth Of Field control props
   const depthOfFieldProps = useControls("Depth of field", {
     isActive: { value: false },
     focusDistance: { value: 0.096, min: 0, max: 1, step: 0.01 },
@@ -43,12 +43,13 @@ export function Effects() {
     bokehScale: { value: 3, min: 0, max: 10, step: 0.5 },
   });
 
-  // ChromaticAberration
-  const chromaticAberrationProps = useControls("ChromaticAberration", {
+  // Chromatic Aberration control props
+  const chromaticAberrationProps = useControls("Chromatic Aberration", {
     isActive: { value: false },
     offset: { value: [0.0005, 0.0012] },
   });
 
+  // Vignette control props
   const vignetteProps = useControls("Vignette Effect", {
     isActive: { value: false },
     offset: { value: 0.2, min: 0, max: 1, step: 0.05 },
@@ -67,6 +68,7 @@ export function Effects() {
     },
   });
 
+  // LUTs control props
   const lutsProps = useControls("LUTs", {
     isActive: { value: false },
     lut: {
