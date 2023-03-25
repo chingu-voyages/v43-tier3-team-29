@@ -1,38 +1,16 @@
-import React, { useState, Suspense, useEffect, useMemo } from "react";
-
+import React, { useState, Suspense, useEffect } from "react";
 import { AudioLoader } from "three";
 import { PositionalAudio } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
-
 import { WorkStation } from "./components/WorkStation/WorkStation";
+import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
 import Campfire from "./components/Campfire/Campfire";
 import Animal from "./components/Animal/Animal";
 import Human from "./components/Human/Human";
 import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
-import { CustomText3D } from "./components/CustomText3D/CustomText3D";
-import { Cloud, Sky } from "@react-three/drei";
-
-function RandomClouds() {
-  const clouds = useMemo(() => {
-    const cloudArray = [];
-
-    for (let i = 0; i < 20; i++) {
-      const position = [
-        Math.floor(Math.random() * 50) - 25,
-        Math.floor(Math.random() * 20) + 5,
-        Math.floor(Math.random() * 20) - 80,
-      ];
-
-      cloudArray.push(<Cloud key={i} position={position} />);
-    }
-
-    return cloudArray;
-  }, []);
-
-  return <>{clouds}</>;
-}
+import RandomClouds from "./components/RandomClouds/RandomClouds";
 
 export function Experience() {
   const [ready, setReady] = useState(false);
@@ -43,11 +21,6 @@ export function Experience() {
 
   return (
     <Suspense fallback={null}>
-      <RandomClouds />
-      {ready && (
-        <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={1} />
-      )}
-
       <hemisphereLight
         skyColor={"#ffffff"}
         groundColor={"#44444400"}
@@ -55,6 +28,14 @@ export function Experience() {
       />
 
       <CustomText3D text="Portfolio" />
+
+      <group position={[0, 0, 0]}>
+        <RandomClouds amount={10} />
+        {ready && (
+          <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={1} />
+        )}
+      </group>
+
       <group position={[0, -11.9, 0]}>
         <Island />
 
@@ -67,12 +48,14 @@ export function Experience() {
           />
         )}
       </group>
+
       <group position={[-3, -1, 2]}>
         <Campfire />
         {ready && (
           <PositionalAudio autoplay loop url="audio/Fire.mp3" distance={0.7} />
         )}
       </group>
+
       <WorkStation />
       <Animal />
       <Human />
