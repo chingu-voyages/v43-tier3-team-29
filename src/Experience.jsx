@@ -11,6 +11,7 @@ import Human from "./components/Human/Human";
 import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
+import { useControls } from "leva";
 
 export function Experience() {
   const [ready, setReady] = useState(false);
@@ -19,13 +20,16 @@ export function Experience() {
     setTimeout(() => setReady(true), 2000);
   }, []);
 
+  // Hemisphere Light Leva controls props
+  const hemisphereLightProps = useControls("Hemisphere Light", {
+    skyColor: { value: "#ffffff" },
+    groundColor: { value: "#44444400" },
+    intensity: { value: 0.1, min: 0, max: 1, step: 0.05 },
+  });
+
   return (
     <Suspense fallback={null}>
-      <hemisphereLight
-        skyColor={"#ffffff"}
-        groundColor={"#44444400"}
-        intensity={0.5}
-      />
+      <hemisphereLight {...hemisphereLightProps} />
 
       <CustomText3D text="Portfolio" />
 
