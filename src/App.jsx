@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, BakeShadows } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
 import { Effects } from "./components/PostProcessing/Effects";
@@ -17,11 +17,11 @@ export default function App() {
         }}
       >
         <color args={["#111111"]} attach="background" />
-        <Perf />
         <OrbitControls makeDefault target={[0, 0, 5]} zoomSpeed={0.25} />
+        <Perf position="top-left" />
         <ambientLight color={0x217dc4} intensity={0.05} />
         <Experience />
-        {/* <Effects /> */}
+        <Effects />
       </Canvas>
     </>
   );
