@@ -12,6 +12,7 @@ import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
 import { useControls } from "leva";
+import Board from './components/Board/Board';
 
 export function Experience() {
   const [ready, setReady] = useState(false);
@@ -65,6 +66,7 @@ export function Experience() {
       <Human />
       <Lights />
       <Background />
+      <Board />
     </Suspense>
   );
 }

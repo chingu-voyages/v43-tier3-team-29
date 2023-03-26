@@ -94,3 +94,10 @@ a:hover {
   text-decoration: underline;
   color: white;
 }
+
+.board-frame iframe {
+  width: 530px;
+  height: 1000px;
+  border: none;
+  background-color: bisque;
+}
