@@ -1,5 +1,5 @@
 import { useControls } from "leva";
-import { useLoader } from "@react-three/fiber";
+import { useLoader, useThree } from "@react-three/fiber";
 import {
   EffectComposer,
   DepthOfField,
@@ -7,30 +7,43 @@ import {
   LUT,
   Vignette,
 } from "@react-three/postprocessing";
-import { LUTCubeLoader, BlendFunction } from "postprocessing";
+import { BlendFunction } from "postprocessing";
+import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader";
 
 export function Effects() {
+  // KTX2Loader
+  const gl = useThree((state) => state.gl);
+
+  const CustomKTX2Loader = (path) =>
+    useLoader(KTX2Loader, path, (loader) => {
+      loader
+        .setTranscoderPath(
+          `https://cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/basis/`
+        )
+        .detectSupport(gl);
+    });
+
   // LUTs
-  const lut1 = useLoader(LUTCubeLoader, "/LUTs/F-6800-STD.cube");
-  const lut2 = useLoader(LUTCubeLoader, "/LUTs/Malitine.cube");
-  const lut3 = useLoader(LUTCubeLoader, "/LUTs/C-9020-STD.cube");
-  const lut4 = useLoader(LUTCubeLoader, "/LUTs/C-8120-STD.cube");
-  const lut5 = useLoader(LUTCubeLoader, "/LUTs/F-8700-STD.cube");
-  const lut6 = useLoader(LUTCubeLoader, "/LUTs/F-9070-STD.cube");
-  const lut7 = useLoader(LUTCubeLoader, "/LUTs/X-8850-STD.cube");
-  const lut8 = useLoader(LUTCubeLoader, "/LUTs/F-9550-STD.cube");
-  const lut9 = useLoader(LUTCubeLoader, "/LUTs/F-6770-STD.cube");
-  const lut10 = useLoader(LUTCubeLoader, "/LUTs/W-9530-STD.cube");
-  const lut11 = useLoader(LUTCubeLoader, "/LUTs/X-6370-STD.cube");
-  const lut12 = useLoader(LUTCubeLoader, "/LUTs/X-7080-STD.cube");
-  const lut13 = useLoader(LUTCubeLoader, "/LUTs/H-9890-STD.cube");
-  const lut14 = useLoader(LUTCubeLoader, "/LUTs/F-9870-STD.cube");
-  const lut15 = useLoader(LUTCubeLoader, "/LUTs/X-9810-STD.cube");
-  const lut16 = useLoader(LUTCubeLoader, "/LUTs/C-8080-STD.cube");
-  const lut17 = useLoader(LUTCubeLoader, "/LUTs/C-8920-STD.cube");
-  const lut18 = useLoader(LUTCubeLoader, "/LUTs/Dozoran.cube");
-  const lut19 = useLoader(LUTCubeLoader, "/LUTs/Fizati.cube");
-  const lut20 = useLoader(LUTCubeLoader, "/LUTs/Rubi.cube");
+  const lut1 = CustomKTX2Loader("/LUTs/F-6800-STD.ktx2");
+  const lut2 = CustomKTX2Loader("/LUTs/Malitine.ktx2");
+  const lut3 = CustomKTX2Loader("/LUTs/C-9020-STD.ktx2");
+  const lut4 = CustomKTX2Loader("/LUTs/C-8120-STD.ktx2");
+  const lut5 = CustomKTX2Loader("/LUTs/F-8700-STD.ktx2");
+  const lut6 = CustomKTX2Loader("/LUTs/F-9070-STD.ktx2");
+  const lut7 = CustomKTX2Loader("/LUTs/X-8850-STD.ktx2");
+  const lut8 = CustomKTX2Loader("/LUTs/F-9550-STD.ktx2");
+  const lut9 = CustomKTX2Loader("/LUTs/F-6770-STD.ktx2");
+  const lut10 = CustomKTX2Loader("/LUTs/W-9530-STD.ktx2");
+  const lut11 = CustomKTX2Loader("/LUTs/X-6370-STD.ktx2");
+  const lut12 = CustomKTX2Loader("/LUTs/X-7080-STD.ktx2");
+  const lut13 = CustomKTX2Loader("/LUTs/H-9890-STD.ktx2");
+  const lut14 = CustomKTX2Loader("/LUTs/F-9870-STD.ktx2");
+  const lut15 = CustomKTX2Loader("/LUTs/X-9810-STD.ktx2");
+  const lut16 = CustomKTX2Loader("/LUTs/C-8080-STD.ktx2");
+  const lut17 = CustomKTX2Loader("/LUTs/C-8920-STD.ktx2");
+  const lut18 = CustomKTX2Loader("/LUTs/Dozoran.ktx2");
+  const lut19 = CustomKTX2Loader("/LUTs/Fizati.ktx2");
+  const lut20 = CustomKTX2Loader("/LUTs/Rubi.ktx2");
 
   /////////////
   // Leva
