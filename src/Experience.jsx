@@ -7,7 +7,7 @@ import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
 import Campfire from "./components/Campfire/Campfire";
 import Animal from "./components/Animal/Animal";
-import Character from "./components/Character/Character";
+import Characters from "./components/Characters/Characters";
 import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
@@ -63,22 +63,7 @@ export function Experience() {
 
       <WorkStation />
       <Animal />
-      {/* Character 1 / Danney */}
-      <Character
-        path="./models/characters/character_01_final-v1-transformed.glb"
-        scale={1.2}
-        position={[-11, -1, 23]}
-        rotation={[0, -0.3, 0]}
-        actionName="Idle"
-      />
-      {/* Character 2 / Sean */}
-      <Character
-        path="./models/characters/character_02_final-v1-transformed.glb"
-        scale={1.2}
-        position={[-9.5, -0.62, 24.5]}
-        rotation={[1.6, 0, 1]}
-        actionName="Sitting"
-      />
+      <Characters />
       <Lights />
       <Background />
       <Board />
