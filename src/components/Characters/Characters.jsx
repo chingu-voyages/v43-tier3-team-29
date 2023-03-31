@@ -35,6 +35,14 @@ const Characters = () => {
         rotation={[1.6, 0, 0]}
         actionName="SittingRelaxed"
       />
+      {/* Character 4 / Jane */}
+      <Character
+        path="./models/characters/character_04_final-v1-transformed.glb"
+        scale={1.2}
+        position={[-12, -1.03, 22]}
+        rotation={[1.6, 0, 0.75]}
+        actionName="SittingTalking"
+      />
 
       {/* Chairs */}
       <mesh
@@ -46,8 +54,8 @@ const Characters = () => {
       <mesh
         geometry={chair.nodes.SM_Prop_Deckchair_01_1.geometry}
         material={chair.materials.PolygonTown_01_A}
-        scale={1}
-        position={[-12, -1.05, 22]}
+        scale={1.1}
+        position={[-12, -1, 22]}
         rotation-y={-0.3}
       />
 
