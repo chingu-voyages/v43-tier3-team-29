@@ -7,12 +7,12 @@ import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
 import Campfire from "./components/Campfire/Campfire";
 import Animal from "./components/Animal/Animal";
-import Human from "./components/Human/Human";
+import Character from "./components/Character/Character";
 import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
 import { useControls } from "leva";
-import Board from './components/Board/Board';
+import Board from "./components/Board/Board";
 
 export function Experience() {
   const [ready, setReady] = useState(false);
@@ -63,7 +63,14 @@ export function Experience() {
 
       <WorkStation />
       <Animal />
-      <Human />
+      {/* Character 1 / Danney */}
+      <Character
+        path="./models/human/character_01_final-v1-transformed.glb"
+        scale={1.2}
+        position={[-11, -1, 23]}
+        rotation={[0, -0.3, 0]}
+        actionName="Idle"
+      />
       <Lights />
       <Background />
       <Board />
