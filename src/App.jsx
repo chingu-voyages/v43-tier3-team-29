@@ -21,7 +21,7 @@ export default function App() {
         <Perf position="top-left" />
         <ambientLight color={0x217dc4} intensity={0.05} />
         <Experience />
-        <Effects />
+        {/* <Effects /> */}
       </Canvas>
     </>
   );
