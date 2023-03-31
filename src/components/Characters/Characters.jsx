@@ -15,7 +15,7 @@ const Characters = () => {
       <Character
         path="./models/characters/character_01_final-v1-transformed.glb"
         scale={1.2}
-        position={[-11, -1, 23]}
+        position={[-10.8, -1, 23]}
         rotation={[0, -0.3, 0]}
         actionName="Idle"
       />
@@ -42,6 +42,14 @@ const Characters = () => {
         position={[-12, -1.03, 22]}
         rotation={[1.6, 0, 0.75]}
         actionName="SittingTalking"
+      />
+      {/* Character 5 / Zoran */}
+      <Character
+        path="./models/characters/character_05_final-v1-transformed.glb"
+        scale={1.2}
+        position={[-12.3, -1.7, 24.6]}
+        rotation={[1.6, 0, 0.6]}
+        actionName="SittingMovingLegs"
       />
 
       {/* Chairs */}
