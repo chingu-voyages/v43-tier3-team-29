@@ -14,11 +14,9 @@
     "@react-three/postprocessing": "^2.7.0",
     "@theatre/core": "^0.6.0",
     "@theatre/r3f": "^0.6.0",
-    "@theatre/studio": "^0.6.0",
     "@types/three": "^0.149.0",
     "babel-plugin-glsl": "^1.0.0",
     "babel-plugin-macros": "^3.1.0",
-    "leva": "^0.9.34",
     "meshline": "^3.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -32,6 +30,8 @@
     "@vitejs/plugin-react": "^3.1.0",
     "prettier": "2.8.4",
     "r3f-perf": "^7.1.2",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "leva": "^0.9.34",
+    "@theatre/studio": "^0.6.0"
   }
 }
