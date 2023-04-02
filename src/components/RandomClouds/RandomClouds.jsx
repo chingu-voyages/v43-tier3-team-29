@@ -7,9 +7,9 @@ export default function RandomClouds({ amount }) {
 
     for (let i = 0; i < amount; i++) {
       const position = [
-        Math.floor(Math.random() * 50) - 25,
-        Math.floor(Math.random() * 20) + 5,
-        Math.floor(Math.random() * 20) - 80,
+        Math.floor(Math.random() * 20) - 17,
+        Math.floor(Math.random() * 20) + 30,
+        Math.floor(Math.random() * 20) - 0,
       ];
 
       cloudArray.push(<Cloud key={i} position={position} />);
