@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 html,
 body,
 #root {
@@ -100,4 +110,40 @@ a:hover {
   height: 1000px;
   border: none;
   background-color: bisque;
+}
+
+.bubbleContainer > div {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  row-gap: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  background: #ffffff;
+  padding: 16px 24px;
+  border-radius: 30px 30px 30px 1px;
+  user-select: none;
+  overflow: hidden;
+  width: 220px;
+}
+
+.bubbleContainer.bubbleContainer_2 > div {
+  border-radius: 30px 30px 1px 30px;
+}
+
+.bubbleContainer.bubbleContainer_4 > div {
+  border-radius: 1px 30px 30px 30px;
+}
+
+.bubbleContainer > div > p > span {
+  font-weight: 500;
+  color: darkred;
+}
+
+.bubbleContainer > div > button {
+  cursor: pointer;
+  background: none;
+  border: 1px solid #000;
+  padding: 6px 12px;
 }

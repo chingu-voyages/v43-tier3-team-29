@@ -7,12 +7,12 @@ import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
 import Campfire from "./components/Campfire/Campfire";
 import Animal from "./components/Animal/Animal";
-import Human from "./components/Human/Human";
+import Characters from "./components/Characters/Characters";
 import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
 import { useControls } from "leva";
-import Board from './components/Board/Board';
+import Board from "./components/Board/Board";
 
 export function Experience() {
   const [ready, setReady] = useState(false);
@@ -63,7 +63,7 @@ export function Experience() {
 
       <WorkStation />
       <Animal />
-      <Human />
+      <Characters />
       <Lights />
       <Background />
       <Board />
