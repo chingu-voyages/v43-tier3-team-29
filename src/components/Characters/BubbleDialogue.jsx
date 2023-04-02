@@ -43,6 +43,8 @@ const BubbleDialogue = () => {
   const clickHandler = () => {
     if (dialogue.id < 4) {
       setDialogue(dialogueOptions[dialogue.id + 1]);
+    } else {
+      setDialogue(dialogueOptions[0]);
     }
   };
 
