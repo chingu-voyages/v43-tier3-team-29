@@ -54,7 +54,7 @@ export function Experience() {
         )}
       </group>
 
-      <group position={[-3, -1, 2]}>
+      <group position={[-8, -1, 5]}>
         <Campfire />
         {ready && (
           <PositionalAudio autoplay loop url="audio/Fire.mp3" distance={0.7} />
