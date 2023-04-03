@@ -17,8 +17,8 @@ const Animal = () => {
   return (
     <primitive
       scale={0.01}
-      position={[-8, -0.63, 3.5]}
-      rotation-y={0.8}
+      position={[-7.5, -0.63,4]}
+      rotation-y={4}
       object={fox.scene}
     />
   );
