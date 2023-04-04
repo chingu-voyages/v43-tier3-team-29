@@ -4,7 +4,11 @@ function Board(props) {
   const boardModel = useGLTF("/models/board/board.glb");
 
   return (
-    <primitive object={boardModel.scene} position={[-6, 0.2, 4]} scale={7}>
+    <primitive
+      object={boardModel.scene}
+      position={[-10.7, -0.05, -8.2]}
+      scale={7}
+    >
       <Html
         transform
         distanceFactor={0.1}
