@@ -24,6 +24,14 @@ canvas {
   touch-action: none;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
 /* Scroll Icon */
 .scroll-container {
   position: absolute;
@@ -41,6 +49,10 @@ canvas {
 }
 
 /* Browser */
+.browser {
+  position: fixed !important;
+}
+
 .browser iframe {
   width: 1024px;
   height: 620px;
@@ -105,11 +117,19 @@ a:hover {
   color: white;
 }
 
+.board-frame {
+  position: fixed !important;
+}
+
 .board-frame iframe {
   width: 530px;
   height: 1000px;
   border: none;
   background-color: bisque;
+}
+
+.bubbleContainer {
+  position: fixed !important;
 }
 
 .bubbleContainer > div {

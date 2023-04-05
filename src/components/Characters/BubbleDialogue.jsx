@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Html } from "@react-three/drei";
 import { useState } from "react";
+import { editable as e } from "@theatre/r3f";
 
 // Dialogue text
 const dialogueOptions = [
@@ -48,18 +49,24 @@ const BubbleDialogue = () => {
     }
   };
 
+  const htmlRef = useRef();
+
   return (
-    <Html
-      wrapperClass={`bubbleContainer bubbleContainer_${dialogue.id}`}
-      position={dialogue.position}
-      distanceFactor={6}
-    >
-      <p>
-        <span>{dialogue.name}: </span>
-        {dialogue.text}
-      </p>
-      <button onClick={clickHandler}>Next</button>
-    </Html>
+    <e.group theatreKey="bubble">
+      <Html
+        ref={htmlRef}
+        wrapperClass={`bubbleContainer bubbleContainer_${dialogue.id}`}
+        position={dialogue.position}
+        // distanceFactor={6}
+        // transform
+      >
+        <p>
+          <span>{dialogue.name}: </span>
+          {dialogue.text}
+        </p>
+        <button onClick={clickHandler}>Next</button>
+      </Html>
+    </e.group>
   );
 };
 
