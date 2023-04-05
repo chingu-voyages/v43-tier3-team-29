@@ -5,6 +5,9 @@ import { Experience } from "./Experience";
 import { Effects } from "./components/PostProcessing/Effects";
 import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
 
+// Overlay
+import Navbar from "./components/Overlay/Navbar";
+
 export default function App() {
   return (
     <>
@@ -23,6 +26,7 @@ export default function App() {
         <Experience />
         {/* <Effects /> */}
       </Canvas>
+      <Navbar />
     </>
   );
 }
