@@ -1,7 +1,7 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense, useEffect, useRef } from "react";
 import { AudioLoader } from "three";
-import { PositionalAudio } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
+import { PositionalAudio, useScroll } from "@react-three/drei";
+import { useLoader, useFrame } from "@react-three/fiber";
 import { WorkStation } from "./components/WorkStation/WorkStation";
 import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
@@ -13,6 +13,9 @@ import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
 import { useControls } from "leva";
 import Board from "./components/Board/Board";
+import { val } from "@theatre/core";
+import { cameraMovementSheet } from "./animation/theatre";
+import { editable as e, PerspectiveCamera } from "@theatre/r3f";
 
 export function Experience() {
   const [ready, setReady] = useState(false);
@@ -28,9 +31,32 @@ export function Experience() {
     intensity: { value: 0.1, min: 0, max: 1, step: 0.05 },
   });
 
+  const islandRef = useRef();
+  const prevRange = useRef(0);
+  const scroll = useScroll();
+
+  useFrame(() => {
+    // this enables control of sequence with scrolling
+    const currentScrollRange = scroll.range(0, 1);
+    // not scrolling
+    if (prevRange.current == currentScrollRange) return;
+    cameraMovementSheet.sequence.position =
+      val(cameraMovementSheet.sequence.pointer.length) * currentScrollRange;
+  });
+
   return (
     <Suspense fallback={null}>
       <hemisphereLight {...hemisphereLightProps} />
+
+      <PerspectiveCamera
+        theatreKey="Camera"
+        makeDefault
+        position={[-5, 18, -50]}
+        fov={35}
+        lookAt={islandRef}
+      />
+
+      <e.group theatreKey="CameraTarget" ref={islandRef} position={[0, 0, 5]} />
 
       <CustomText3D text="Portfolio" />
 

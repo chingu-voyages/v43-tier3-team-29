@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { MdOutlineOpenInNew } from "react-icons/md";
+import { editable as e } from "@theatre/r3f";
 
 export function WorkStation() {
-  const [htmlVisible, setHtmlVisible] = useState(true);
+  const [htmlVisible, setHtmlVisible] = useState(false);
 
   // Render the Html element
-  const renderHtml = (visible) => {
+  const renderHtml = () => {
     return (
       <Html
         transform
@@ -65,7 +66,7 @@ export function WorkStation() {
   const chairModel = useGLTF(
     "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/bench-2/model.gltf"
   );
-  const laptopModel = useGLTF("./models/laptop/laptop.glb");
+  const { nodes, materials } = useGLTF("./models/laptop/laptop.glb");
 
   // Function to handle tab clicks and update the activeTab state
   const [activeTab, setActiveTab] = useState(1);
@@ -89,6 +90,22 @@ export function WorkStation() {
     }
   };
 
+  const screenRef = useRef();
+  const [theatreObject, setTheatreObject] = useState(null);
+
+  useEffect(() => {
+    if (!theatreObject) return;
+    const unsubscribe = theatreObject.onValuesChange((newValues) => {
+      if (newValues.foo > 0.4 && newValues.foo < 0.8) {
+        setHtmlVisible(true);
+      } else {
+        setHtmlVisible(false);
+      }
+    });
+
+    return unsubscribe;
+  }, [theatreObject]);
+
   return (
     <group position={[1, -0.7, 2]} rotation={[0, -Math.PI + 0.8, 0]}>
       <primitive object={tableModel.scene} />
@@ -97,13 +114,68 @@ export function WorkStation() {
         position={[-0.2, 0, 1.2]}
         scale={"0.7"}
       />
-      <primitive
-        object={laptopModel.scene}
-        position={[0, 0.75, 0.3]}
-        scale={0.3}
-      >
-        {renderHtml(htmlVisible)}
-      </primitive>
+      <group position={[0, 0.75, 0.3]} scale={0.3}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.mesh485226736.geometry}
+          material={materials.mat16}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.mesh485226736_1.geometry}
+          material={materials.mat23}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.mesh485226736_2.geometry}
+          material={materials.mat17}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.mesh485226736_3.geometry}
+          material={materials.mat15}
+        />
+        <e.group theatreKey="lid">
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.mesh256948792.geometry}
+            material={materials.mat16}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.mesh256948792_1.geometry}
+            material={materials.mat23}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.mesh256948792_2.geometry}
+            material={materials.mat17}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.mesh256948792_3.geometry}
+            material={materials.mat25}
+          />
+        </e.group>
+        <e.group
+          theatreKey="screen"
+          ref={screenRef}
+          objRef={setTheatreObject}
+          additionalProps={{
+            foo: 0,
+          }}
+        >
+          {htmlVisible && renderHtml()}
+        </e.group>
+      </group>
     </group>
   );
 }
