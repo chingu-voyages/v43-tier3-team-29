@@ -1,12 +1,15 @@
 import React from "react";
 
+// Styles
+import "./style.css";
+
 // Icons
 import { HiOutlineArrowRight } from "react-icons/hi";
 
 const SectionDetails = () => {
   return (
-    <div className="sectionOverlay">
-      <div className="sectionText">
+    <div className="section-overlay">
+      <div className="section-text">
         <h1>About us</h1>
         <p>
           The app was build during the wonderful Voyage which was organized by
@@ -15,11 +18,11 @@ const SectionDetails = () => {
           future challenges.
         </p>
       </div>
-      <div className="btnContainer">
-        <button className="sectionBtn">
+      <div className="section-btns">
+        <button className="section-btn">
           Meet our team <HiOutlineArrowRight />
         </button>
-        <a className="sectionBtn" href="/">
+        <a className="section-btn" href="/">
           github repo <HiOutlineArrowRight />
         </a>
       </div>

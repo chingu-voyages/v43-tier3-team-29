@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+
+// Styles
+import "./style.css";
 
 // Icons
 import {
@@ -21,8 +25,7 @@ const navList = [
 ];
 
 // Mobile Nav
-import MobileNav from "./MobileNav";
-import { AnimatePresence } from "framer-motion";
+import MobileNav from "../MobileNav";
 
 const Navbar = () => {
   // Mobile navbar state

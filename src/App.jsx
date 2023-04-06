@@ -7,7 +7,6 @@ import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
 
 // Overlay
 import Navbar from "./components/Overlay/Navbar";
-import MobileNav from "./components/Overlay/MobileNav";
 import SectionDetails from "./components/Overlay/SectionDetails";
 
 export default function App() {
@@ -28,6 +27,8 @@ export default function App() {
         {/* <Experience /> */}
         {/* <Effects /> */}
       </Canvas>
+
+      {/* Overlay */}
       <Navbar />
       <SectionDetails />
     </>
