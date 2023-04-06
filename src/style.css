@@ -81,7 +81,7 @@ canvas {
 }
 
 .bg {
-  background: linear-gradient(to top, #0a0a0a, #181a1a, #1d1d1f);
+  background: #f0e0d3;
 }
 
 .notready {
@@ -146,4 +146,9 @@ a:hover {
   background: none;
   border: 1px solid #000;
   padding: 6px 12px;
+}
+
+.play-icon {
+  font-size: 50px;
+  color: rgb(253, 46, 0);
 }

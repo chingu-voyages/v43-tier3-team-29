@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import {  OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
 import { Effects } from "./components/PostProcessing/Effects";

@@ -28,8 +28,10 @@ export function Experience() {
     intensity: { value: 0.1, min: 0, max: 1, step: 0.05 },
   });
 
+  
+
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<>Loader</>}>
       <hemisphereLight {...hemisphereLightProps} />
 
       <CustomText3D text="Portfolio" />
