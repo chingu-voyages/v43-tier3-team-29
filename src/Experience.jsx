@@ -36,9 +36,9 @@ export function Experience() {
 
       <group position={[0, 0, 0]}>
         <RandomClouds amount={5} />
-        {/* {ready && (
+        {ready && (
           <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={1} />
-        )} */}
+        )}
       </group>
 
       <group position={[0, -11.9, 0]}>

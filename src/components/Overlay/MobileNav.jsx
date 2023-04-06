@@ -1,11 +1,18 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Icons
-import { HiOutlineSun, HiOutlineMusicNote, HiMenu } from "react-icons/hi";
+import { HiOutlineSun, HiOutlineMusicNote } from "react-icons/hi";
 
 const MobileNav = ({ navList }) => {
   return (
-    <div className="overlay">
+    <motion.div
+      initial={{ y: 72, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 72, opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="overlay"
+    >
       <nav className="mobileNav">
         {/* Sections navigation */}
         <ul>
@@ -30,7 +37,7 @@ const MobileNav = ({ navList }) => {
           </li>
         </ul>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 

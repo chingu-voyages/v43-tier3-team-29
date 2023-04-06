@@ -216,8 +216,7 @@ button > svg {
   display: none;
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 2.5%;
   width: 95%;
   margin-top: 32px;
   border-radius: 20px;

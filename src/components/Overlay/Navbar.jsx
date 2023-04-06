@@ -22,6 +22,7 @@ const navList = [
 
 // Mobile Nav
 import MobileNav from "./MobileNav";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   // Mobile navbar state
@@ -70,7 +71,9 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu */}
-        {isOpen && <MobileNav navList={navList} />}
+        <AnimatePresence>
+          {isOpen && <MobileNav navList={navList} />}
+        </AnimatePresence>
       </div>
     </header>
   );
