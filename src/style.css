@@ -106,6 +106,8 @@ a:hover {
   color: white;
 }
 
+/* Bubbles */
+
 .board-frame iframe {
   width: 530px;
   height: 1000px;
@@ -146,4 +148,120 @@ a:hover {
   background: none;
   border: 1px solid #000;
   padding: 6px 12px;
+}
+
+/* Navigation */
+
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 32px 0;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  column-gap: 32px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  column-gap: 80px;
+}
+
+.navigation > ul {
+  flex-direction: row;
+  column-gap: 32px;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.6px;
+  font-size: 18px;
+  color: rgb(164, 164, 164);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button > svg {
+  display: block;
+  height: 24px;
+  width: 24px;
+  stroke: rgb(164, 164, 164);
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburger > svg {
+  fill: rgb(164, 164, 164);
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  margin-top: 32px;
+  border-radius: 20px;
+  background: rgb(122, 160, 216);
+  background: linear-gradient(
+    133deg,
+    rgba(122, 160, 216, 0.29) 0%,
+    rgba(13, 34, 67, 0.39) 100%
+  );
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 48px 32px;
+  row-gap: 48px;
+}
+
+.mobileNav > ul {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 24px;
+}
+
+.mobileNav > ul:nth-of-type(2) {
+  flex-direction: row;
+}
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .navigation > ul {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  button {
+    text-transform: uppercase;
+  }
 }

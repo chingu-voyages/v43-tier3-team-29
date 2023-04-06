@@ -7,6 +7,7 @@ import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
 
 // Overlay
 import Navbar from "./components/Overlay/Navbar";
+import MobileNav from "./components/Overlay/MobileNav";
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
         <OrbitControls makeDefault target={[0, 0, 5]} zoomSpeed={0.25} />
         <Perf position="top-left" />
         <ambientLight color={0x217dc4} intensity={0.05} />
-        <Experience />
+        {/* <Experience /> */}
         {/* <Effects /> */}
       </Canvas>
       <Navbar />

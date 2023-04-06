@@ -1,70 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 
-// Styled components
+// Icons
 import {
-  Header,
-  Navigation,
-  SectionsNav,
-  ControlButtons,
-  Container,
-} from "./style";
+  HiOutlineSun,
+  HiOutlineMusicNote,
+  HiMenu,
+  HiOutlineX,
+  HiOutlineHome,
+  HiOutlineUsers,
+  HiOutlineDesktopComputer,
+  HiOutlineMail,
+} from "react-icons/hi";
+
+// Nav list
+const navList = [
+  { title: "Home", icon: <HiOutlineHome /> },
+  { title: "About", icon: <HiOutlineUsers /> },
+  { title: "Portfolio", icon: <HiOutlineDesktopComputer /> },
+  { title: "Contact", icon: <HiOutlineMail /> },
+];
+
+// Mobile Nav
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
+  // Mobile navbar state
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Hamburger icon click handler
+  const handleHamburgerClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <Container>
-      <Header>
-        <Navigation>
-          <SectionsNav>
+    <header>
+      <div className="container">
+        <nav className="navigation">
+          {/* Sections navigation */}
+          <ul>
+            {navList.map((navItem, index) => (
+              <li key={index}>
+                <button>{navItem.title}</button>
+              </li>
+            ))}
+          </ul>
+
+          {/* Theme toggler & Sound Level Control */}
+          <ul>
             <li>
-              <button>Home</button>
+              <button aria-label="theme toggler">
+                <HiOutlineSun />
+              </button>
             </li>
             <li>
-              <button>About</button>
+              <button aria-label="sound level control">
+                <HiOutlineMusicNote />
+              </button>
             </li>
-            <li>
-              <button>Portfolio</button>
-            </li>
-            <li>
-              <button>Contact</button>
-            </li>
-          </SectionsNav>
-          <ControlButtons>
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                />
-              </svg>
-            </button>
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
-                />
-              </svg>
-            </button>
-          </ControlButtons>
-        </Navigation>
-      </Header>
-    </Container>
+          </ul>
+
+          {/* Mobile menu toggle button */}
+          <button
+            onClick={handleHamburgerClick}
+            className="hamburger"
+            aria-label="sound level control"
+          >
+            {isOpen ? <HiOutlineX /> : <HiMenu />}
+          </button>
+        </nav>
+
+        {/* Mobile menu */}
+        {isOpen && <MobileNav navList={navList} />}
+      </div>
+    </header>
   );
 };
 
