@@ -11,7 +11,7 @@ const MobileNav = ({ navList }) => {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 72, opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="overlay"
+      className="mobileNavOverlay"
     >
       <nav className="mobileNav">
         {/* Sections navigation */}

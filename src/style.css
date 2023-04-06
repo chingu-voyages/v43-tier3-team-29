@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
 
 *,
 ::after,
@@ -8,10 +8,17 @@
   margin: 0;
 }
 
+a:hover,
+a:visited {
+  text-decoration: none !important;
+  color: rgb(164, 164, 164) !important;
+}
+
 html,
 body,
 #root {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
+  color: rgb(164, 164, 164);
   position: fixed;
   top: 0;
   left: 0;
@@ -187,7 +194,7 @@ nav > ul {
 }
 
 button {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   letter-spacing: 1.6px;
   font-size: 18px;
   color: rgb(164, 164, 164);
@@ -212,7 +219,7 @@ button > svg {
   fill: rgb(164, 164, 164);
 }
 
-.overlay {
+.mobileNavOverlay {
   display: none;
   position: absolute;
   top: 100%;
@@ -226,6 +233,7 @@ button > svg {
     rgba(122, 160, 216, 0.29) 0%,
     rgba(13, 34, 67, 0.39) 100%
   );
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
 }
 
 .mobileNav {
@@ -246,6 +254,72 @@ button > svg {
   flex-direction: row;
 }
 
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: start;
+}
+
+.sectionBtn {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: rgb(164, 164, 164);
+}
+
+/* Section details */
+
+.sectionOverlay {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  transform: translateY(-50%);
+  width: 600px;
+  border-radius: 20px;
+  padding: 32px 48px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 100px;
+  background: rgb(122, 160, 216);
+  background: linear-gradient(
+    133deg,
+    rgba(122, 160, 216, 0.29) 0%,
+    rgba(13, 34, 67, 0.39) 100%
+  );
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
+}
+
+.sectionText > h1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.sectionText > p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.temp-btn {
+  position: absolute;
+  top: 16px;
+  left: 100%;
+  margin-left: 8px;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(
+    133deg,
+    rgba(122, 160, 216, 0.29) 0%,
+    rgba(13, 34, 67, 0.39) 100%
+  );
+}
+
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .navigation > ul {
@@ -256,7 +330,7 @@ button > svg {
     display: block;
   }
 
-  .overlay {
+  .mobileNavOverlay {
     display: block;
   }
 
