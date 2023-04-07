@@ -1,11 +1,10 @@
-import { Suspense, cloneElement, useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { BsPlayCircleFill } from "react-icons/bs";
 
-
-function Ready({ setReady }) {
-  useEffect(() => () => void setReady(true), []);
-  return null;
-}
+// function Ready({ setReady }) {
+//   useEffect(() => () => void setReady(true), []);
+//   return null;
+// }
 
 export default function Intro({ children }) {
   const [clicked, setClicked] = useState(false);
@@ -18,7 +17,7 @@ export default function Intro({ children }) {
 
   return (
     <>
-      <Suspense fallback={<Ready setReady={setReady} />}>
+      <Suspense fallback={null}>
         {clicked ? children : <></>}
       </Suspense>
       <div
@@ -26,14 +25,12 @@ export default function Intro({ children }) {
           clicked && "clicked"
         }`}
       >
-        <div className="stack">
-          <a href="#" onClick={() => setClicked(true)}>
-            {!ready ? (
-              <img src="../public/image/loading.gif" />
-            ) : (
-              <BsPlayCircleFill className="play-icon"/>
-            )}
-          </a>
+        <div className="loader-container" onClick={() => setClicked(true)}>
+          {!ready ? (
+            <img className="fox-loader" src="./image/loading.gif" />
+          ) : (
+            <BsPlayCircleFill className="play-icon" />
+          )}
         </div>
       </div>
     </>

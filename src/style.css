@@ -89,11 +89,11 @@ canvas {
 }
 
 .fullscreen {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,3 +135,28 @@ a:hover {
   border: none;
   background-color: bisque;
 }
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fox-loader {
+  width: 30%;
+  height: 30%;
+}
+
+.play-icon {
+  color: rgba(253, 46, 0, 0.695);
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.play-icon:hover {
+    color: rgb(253, 30, 0);
+
+}
+
