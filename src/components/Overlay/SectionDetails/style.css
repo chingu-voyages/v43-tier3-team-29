@@ -1,0 +1,69 @@
+.section-overlay {
+  position: absolute;
+  top: 20%;
+  left: 32px;
+  /* transform: translateY(-50%); */
+  width: 600px;
+  border-radius: 20px;
+  padding: 32px 48px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 100px;
+  background: rgb(122, 160, 216);
+  background: linear-gradient(
+    133deg,
+    rgba(122, 160, 216, 0.29) 0%,
+    rgba(13, 34, 67, 0.39) 100%
+  );
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
+}
+
+.section-text > h1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.section-text > p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.section-btns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: start;
+}
+
+.section-btn {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: rgb(164, 164, 164);
+}
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .section-overlay {
+    width: 300px;
+  }
+
+  .section-text > h1 {
+    font-size: 32px;
+  }
+
+  .section-text > p {
+    font-size: 16px;
+  }
+
+  .section-btn {
+    column-gap: 14px;
+    font-size: 16px;
+  }
+}

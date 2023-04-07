@@ -1,0 +1,52 @@
+.carousel {
+  display: flex;
+  column-gap: 24px;
+  padding: 32px 48px;
+  width: 100%;
+  border: 1px solid rgb(164, 164, 164);
+  border-radius: 20px;
+  transition: all 0.3s linear;
+}
+
+img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.member-links {
+  display: flex;
+  column-gap: 24px;
+}
+
+a > svg,
+button > svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .member-details {
+    align-items: center;
+    row-gap: 12px;
+  }
+}

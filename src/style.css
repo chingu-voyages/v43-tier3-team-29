@@ -1,6 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a:hover,
+a:visited {
+  text-decoration: none !important;
+  color: rgb(164, 164, 164) !important;
+}
+
 html,
 body,
 #root {
+  font-family: "Inter", sans-serif;
+  color: rgb(164, 164, 164);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +30,14 @@ body,
 }
 canvas {
   touch-action: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
 }
 
 /* Scroll Icon */
@@ -31,6 +57,10 @@ canvas {
 }
 
 /* Browser */
+.browser {
+  position: fixed !important;
+}
+
 .browser iframe {
   width: 1024px;
   height: 620px;
@@ -59,11 +89,11 @@ canvas {
 }
 
 .fullscreen {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +101,7 @@ canvas {
 }
 
 .bg {
-  background: linear-gradient(to top, #0a0a0a, #181a1a, #1d1d1f);
+  background: #f0e0d3;
 }
 
 .notready {
@@ -95,9 +125,38 @@ a:hover {
   color: white;
 }
 
+.board-frame {
+  position: fixed !important;
+}
+
 .board-frame iframe {
   width: 530px;
   height: 1000px;
   border: none;
   background-color: bisque;
 }
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fox-loader {
+  width: 30%;
+  height: 30%;
+}
+
+.play-icon {
+  color: rgba(253, 46, 0, 0.695);
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.play-icon:hover {
+    color: rgb(253, 30, 0);
+
+}
+

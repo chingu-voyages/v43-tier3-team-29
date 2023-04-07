@@ -1,0 +1,41 @@
+.bubble-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  row-gap: 16px;
+  font-size: 14px;
+  padding: 16px 24px;
+  border-radius: 30px 30px 30px 5px;
+  user-select: none;
+  overflow: hidden;
+  width: 220px;
+  background: rgb(122, 160, 216);
+  background: linear-gradient(
+    133deg,
+    rgba(122, 160, 216, 0.29) 0%,
+    rgba(13, 34, 67, 0.39) 100%
+  );
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
+}
+
+.bubble-container.bubble-container_2 > div {
+  border-radius: 30px 30px 5px 30px;
+}
+
+.bubble-container.bubble-container_4 > div {
+  border-radius: 5px 30px 30px 30px;
+}
+
+.bubble-container > div > p > span {
+  font-weight: 500;
+  color: darkred;
+}
+
+.bubble-container > div > button {
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgb(164, 164, 164);
+  padding: 8px 14px;
+  border-radius: 10px;
+}
