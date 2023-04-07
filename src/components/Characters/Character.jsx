@@ -30,6 +30,7 @@ const Character = ({ path, scale, position, rotation, actionName }) => {
             geometry={nodes.Character.geometry}
             material={materials.material}
             skeleton={nodes.Character.skeleton}
+            frustumCulled={false}
           />
         </group>
       </group>
