@@ -1,8 +1,8 @@
 .section-overlay {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 32px;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
   width: 600px;
   border-radius: 20px;
   padding: 32px 48px;
@@ -46,4 +46,24 @@
   font-weight: 300;
   text-transform: uppercase;
   color: rgb(164, 164, 164);
+}
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .section-overlay {
+    width: 300px;
+  }
+
+  .section-text > h1 {
+    font-size: 32px;
+  }
+
+  .section-text > p {
+    font-size: 16px;
+  }
+
+  .section-btn {
+    column-gap: 14px;
+    font-size: 16px;
+  }
 }

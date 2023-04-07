@@ -42,26 +42,15 @@ const TeamCarousel = () => {
 
   return (
     <div className="carousel-wrapper">
-      <AnimatePresence mode="wait">
-        {teamData.map((member, index) => {
-          if (active === index) {
-            return (
-              <TeamCarouselItem
-                key={`${index}-${member.name}`}
-                member={member}
-              />
-            );
-          } else {
-            return null;
-          }
-        })}
+      <AnimatePresence mode="wait" initial={false}>
+        <TeamCarouselItem key={`member-${active}`} member={teamData[active]} />
       </AnimatePresence>
       <div className="carousel-btns">
-        <button onClick={nextSlide} aria-label="next team member">
-          <FaArrowCircleRight />
-        </button>
         <button onClick={prevSlide} aria-label="previous team member">
           <FaArrowCircleLeft />
+        </button>
+        <button onClick={nextSlide} aria-label="next team member">
+          <FaArrowCircleRight />
         </button>
       </div>
     </div>

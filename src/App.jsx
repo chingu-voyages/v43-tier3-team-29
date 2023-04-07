@@ -9,9 +9,6 @@ import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
 import Navbar from "./components/Overlay/Navbar";
 import SectionDetails from "./components/Overlay/SectionDetails";
 
-// Animation
-import { AnimatePresence } from "framer-motion";
-
 export default function App() {
   return (
     <>

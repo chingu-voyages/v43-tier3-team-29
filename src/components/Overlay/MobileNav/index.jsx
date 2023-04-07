@@ -7,13 +7,27 @@ import "./style.css";
 // Icons
 import { HiOutlineSun, HiOutlineMusicNote } from "react-icons/hi";
 
+// Animation variants
+const mobileNav = {
+  hidden: {
+    y: 72,
+    opacity: 0,
+    transition: { duration: 0.5 },
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5 },
+  },
+};
+
 const MobileNav = ({ navList }) => {
   return (
     <motion.div
-      initial={{ y: 72, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 72, opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      variants={mobileNav}
+      initial="hidden"
+      animate="show"
+      exit="show"
       className="mobile-nav-overlay"
     >
       <nav className="mobile-nav">

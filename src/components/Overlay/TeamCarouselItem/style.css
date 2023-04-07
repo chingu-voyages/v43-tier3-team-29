@@ -36,3 +36,17 @@ button > svg {
   width: 24px;
   height: 24px;
 }
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .member-details {
+    align-items: center;
+    row-gap: 12px;
+  }
+}

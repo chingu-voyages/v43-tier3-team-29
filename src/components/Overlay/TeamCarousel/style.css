@@ -12,3 +12,16 @@
   row-gap: 12px;
   z-index: 1000;
 }
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .carousel-wrapper {
+    flex-direction: column;
+    row-gap: 24px;
+  }
+
+  .carousel-btns {
+    flex-direction: row;
+    column-gap: 24px;
+  }
+}
