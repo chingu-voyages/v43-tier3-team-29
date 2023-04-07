@@ -22,15 +22,15 @@ export function Experience() {
   }, []);
 
   // Hemisphere Light Leva controls props
-  // const hemisphereLightProps = useControls("Hemisphere Light", {
-  //   skyColor: { value: "#ffffff" },
-  //   groundColor: { value: "#919191" },
-  //   intensity: { value: 0.1, min: 0, max: 1, step: 0.05 },
-  // });
+  const hemisphereLightProps = useControls("Hemisphere Light", {
+    skyColor: { value: "#ffffff" },
+    groundColor: { value: "#919191" },
+    intensity: { value: 0.1, min: 0, max: 1, step: 0.05 },
+  });
 
   return (
     <Suspense fallback={null}>
-      {/* <hemisphereLight {...hemisphereLightProps} /> */}
+      <hemisphereLight {...hemisphereLightProps} />
 
       <CustomText3D text="Portfolio" />
 
