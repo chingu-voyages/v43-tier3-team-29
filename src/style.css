@@ -32,6 +32,14 @@ canvas {
   touch-action: none;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
 /* Scroll Icon */
 .scroll-container {
   position: absolute;
@@ -49,6 +57,10 @@ canvas {
 }
 
 /* Browser */
+.browser {
+  position: fixed !important;
+}
+
 .browser iframe {
   width: 1024px;
   height: 620px;
@@ -89,7 +101,7 @@ canvas {
 }
 
 .bg {
-  background: linear-gradient(to top, #0a0a0a, #181a1a, #1d1d1f);
+  background: #f0e0d3;
 }
 
 .notready {
@@ -111,6 +123,10 @@ a {
 a:hover {
   text-decoration: underline;
   color: white;
+}
+
+.board-frame {
+  position: fixed !important;
 }
 
 .board-frame iframe {
