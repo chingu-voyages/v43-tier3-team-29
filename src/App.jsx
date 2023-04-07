@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
@@ -10,6 +12,9 @@ import Navbar from "./components/Overlay/Navbar";
 import SectionDetails from "./components/Overlay/SectionDetails";
 
 export default function App() {
+  // Temp section details toggler
+  const [sectionIsOpen, setSectionIsOpen] = useState(false);
+
   return (
     <>
       <ScrollingIcon scrollTimeoutValue={300} />
@@ -24,13 +29,16 @@ export default function App() {
         <OrbitControls makeDefault target={[0, 0, 5]} zoomSpeed={0.25} />
         {/* <Perf position="top-left" /> */}
         <ambientLight color={0x217dc4} intensity={0.05} />
-        <Experience />
+        {/* <Experience /> */}
         {/* <Effects /> */}
       </Canvas>
 
       {/* Overlay */}
-      <Navbar />
-      <SectionDetails />
+      <Navbar
+        setSectionIsOpen={setSectionIsOpen}
+        sectionIsOpen={sectionIsOpen}
+      />
+      <SectionDetails sectionIsOpen={sectionIsOpen} />
     </>
   );
 }

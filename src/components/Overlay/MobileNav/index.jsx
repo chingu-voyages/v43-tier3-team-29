@@ -27,7 +27,7 @@ const MobileNav = ({ navList }) => {
       variants={mobileNav}
       initial="hidden"
       animate="show"
-      exit="show"
+      exit="hidden"
       className="mobile-nav-overlay"
     >
       <nav className="mobile-nav">

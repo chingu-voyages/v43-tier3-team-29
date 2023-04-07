@@ -27,7 +27,7 @@ const navList = [
 // Mobile Nav
 import MobileNav from "../MobileNav";
 
-const Navbar = () => {
+const Navbar = ({ setSectionIsOpen, sectionIsOpen }) => {
   // Mobile navbar state
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +52,10 @@ const Navbar = () => {
           {/* Theme toggler & Sound Level Control */}
           <ul>
             <li>
-              <button aria-label="theme toggler">
+              <button
+                onClick={() => setSectionIsOpen(!sectionIsOpen)}
+                aria-label="theme toggler"
+              >
                 <HiOutlineSun />
               </button>
             </li>

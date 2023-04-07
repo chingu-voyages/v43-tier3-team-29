@@ -50,65 +50,67 @@ const btnsContainer = {
   },
 };
 
-const SectionDetails = () => {
+const SectionDetails = ({ sectionIsOpen }) => {
   const [isTeamSection, setIsTeamSection] = useState(false);
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        variants={overlayContainer}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        key={isTeamSection ? "team-section" : "about-section"}
-        className="section-overlay"
-      >
+      {sectionIsOpen && (
         <motion.div
-          variants={textContainer}
+          variants={overlayContainer}
           initial="hidden"
           animate="show"
           exit="exit"
-          className="section-text"
+          key={isTeamSection ? "team-section" : "about-section"}
+          className="section-overlay"
         >
-          <h1>{isTeamSection ? "Our team" : "About us"}</h1>
-          {isTeamSection ? (
-            <TeamCarousel />
-          ) : (
-            <p>
-              The app was build during the wonderful Voyage which was organized
-              by Jim Medlock and his awesome team. Thanks to this opportunity we
-              gained confidence and levelled up soft and technical skills to
-              face any future challenges.
-            </p>
-          )}
+          <motion.div
+            variants={textContainer}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            className="section-text"
+          >
+            <h1>{isTeamSection ? "Our team" : "About us"}</h1>
+            {isTeamSection ? (
+              <TeamCarousel />
+            ) : (
+              <p>
+                The app was build during the wonderful Voyage which was
+                organized by Jim Medlock and his awesome team. Thanks to this
+                opportunity we gained confidence and levelled up soft and
+                technical skills to face any future challenges.
+              </p>
+            )}
+          </motion.div>
+          <motion.div
+            variants={btnsContainer}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            className="section-btns"
+          >
+            {isTeamSection ? (
+              <button
+                onClick={() => setIsTeamSection(false)}
+                className="section-btn"
+              >
+                About <HiOutlineArrowRight />
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsTeamSection(true)}
+                className="section-btn"
+              >
+                Our team <HiOutlineArrowRight />
+              </button>
+            )}
+            <a className="section-btn" href="/">
+              github repo <HiOutlineArrowRight />
+            </a>
+          </motion.div>
         </motion.div>
-        <motion.div
-          variants={btnsContainer}
-          initial="hidden"
-          animate="show"
-          exit="exit"
-          className="section-btns"
-        >
-          {isTeamSection ? (
-            <button
-              onClick={() => setIsTeamSection(false)}
-              className="section-btn"
-            >
-              About <HiOutlineArrowRight />
-            </button>
-          ) : (
-            <button
-              onClick={() => setIsTeamSection(true)}
-              className="section-btn"
-            >
-              Our team <HiOutlineArrowRight />
-            </button>
-          )}
-          <a className="section-btn" href="/">
-            github repo <HiOutlineArrowRight />
-          </a>
-        </motion.div>
-      </motion.div>
+      )}
     </AnimatePresence>
   );
 };
