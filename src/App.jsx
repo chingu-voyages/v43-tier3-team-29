@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, ScrollControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
@@ -8,7 +10,14 @@ import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
 import { editable as e, SheetProvider } from "@theatre/r3f";
 import { cameraMovementSheet } from "./animation/theatre";
 
+// Overlay
+import Navbar from "./components/Overlay/Navbar";
+import SectionDetails from "./components/Overlay/SectionDetails";
+
 export default function App() {
+  // Temp section details toggler
+  const [sectionIsOpen, setSectionIsOpen] = useState(false);
+
   return (
     <>
       <ScrollingIcon scrollTimeoutValue={300} />
@@ -36,6 +45,13 @@ export default function App() {
         </SheetProvider>
         <Effects />
       </Canvas>
+
+      {/* Overlay */}
+      <Navbar
+        setSectionIsOpen={setSectionIsOpen}
+        sectionIsOpen={sectionIsOpen}
+      />
+      <SectionDetails sectionIsOpen={sectionIsOpen} />
     </>
   );
 }

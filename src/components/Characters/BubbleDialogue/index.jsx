@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Html } from "@react-three/drei";
-import { useState } from "react";
-import { editable as e } from "@theatre/r3f";
+
+// Styles
+import "./style.css";
 
 // Dialogue text
 const dialogueOptions = [
@@ -49,24 +50,18 @@ const BubbleDialogue = () => {
     }
   };
 
-  const htmlRef = useRef();
-
   return (
-    <e.group theatreKey="bubble">
-      <Html
-        ref={htmlRef}
-        wrapperClass={`bubbleContainer bubbleContainer_${dialogue.id}`}
-        position={dialogue.position}
-        // distanceFactor={6}
-        // transform
-      >
-        <p>
-          <span>{dialogue.name}: </span>
-          {dialogue.text}
-        </p>
-        <button onClick={clickHandler}>Next</button>
-      </Html>
-    </e.group>
+    <Html
+      wrapperClass={`bubble-container bubble-container_${dialogue.id}`}
+      position={dialogue.position}
+      distanceFactor={6}
+    >
+      <p>
+        <span>{dialogue.name}: </span>
+        {dialogue.text}
+      </p>
+      <button onClick={clickHandler}>Next</button>
+    </Html>
   );
 };
 
