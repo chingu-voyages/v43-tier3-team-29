@@ -43,7 +43,7 @@ const Navbar = () => {
           {/* Sections navigation */}
           <ul>
             {navList.map((navItem, index) => (
-              <li key={index}>
+              <li key={`${index}-navLink`}>
                 <button>{navItem.title}</button>
               </li>
             ))}

@@ -1,0 +1,14 @@
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 32px;
+}
+
+.carousel-btns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  z-index: 1000;
+}

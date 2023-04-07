@@ -20,7 +20,7 @@ const MobileNav = ({ navList }) => {
         {/* Sections navigation */}
         <ul>
           {navList.map((navItem, index) => (
-            <li key={index}>
+            <li key={`${index}-mobileNavLink`}>
               <button>{navItem.title}</button>
             </li>
           ))}
