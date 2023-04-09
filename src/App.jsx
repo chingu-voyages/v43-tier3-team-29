@@ -13,10 +13,11 @@ import { cameraMovementSheet } from "./animation/theatre";
 // Overlay
 import Navbar from "./components/Overlay/Navbar";
 import SectionDetails from "./components/Overlay/SectionDetails";
+import BubbleDialogue from "./components/Overlay/BubbleDialogue";
 
 export default function App() {
-  // Temp section details toggler
-  const [sectionIsOpen, setSectionIsOpen] = useState(false);
+  // // Section details visibility toggler
+  // const [sectionIsOpen, setSectionIsOpen] = useState(false);
 
   return (
     <>
@@ -43,15 +44,13 @@ export default function App() {
             <Experience />
           </ScrollControls>
         </SheetProvider>
-        <Effects />
+        {/* <Effects /> */}
       </Canvas>
 
       {/* Overlay */}
-      <Navbar
-        setSectionIsOpen={setSectionIsOpen}
-        sectionIsOpen={sectionIsOpen}
-      />
-      <SectionDetails sectionIsOpen={sectionIsOpen} />
+      <Navbar />
+      <SectionDetails />
+      <BubbleDialogue />
     </>
   );
 }

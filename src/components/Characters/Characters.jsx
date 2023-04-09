@@ -4,9 +4,6 @@ import Character from "./Character";
 // Temp
 import { useGLTF } from "@react-three/drei";
 
-// Bubble
-import BubbleDialogue from "./BubbleDialogue";
-
 const Characters = () => {
   // Temp Props
   const chair = useGLTF("./models/tempProps/chair-v1-transformed.glb");
@@ -14,9 +11,6 @@ const Characters = () => {
 
   return (
     <>
-      {/* Bubble Dialogue */}
-      <BubbleDialogue />
-
       {/* Character 1 / Danney */}
       <Character
         path="./models/characters/character_01_final-v1-transformed.glb"
