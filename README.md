@@ -1,9 +1,7 @@
 DEMO: https://portfolio3js.netlify.app/
 
 TO START:
-
-git clone https://github.com/chingu-voyages/v43-tier3-team-29.git
-
+- git clone https://github.com/chingu-voyages/v43-tier3-team-29.git
 - npm i
 
 CREDITS:
