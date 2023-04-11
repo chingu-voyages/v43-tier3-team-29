@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, ScrollControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
@@ -13,11 +11,9 @@ import { cameraMovementSheet } from "./animation/theatre";
 // Overlay
 import Navbar from "./components/Overlay/Navbar";
 import SectionDetails from "./components/Overlay/SectionDetails";
+import BubbleDialogue from "./components/Overlay/BubbleDialogue";
 
 export default function App() {
-  // Temp section details toggler
-  const [sectionIsOpen, setSectionIsOpen] = useState(false);
-
   return (
     <>
       <ScrollingIcon scrollTimeoutValue={300} />
@@ -47,11 +43,9 @@ export default function App() {
       </Canvas>
 
       {/* Overlay */}
-      <Navbar
-        setSectionIsOpen={setSectionIsOpen}
-        sectionIsOpen={sectionIsOpen}
-      />
-      <SectionDetails sectionIsOpen={sectionIsOpen} />
+      <Navbar />
+      <SectionDetails />
+      <BubbleDialogue />
     </>
   );
 }

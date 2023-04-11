@@ -11,7 +11,6 @@ import Characters from "./components/Characters/Characters";
 import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
-import { useControls } from "leva";
 import Board from "./components/Board/Board";
 import { val } from "@theatre/core";
 import { cameraMovementSheet } from "./animation/theatre";
@@ -23,13 +22,6 @@ export function Experience() {
     // without this, the PositionalAudio causes an error
     setTimeout(() => setReady(true), 2000);
   }, []);
-
-  // Hemisphere Light Leva controls props
-  const hemisphereLightProps = useControls("Hemisphere Light", {
-    skyColor: { value: "#ffffff" },
-    groundColor: { value: "#919191" },
-    intensity: { value: 0.1, min: 0, max: 1, step: 0.05 },
-  });
 
   const islandRef = useRef();
   const prevRange = useRef(0);
@@ -46,7 +38,11 @@ export function Experience() {
 
   return (
     <Suspense fallback={null}>
-      <hemisphereLight {...hemisphereLightProps} />
+      <hemisphereLight
+        skyColor="#ffffff"
+        groundColor="#919191"
+        intensity={0.15}
+      />
 
       <PerspectiveCamera
         theatreKey="Camera"
