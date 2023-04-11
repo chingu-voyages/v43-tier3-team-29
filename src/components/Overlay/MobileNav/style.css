@@ -1,0 +1,46 @@
+.mobile-nav-overlay {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 2.5%;
+  width: 95%;
+  margin-top: 32px;
+  border-radius: 20px;
+  background: rgb(122, 160, 216);
+  background: linear-gradient(
+    133deg,
+    rgba(122, 160, 216, 0.29) 0%,
+    rgba(13, 34, 67, 0.39) 100%
+  );
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
+  z-index: 10000;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 48px 32px;
+  row-gap: 48px;
+}
+
+.mobile-nav > ul {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 24px;
+}
+
+.mobile-nav > ul:nth-of-type(2) {
+  flex-direction: row;
+}
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .mobile-nav-overlay {
+    display: block;
+  }
+
+  button {
+    text-transform: uppercase;
+  }
+}

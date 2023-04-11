@@ -1,19 +1,36 @@
-import { useLoader } from '@react-three/fiber'
-import { EffectComposer, DepthOfField, ChromaticAberration, Bloom, LUT, Vignette } from '@react-three/postprocessing'
-import { LUTCubeLoader, BlendFunction, VignetteTechnique } from 'postprocessing'
+import { useLoader, useThree } from "@react-three/fiber";
+import { EffectComposer, LUT, Vignette } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
+import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader";
 
 export function Effects() {
-  const texture = useLoader(LUTCubeLoader, '/F-6800-STD.cube')
+  // KTX2Loader
+  const gl = useThree((state) => state.gl);
+
+  const CustomKTX2Loader = (path) =>
+    useLoader(KTX2Loader, path, (loader) => {
+      loader
+        .setTranscoderPath(
+          `https://cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/basis/`
+        )
+        .detectSupport(gl);
+    });
+
+  // LUTs
+  const lut18 = CustomKTX2Loader("/LUTs/Dozoran.ktx2");
 
   return (
     true && (
-      <EffectComposer dithering stencilBuffer={true} >                  
-        <DepthOfField focusDistance={0.0096} focalLength={0.024} bokehScale={3} height={600} />                
-        <ChromaticAberration blendFunction={BlendFunction.NORMAL} offset={[0.0005, 0.0012]} />
-        <Bloom luminanceThreshold={0.01} mipmapBlur luminanceSmoothing={0} intensity={0.2} />
-        <LUT lut={texture} />            
-        <Vignette offset={0.2} darkness={0.9} />          
-      </EffectComposer>   
+      <>
+        <EffectComposer dithering stencilBuffer={true}>
+          <LUT lut={lut18} />
+          <Vignette
+            offset={0.2}
+            darkness={0.85}
+            blendFunction={BlendFunction.NORMAL}
+          />
+        </EffectComposer>
+      </>
     )
-  )
+  );
 }
