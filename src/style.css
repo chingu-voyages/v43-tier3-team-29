@@ -27,6 +27,7 @@ body,
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: black;
 }
 canvas {
   touch-action: none;
@@ -146,7 +147,7 @@ a:hover {
 
 .fox-loader {
   width: 30%;
-  height: 30%;
+  height: 50%;
 }
 
 .play-icon {
