@@ -25,26 +25,31 @@ const dialogueOptions = [
     id: 0,
     name: "Danney",
     text: "Hello! We are happy to see you on our island.",
+    position: 2.9,
   },
   {
     id: 1,
     name: "Sean",
     text: "We are members of Chingu Voyage 43 and this is a project we built during 6 weeks sprint.",
+    position: 3.7,
   },
   {
     id: 2,
     name: "Jane",
     text: "You can navigate on our island by clicking buttons in our navigation on the left",
+    position: 4.7,
   },
   {
     id: 3,
     name: "Szymon",
     text: "Or just use your mouse or trackpad to scroll",
+    position: 5.3,
   },
   {
     id: 4,
     name: "Zoran",
     text: "Enjoy!",
+    position: 6.7,
   },
 ];
 
@@ -54,12 +59,17 @@ const BubbleDialogue = () => {
   const [dialogueIsOpen, setDialogueIsOpen] = useState(false);
 
   // "Next" button handler
-  const clickHandler = () => {
-    if (dialogueIndex < 4) {
-      setDialogueIndex(dialogueIndex + 1);
-    } else {
-      setDialogueIndex(0);
-    }
+  const clickHandler = (position) => {
+    // if (dialogueIndex < 4) {
+    //   setDialogueIndex(dialogueIndex + 1);
+    // } else {
+    //   setDialogueIndex(0);
+    // }
+
+    cameraMovementSheet.sequence.play({
+      range: [cameraMovementSheet.sequence.position, position],
+      rate: 0.3,
+    });
   };
 
   // Theatre.js
@@ -95,7 +105,13 @@ const BubbleDialogue = () => {
               <span>{dialogueOptions[dialogueIndex].name}: </span>
               {dialogueOptions[dialogueIndex].text}
             </p>
-            <button onClick={clickHandler}>Next</button>
+            <button
+              onClick={() =>
+                clickHandler(dialogueOptions[dialogueIndex].position)
+              }
+            >
+              Next
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, ScrollControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
@@ -14,6 +15,8 @@ import SectionDetails from "./components/Overlay/SectionDetails";
 import BubbleDialogue from "./components/Overlay/BubbleDialogue";
 
 export default function App() {
+  // Section details content toggler
+  const [isTeamSection, setIsTeamSection] = useState(false);
   return (
     <>
       <ScrollingIcon scrollTimeoutValue={300} />
@@ -43,8 +46,11 @@ export default function App() {
       </Canvas>
 
       {/* Overlay */}
-      <Navbar />
-      <SectionDetails />
+      <Navbar setIsTeamSection={setIsTeamSection} />
+      <SectionDetails
+        isTeamSection={isTeamSection}
+        setIsTeamSection={setIsTeamSection}
+      />
       <BubbleDialogue />
     </>
   );

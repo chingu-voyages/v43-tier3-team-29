@@ -51,12 +51,17 @@ const btnsContainer = {
   },
 };
 
-const SectionDetails = () => {
+const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
   // Section details visibility toggler
   const [sectionIsOpen, setSectionIsOpen] = useState(false);
 
-  // Section details content toggler
-  const [isTeamSection, setIsTeamSection] = useState(false);
+  // Instructions click handler
+  const clickHandler = () => {
+    cameraMovementSheet.sequence.play({
+      range: [cameraMovementSheet.sequence.position, 2.1],
+      rate: 0.3,
+    });
+  };
 
   // Theatre.js
   const obj = cameraMovementSheet.object("Section Overlay", {
@@ -110,6 +115,9 @@ const SectionDetails = () => {
             exit="exit"
             className="section-btns"
           >
+            <button className="section-btn" onClick={clickHandler}>
+              Instructions <HiOutlineArrowRight />
+            </button>
             {isTeamSection ? (
               <button
                 onClick={() => setIsTeamSection(false)}

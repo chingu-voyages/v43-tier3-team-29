@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import React from "react";
+import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
 import "./style.css";
@@ -18,19 +18,45 @@ import {
 
 // Nav list
 const navList = [
-  // { title: "Home", icon: <HiOutlineHome /> },
-  { title: "About", icon: <HiOutlineBookOpen /> },
-  { title: "Team", icon: <HiOutlineUsers /> },
-  { title: "Dialogue", icon: <HiOutlineChatAlt2 /> },
-  { title: "Stack", icon: <HiOutlineChip /> },
-  { title: "Portfolio", icon: <HiOutlineDesktopComputer /> },
-  { title: "Credits", icon: <HiOutlineCollection /> },
+  { title: "About", icon: <HiOutlineBookOpen />, position: 1.6 },
+  { title: "Team", icon: <HiOutlineUsers />, position: 1.6 },
+  { title: "Dialogue", icon: <HiOutlineChatAlt2 />, position: 2 },
+  { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
+  { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 1.6 },
+  { title: "Credits", icon: <HiOutlineCollection />, position: 1.6 },
 ];
 
 // Mobile Nav
 import MobileNav from "../MobileNav";
 
-const Navbar = () => {
+const Navbar = ({ setIsTeamSection }) => {
+  // Handle click
+  const handleClick = (btnTitle, position) => {
+    console.log(cameraMovementSheet.sequence.position);
+    console.log("clicking");
+
+    if (btnTitle === "Team") {
+      setIsTeamSection(true);
+    }
+
+    if (btnTitle === "About") {
+      setIsTeamSection(false);
+    }
+
+    if (position < cameraMovementSheet.sequence.position) {
+      cameraMovementSheet.sequence.play({
+        range: [position, cameraMovementSheet.sequence.position],
+        rate: 0.3,
+        direction: "reverse",
+      });
+    } else {
+      cameraMovementSheet.sequence.play({
+        range: [cameraMovementSheet.sequence.position, position],
+        rate: 0.3,
+      });
+    }
+  };
+
   return (
     <header>
       <div className="container">
@@ -44,7 +70,11 @@ const Navbar = () => {
                   navItem.title === "Dialogue" && "navigation-dialogue"
                 }`}
               >
-                <button>{navItem.title}</button>
+                <button
+                  onClick={() => handleClick(navItem.title, navItem.position)}
+                >
+                  {navItem.title}
+                </button>
               </li>
             ))}
           </ul>
