@@ -1,10 +1,6 @@
 import { Suspense, useEffect, useState } from "react";
 import { BsPlayCircleFill } from "react-icons/bs";
 
-// function Ready({ setReady }) {
-//   useEffect(() => () => void setReady(true), []);
-//   return null;
-// }
 
 export default function Intro({ children }) {
   const [clicked, setClicked] = useState(false);
