@@ -22,8 +22,8 @@ const navList = [
   { title: "Team", icon: <HiOutlineUsers />, position: 1.6 },
   { title: "Dialogue", icon: <HiOutlineChatAlt2 />, position: 2 },
   { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
-  { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 1.6 },
-  { title: "Credits", icon: <HiOutlineCollection />, position: 1.6 },
+  { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
+  { title: "Credits", icon: <HiOutlineCollection />, position: 9 },
 ];
 
 // Mobile Nav

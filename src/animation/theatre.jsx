@@ -2,7 +2,7 @@ import studio from "@theatre/studio";
 import extension from "@theatre/r3f/dist/extension";
 import { getProject } from "@theatre/core";
 
-import animationState from "./Apr09_TheatreState2.json";
+import animationState from "./Apr13_TheatreState.json";
 
 export function initTheatreStudio() {
   if (process.env.NODE_ENV === "development") {
