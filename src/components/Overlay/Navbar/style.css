@@ -27,6 +27,10 @@ nav > ul {
   column-gap: 80px;
 }
 
+.navigation-dialogue {
+  display: none;
+}
+
 .navigation > ul {
   flex-direction: row;
   column-gap: 32px;
@@ -62,6 +66,10 @@ button > svg {
 @media only screen and (max-width: 700px) {
   .navigation > ul {
     display: none;
+  }
+
+  .navigation-dialogue {
+    display: inline-block;
   }
 
   .hamburger {

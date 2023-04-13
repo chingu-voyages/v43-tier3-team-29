@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
 import "./style.css";
+
+// Animation variants
+const bubbleContainer = {
+  hidden: {
+    y: 48,
+    opacity: 0,
+  },
+  show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  exit: {
+    y: 48,
+    opacity: 0,
+    transition: { duration: 0.5, delay: 0.5 },
+  },
+};
 
 // Dialogue text
 const dialogueOptions = [
@@ -66,15 +81,24 @@ const BubbleDialogue = () => {
 
   return (
     <>
-      {dialogueIsOpen && (
-        <div className={`bubble-container bubble-container_${dialogueIndex}`}>
-          <p>
-            <span>{dialogueOptions[dialogueIndex].name}: </span>
-            {dialogueOptions[dialogueIndex].text}
-          </p>
-          <button onClick={clickHandler}>Next</button>
-        </div>
-      )}
+      <AnimatePresence>
+        {dialogueIsOpen && (
+          <motion.div
+            variants={bubbleContainer}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            key={`${dialogueIndex}-dialogue`}
+            className={`bubble-container bubble-container_${dialogueIndex}`}
+          >
+            <p>
+              <span>{dialogueOptions[dialogueIndex].name}: </span>
+              {dialogueOptions[dialogueIndex].text}
+            </p>
+            <button onClick={clickHandler}>Next</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

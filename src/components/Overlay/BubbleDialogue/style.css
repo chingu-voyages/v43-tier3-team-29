@@ -11,11 +11,11 @@
   user-select: none;
   overflow: hidden;
   width: 220px;
-  background: rgb(122, 160, 216);
+  background: rgb(27, 33, 30);
   background: linear-gradient(
-    133deg,
-    rgba(122, 160, 216, 0.29) 0%,
-    rgba(13, 34, 67, 0.39) 100%
+    132deg,
+    rgba(27, 33, 30, 0.5) 0%,
+    rgba(25, 37, 30, 0.6) 100%
   );
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
 }
