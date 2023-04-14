@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
 import "./style.css";
@@ -50,8 +51,27 @@ const btnsContainer = {
   },
 };
 
-const SectionDetails = ({ sectionIsOpen }) => {
+const SectionDetails = () => {
+  // Section details visibility toggler
+  const [sectionIsOpen, setSectionIsOpen] = useState(false);
+
+  // Section details content toggler
   const [isTeamSection, setIsTeamSection] = useState(false);
+
+  // Theatre.js
+  const obj = cameraMovementSheet.object("Section Overlay", {
+    visible: false,
+  });
+
+  useEffect(() => {
+    return obj.onValuesChange((obj) => {
+      if (obj.visible == true) {
+        setSectionIsOpen(true);
+      } else {
+        setSectionIsOpen(false);
+      }
+    });
+  }, [obj]);
 
   return (
     <AnimatePresence mode="wait">

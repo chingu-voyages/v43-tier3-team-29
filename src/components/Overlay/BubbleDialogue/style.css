@@ -1,4 +1,5 @@
-.bubble-container > div {
+.bubble-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -19,20 +20,39 @@
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
 }
 
-.bubble-container.bubble-container_2 > div {
+.bubble-container.bubble-container_0 {
+  top: 11%;
+  left: 50%;
+}
+
+.bubble-container.bubble-container_1 {
+  top: 11%;
+  left: 50%;
+}
+
+.bubble-container.bubble-container_2 {
+  top: 11%;
+  left: 65%;
+}
+
+.bubble-container.bubble-container_3 {
+  top: 11%;
+  left: 40%;
   border-radius: 30px 30px 5px 30px;
 }
 
-.bubble-container.bubble-container_4 > div {
+.bubble-container.bubble-container_4 {
+  top: 50%;
+  left: 60%;
   border-radius: 5px 30px 30px 30px;
 }
 
-.bubble-container > div > p > span {
+.bubble-container > p > span {
   font-weight: 500;
   color: darkred;
 }
 
-.bubble-container > div > button {
+.bubble-container > button {
   cursor: pointer;
   background: none;
   border: 1px solid rgb(164, 164, 164);
