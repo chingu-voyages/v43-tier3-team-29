@@ -73,5 +73,3 @@ const Frog = () => {
 };
 
 export default Frog;
-
-const frogRotations = [];

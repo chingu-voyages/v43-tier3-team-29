@@ -15,6 +15,7 @@ import Board from './components/Board/Board';
 import { val } from '@theatre/core';
 import { cameraMovementSheet } from './animation/theatre';
 import { editable as e, PerspectiveCamera } from '@theatre/r3f';
+import Frog from './components/Frog/Frog';
 
 export function Experience() {
   const [ready, setReady] = useState(false);
