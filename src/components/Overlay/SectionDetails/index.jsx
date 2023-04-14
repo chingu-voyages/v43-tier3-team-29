@@ -51,7 +51,10 @@ const btnsContainer = {
   },
 };
 
-const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
+const SectionDetails = () => {
+  // Section details content toggler
+  const [section, setSection] = useState("about");
+
   // Section details visibility toggler
   const [sectionIsOpen, setSectionIsOpen] = useState(false);
 
@@ -66,6 +69,7 @@ const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
   // Theatre.js
   const obj = cameraMovementSheet.object("Section Overlay", {
     visible: false,
+    section: "about",
   });
 
   useEffect(() => {
@@ -74,6 +78,14 @@ const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
         setSectionIsOpen(true);
       } else {
         setSectionIsOpen(false);
+      }
+
+      if (obj.section === "about") {
+        setSection("about");
+      } else if (obj.section === "team") {
+        setSection("team");
+      } else {
+        setSection("credits");
       }
     });
   }, [obj]);
@@ -86,7 +98,13 @@ const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
           initial="hidden"
           animate="show"
           exit="exit"
-          key={isTeamSection ? "team-section" : "about-section"}
+          key={
+            section === "team"
+              ? "team-section"
+              : section === "about"
+              ? "about-section"
+              : "credits-section"
+          }
           className="section-overlay"
         >
           <motion.div
@@ -96,16 +114,24 @@ const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
             exit="exit"
             className="section-text"
           >
-            <h1>{isTeamSection ? "Our team" : "About us"}</h1>
-            {isTeamSection ? (
+            <h1>
+              {section === "team"
+                ? "Our team"
+                : section === "about"
+                ? "About us"
+                : "credits"}
+            </h1>
+            {section === "team" ? (
               <TeamCarousel />
-            ) : (
+            ) : section === "about" ? (
               <p>
                 The app was build during the wonderful Voyage which was
                 organized by Jim Medlock and his awesome team. Thanks to this
                 opportunity we gained confidence and levelled up soft and
                 technical skills to face any future challenges.
               </p>
+            ) : (
+              <p>Credits</p>
             )}
           </motion.div>
           <motion.div
@@ -115,24 +141,26 @@ const SectionDetails = ({ isTeamSection, setIsTeamSection }) => {
             exit="exit"
             className="section-btns"
           >
-            <button className="section-btn" onClick={clickHandler}>
-              Instructions <HiOutlineArrowRight />
-            </button>
-            {isTeamSection ? (
+            {section === "credits" && (
+              <button className="section-btn" onClick={clickHandler}>
+                Instructions <HiOutlineArrowRight />
+              </button>
+            )}
+            {section === "team" ? (
               <button
-                onClick={() => setIsTeamSection(false)}
+                onClick={() => setSection("about")}
                 className="section-btn"
               >
                 About <HiOutlineArrowRight />
               </button>
-            ) : (
+            ) : section === "about" ? (
               <button
-                onClick={() => setIsTeamSection(true)}
+                onClick={() => setSection("team")}
                 className="section-btn"
               >
                 Our team <HiOutlineArrowRight />
               </button>
-            )}
+            ) : null}
             <a className="section-btn" href="/">
               github repo <HiOutlineArrowRight />
             </a>

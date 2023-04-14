@@ -29,20 +29,9 @@ const navList = [
 // Mobile Nav
 import MobileNav from "../MobileNav";
 
-const Navbar = ({ setIsTeamSection }) => {
+const Navbar = () => {
   // Handle click
-  const handleClick = (btnTitle, position) => {
-    console.log(cameraMovementSheet.sequence.position);
-    console.log("clicking");
-
-    if (btnTitle === "Team") {
-      setIsTeamSection(true);
-    }
-
-    if (btnTitle === "About") {
-      setIsTeamSection(false);
-    }
-
+  const handleClick = (position) => {
     if (position < cameraMovementSheet.sequence.position) {
       cameraMovementSheet.sequence.play({
         range: [position, cameraMovementSheet.sequence.position],
@@ -70,9 +59,7 @@ const Navbar = ({ setIsTeamSection }) => {
                   navItem.title === "Dialogue" && "navigation-dialogue"
                 }`}
               >
-                <button
-                  onClick={() => handleClick(navItem.title, navItem.position)}
-                >
+                <button onClick={() => handleClick(navItem.position)}>
                   {navItem.title}
                 </button>
               </li>
