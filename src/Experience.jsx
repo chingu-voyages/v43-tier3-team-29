@@ -49,7 +49,7 @@ export function Experience() {
 
       <e.group theatreKey="CameraTarget" ref={islandRef} position={[0, 0, 5]} />
 
-      <CustomText3D text="Portfolio" />
+      <CustomText3D text="Voyage #43" />
 
       <group position={[0, 0, 0]}>
         <RandomClouds amount={5} />
