@@ -12,7 +12,6 @@ import { cameraMovementSheet } from "./animation/theatre";
 // Overlay
 import Navbar from "./components/Overlay/Navbar";
 import SectionDetails from "./components/Overlay/SectionDetails";
-import BubbleDialogue from "./components/Overlay/BubbleDialogue";
 
 export default function App() {
   return (
@@ -46,7 +45,6 @@ export default function App() {
       {/* Overlay */}
       <Navbar />
       <SectionDetails />
-      <BubbleDialogue />
     </>
   );
 }

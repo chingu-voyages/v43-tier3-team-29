@@ -54,25 +54,9 @@ button > svg {
   cursor: pointer;
 }
 
-.hamburger {
-  display: none;
-}
-
-.hamburger > svg {
-  fill: rgb(164, 164, 164);
-}
-
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .navigation > ul {
     display: none;
-  }
-
-  .navigation-dialogue {
-    display: inline-block;
-  }
-
-  .hamburger {
-    display: block;
   }
 }

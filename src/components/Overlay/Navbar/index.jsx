@@ -18,9 +18,8 @@ import {
 
 // Nav list
 const navList = [
-  { title: "About", icon: <HiOutlineBookOpen />, position: 1.6 },
-  { title: "Team", icon: <HiOutlineUsers />, position: 1.6 },
-  { title: "Dialogue", icon: <HiOutlineChatAlt2 />, position: 2 },
+  { title: "About", icon: <HiOutlineBookOpen />, position: 0.6 },
+  { title: "Team", icon: <HiOutlineUsers />, position: 2.1 },
   { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
   { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
   { title: "Credits", icon: <HiOutlineCollection />, position: 9 },
@@ -53,12 +52,7 @@ const Navbar = () => {
           {/* Sections navigation */}
           <ul>
             {navList.map((navItem, index) => (
-              <li
-                key={`${index}-navLink`}
-                className={`${
-                  navItem.title === "Dialogue" && "navigation-dialogue"
-                }`}
-              >
+              <li key={`${index}-navLink`}>
                 <button onClick={() => handleClick(navItem.position)}>
                   {navItem.title}
                 </button>

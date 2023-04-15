@@ -21,6 +21,12 @@ export function Experience() {
   useEffect(() => {
     // without this, the PositionalAudio causes an error
     setTimeout(() => setReady(true), 2000);
+
+    // Sequence nimation
+    cameraMovementSheet.sequence.play({
+      range: [0, 0.7],
+      rate: 0.3,
+    });
   }, []);
 
   const islandRef = useRef();
