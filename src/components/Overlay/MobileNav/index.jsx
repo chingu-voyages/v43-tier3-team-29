@@ -1,4 +1,5 @@
 import React from "react";
+import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
 import "./style.css";
@@ -7,6 +8,21 @@ import "./style.css";
 import { HiOutlineSun, HiOutlineMusicNote } from "react-icons/hi";
 
 const MobileNav = ({ navList }) => {
+  const handleClick = (position) => {
+    if (position < cameraMovementSheet.sequence.position) {
+      cameraMovementSheet.sequence.play({
+        range: [position, cameraMovementSheet.sequence.position],
+        rate: 0.3,
+        direction: "reverse",
+      });
+    } else {
+      cameraMovementSheet.sequence.play({
+        range: [cameraMovementSheet.sequence.position, position],
+        rate: 0.3,
+      });
+    }
+  };
+
   return (
     <div className="mobile-nav-overlay">
       <nav className="mobile-nav">
@@ -14,7 +30,12 @@ const MobileNav = ({ navList }) => {
         <ul>
           {navList.map((navItem, index) => (
             <li key={`${index}-mobileNavLink`}>
-              <button aria-label={navItem.title}>{navItem.icon}</button>
+              <button
+                onClick={() => handleClick(navItem.position)}
+                aria-label={navItem.title}
+              >
+                {navItem.icon}
+              </button>
             </li>
           ))}
         </ul>
