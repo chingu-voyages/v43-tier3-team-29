@@ -1,4 +1,4 @@
-import { Text3D, useMatcapTexture, Center } from "@react-three/drei";
+import { Text3D, useTexture } from "@react-three/drei";
 
 /** Displaying 3D text */
 export function CustomText3D({
@@ -8,8 +8,7 @@ export function CustomText3D({
   ...props
 }) {
   // matcapTexture from here: https://github.com/emmelleppi/matcaps
-  const [matcapTexture] = useMatcapTexture("C47004_F9D00C_EDAF04_E09704", 256);
-
+  const matcapTexture = useTexture("./images/matcap.png");
   return (
     <>
       <Text3D
@@ -23,12 +22,17 @@ export function CustomText3D({
         bevelOffset={0}
         bevelSegments={1}
         letterSpacing={0.2}
-        position={[5, 30, 0]}
-        rotation={[1.55, -Math.PI + 0, 0.3]}
+        position={[-15, 22, 12]}
+        rotation={[1.55, -Math.PI + 0, 2.7]}
         {...props}
       >
         {text}
-        <meshMatcapMaterial matcap={matcapTexture} wireframes={true} />
+        <meshMatcapMaterial
+          matcap={matcapTexture}
+          wireframes={true}
+          transparent
+          opacity={0.8}
+        />
       </Text3D>
     </>
   );
