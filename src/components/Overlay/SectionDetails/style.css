@@ -69,3 +69,15 @@
     font-size: 16px;
   }
 }
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  list-style: none;
+}
+
+a {
+  font-size: 18px;
+  color: rgb(164, 164, 164);
+}
