@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 // Icons
 import {
@@ -14,13 +13,7 @@ import "./style.css";
 
 const TeamCarouselItem = ({ member }) => {
   return (
-    <motion.div
-      initial={{ x: 24, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -24, opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="carousel"
-    >
+    <div className="carousel">
       <img src={member.image} alt="" />
       <div className="member-details">
         <p>{member.name}</p>
@@ -39,7 +32,7 @@ const TeamCarouselItem = ({ member }) => {
           </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

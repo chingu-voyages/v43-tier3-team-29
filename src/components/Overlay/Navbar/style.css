@@ -27,6 +27,10 @@ nav > ul {
   column-gap: 80px;
 }
 
+.navigation-dialogue {
+  display: none;
+}
+
 .navigation > ul {
   flex-direction: row;
   column-gap: 32px;
@@ -50,21 +54,9 @@ button > svg {
   cursor: pointer;
 }
 
-.hamburger {
-  display: none;
-}
-
-.hamburger > svg {
-  fill: rgb(164, 164, 164);
-}
-
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .navigation > ul {
     display: none;
-  }
-
-  .hamburger {
-    display: block;
   }
 }

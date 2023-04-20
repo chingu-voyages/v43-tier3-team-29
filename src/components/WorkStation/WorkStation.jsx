@@ -96,7 +96,7 @@ export function WorkStation() {
   useEffect(() => {
     if (!theatreObject) return;
     const unsubscribe = theatreObject.onValuesChange((newValues) => {
-      if (newValues.foo > 0.4 && newValues.foo < 0.8) {
+      if (newValues.foo > 0.79265 && newValues.foo < 0.865) {
         setHtmlVisible(true);
       } else {
         setHtmlVisible(false);

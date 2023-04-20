@@ -1,16 +1,15 @@
 .mobile-nav-overlay {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 2.5%;
-  width: 95%;
-  margin-top: 32px;
+  top: 50%;
+  right: 2.5%;
+  transform: translateY(50%);
   border-radius: 20px;
-  background: rgb(122, 160, 216);
+  background: rgb(27, 33, 30);
   background: linear-gradient(
-    133deg,
-    rgba(122, 160, 216, 0.29) 0%,
-    rgba(13, 34, 67, 0.39) 100%
+    132deg,
+    rgba(27, 33, 30, 0.5) 0%,
+    rgba(25, 37, 30, 0.6) 100%
   );
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
   z-index: 10000;
@@ -20,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 48px 32px;
+  margin: 32px 16px;
   row-gap: 48px;
 }
 
@@ -30,8 +29,9 @@
   row-gap: 24px;
 }
 
-.mobile-nav > ul:nth-of-type(2) {
-  flex-direction: row;
+.mobile-nav > ul > li > button > svg {
+  height: 20px;
+  width: 20px;
 }
 
 /* For screens less than 700px */

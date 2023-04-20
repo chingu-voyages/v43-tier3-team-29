@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import React from "react";
+import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
 import "./style.css";
@@ -8,75 +8,75 @@ import "./style.css";
 import {
   HiOutlineSun,
   HiOutlineMusicNote,
-  HiMenu,
-  HiOutlineX,
-  HiOutlineHome,
   HiOutlineUsers,
   HiOutlineDesktopComputer,
-  HiOutlineMail,
+  HiOutlineBookOpen,
+  HiOutlineChip,
+  HiOutlineCollection,
+  HiOutlineChatAlt2,
 } from "react-icons/hi";
 
 // Nav list
 const navList = [
-  { title: "Home", icon: <HiOutlineHome /> },
-  { title: "About", icon: <HiOutlineUsers /> },
-  { title: "Portfolio", icon: <HiOutlineDesktopComputer /> },
-  { title: "Contact", icon: <HiOutlineMail /> },
+  { title: "About", icon: <HiOutlineBookOpen />, position: 0.6 },
+  { title: "Team", icon: <HiOutlineUsers />, position: 2.1 },
+  { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
+  { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
+  { title: "Credits", icon: <HiOutlineCollection />, position: 9 },
 ];
 
 // Mobile Nav
 import MobileNav from "../MobileNav";
 
 const Navbar = () => {
-  // Mobile navbar state
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Hamburger icon click handler
-  const handleHamburgerClick = () => {
-    setIsOpen(!isOpen);
+  // Handle click
+  const handleClick = (position) => {
+    if (position < cameraMovementSheet.sequence.position) {
+      cameraMovementSheet.sequence.play({
+        range: [position, cameraMovementSheet.sequence.position],
+        rate: 0.3,
+        direction: "reverse",
+      });
+    } else {
+      cameraMovementSheet.sequence.play({
+        range: [cameraMovementSheet.sequence.position, position],
+        rate: 0.3,
+      });
+    }
   };
 
   return (
-    <header>
+    <header className="header">
       <div className="container">
         <nav className="navigation">
           {/* Sections navigation */}
           <ul>
             {navList.map((navItem, index) => (
               <li key={`${index}-navLink`}>
-                <button>{navItem.title}</button>
+                <button onClick={() => handleClick(navItem.position)}>
+                  {navItem.title}
+                </button>
               </li>
             ))}
           </ul>
 
           {/* Theme toggler & Sound Level Control */}
           <ul>
-            <li>
+            {/* <li>
               <button aria-label="theme toggler">
                 <HiOutlineSun />
               </button>
-            </li>
+            </li> */}
             <li>
               <button aria-label="sound level control">
                 <HiOutlineMusicNote />
               </button>
             </li>
           </ul>
-
-          {/* Mobile menu toggle button */}
-          <button
-            onClick={handleHamburgerClick}
-            className="hamburger"
-            aria-label="sound level control"
-          >
-            {isOpen ? <HiOutlineX /> : <HiMenu />}
-          </button>
         </nav>
 
         {/* Mobile menu */}
-        <AnimatePresence>
-          {isOpen && <MobileNav navList={navList} />}
-        </AnimatePresence>
+        <MobileNav navList={navList} />
       </div>
     </header>
   );

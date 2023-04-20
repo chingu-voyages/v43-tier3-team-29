@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
 
+* {
+  /* cursor: none; */
+}
+
 *,
 ::after,
 ::before {
@@ -29,6 +33,11 @@ body,
   overflow: hidden;
   background-color: black;
 }
+
+body {
+  position: relative;
+}
+
 canvas {
   touch-action: none;
 }
@@ -157,7 +166,5 @@ a:hover {
 }
 
 .play-icon:hover {
-    color: rgb(253, 30, 0);
-
+  color: rgb(253, 30, 0);
 }
-
