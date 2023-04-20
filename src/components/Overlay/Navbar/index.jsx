@@ -46,7 +46,7 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header className="header">
       <div className="container">
         <nav className="navigation">
           {/* Sections navigation */}

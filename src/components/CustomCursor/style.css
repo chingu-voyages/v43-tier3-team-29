@@ -1,0 +1,37 @@
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-in-out;
+  transition-property: width, height, border;
+  will-change: width, height, transform, border;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.custom {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(164, 164, 164);
+}
+
+.pointer {
+  width: 25px;
+  height: 25px;
+  background: rgb(164, 164, 164);
+  border: 2px solid rgb(164, 164, 164);
+}
+
+svg {
+  height: 40px;
+  width: 40px;
+}
+
+.pointer > svg {
+  display: none;
+}

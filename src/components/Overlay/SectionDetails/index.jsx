@@ -24,7 +24,7 @@ const SectionDetails = () => {
   const [sectionIsOpen, setSectionIsOpen] = useState(false);
 
   // Sequence stops: team1, team2, team3, team4, team5, stack
-  const stops = [2.1, 3.1, 3.8, 4.7, 5.3, 6.7];
+  const stops = [2.1, 3.1, 3.8, 4.7, 5.3, 6.7, 11];
 
   // Instructions click handler
   const clickHandler = () => {
