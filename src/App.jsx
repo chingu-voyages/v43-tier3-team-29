@@ -21,11 +21,14 @@ import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   // Custom cursor state
+
+  console.log(cameraMovementSheet.sequence.position);
+
   const [cursorType, setCursorType] = useState("pointer");
 
   const handleClick = () => {
     // Sequence stops: team1, team2, team3, team4, team5, stack
-    const stops = [0.6, 2.1, 3.1, 3.8, 4.7, 5.3, 6.7, 7.8, 9, 11];
+    const stops = [0.6, 2.1, 3.1, 3.8, 4.7, 5.3, 6.1, 6.7, 7.8, 9, 11];
 
     if (cursorType === "custom") {
       if (cameraMovementSheet.sequence.position < stops[stops.length - 1]) {
