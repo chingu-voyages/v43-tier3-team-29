@@ -58,7 +58,7 @@ export default function App() {
         onClick={handleClick}
       >
         <color args={["#111111"]} attach="background" />
-        <Perf position="top-left" />
+        {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
           <Experience />
         </SheetProvider>
