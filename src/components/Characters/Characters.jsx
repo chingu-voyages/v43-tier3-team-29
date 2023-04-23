@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Character from "./Character";
+import { cameraMovementSheet } from "../../animation/theatre";
 
 // Temp
 import { useGLTF } from "@react-three/drei";
@@ -9,6 +10,20 @@ const Characters = () => {
   const chair = useGLTF("./models/tempProps/chair-v1-transformed.glb");
   const cooler = useGLTF("./models/tempProps/cooler-v1-transformed.glb");
 
+  // Danney's animation
+  const [animationName, setAnimationName] = useState("Idle");
+
+  // Theatre.js
+  const obj = cameraMovementSheet.object("DanneyAnimation", {
+    animationName: "Idle",
+  });
+
+  useEffect(() => {
+    return obj.onValuesChange((obj) => {
+      setAnimationName(obj.animationName);
+    });
+  }, [obj]);
+
   return (
     <>
       {/* Character 1 / Danney */}
@@ -17,7 +32,7 @@ const Characters = () => {
         scale={1.2}
         position={[-10.8, -1, 23]}
         rotation={[0, -0.3, 0]}
-        actionName="Idle"
+        actionName={animationName}
       />
       {/* Character 2 / Sean */}
       <Character
