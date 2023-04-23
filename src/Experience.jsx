@@ -54,7 +54,13 @@ export function Experience() {
       <group position={[0, 0, 0]}>
         <RandomClouds amount={5} />
         {ready && (
-          <PositionalAudio autoplay loop url="audio/Wind.mp3" distance={1} />
+          <PositionalAudio
+            position={[0, 125, 0]}
+            autoplay
+            loop
+            url="audio/Wind.mp3"
+            distance={0.15}
+          />
         )}
       </group>
 
