@@ -1,19 +1,16 @@
 import React from "react";
-import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
 import "./style.css";
 
 // Icons
 import {
-  HiOutlineSun,
   HiOutlineMusicNote,
   HiOutlineUsers,
   HiOutlineDesktopComputer,
   HiOutlineBookOpen,
   HiOutlineChip,
   HiOutlineCollection,
-  HiOutlineChatAlt2,
 } from "react-icons/hi";
 
 // Nav list
@@ -28,23 +25,10 @@ const navList = [
 // Mobile Nav
 import MobileNav from "../MobileNav";
 
-const Navbar = () => {
-  // Handle click
-  const handleClick = (position) => {
-    if (position < cameraMovementSheet.sequence.position) {
-      cameraMovementSheet.sequence.play({
-        range: [position, cameraMovementSheet.sequence.position],
-        rate: 0.3,
-        direction: "reverse",
-      });
-    } else {
-      cameraMovementSheet.sequence.play({
-        range: [cameraMovementSheet.sequence.position, position],
-        rate: 0.3,
-      });
-    }
-  };
+// Helpers
+import changeCameraPosition from "../../../helpers/changeCameraPosition";
 
+const Navbar = () => {
   return (
     <header className="header">
       <div className="container">
@@ -53,7 +37,7 @@ const Navbar = () => {
           <ul>
             {navList.map((navItem, index) => (
               <li key={`${index}-navLink`}>
-                <button onClick={() => handleClick(navItem.position)}>
+                <button onClick={() => changeCameraPosition(navItem.position)}>
                   {navItem.title}
                 </button>
               </li>
