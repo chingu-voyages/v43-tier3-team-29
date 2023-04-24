@@ -46,12 +46,28 @@ button {
   cursor: pointer;
 }
 
-button > svg {
+.sound_control {
+  position: relative;
+}
+
+.sound_control > svg {
   display: block;
   height: 24px;
   width: 24px;
   stroke: rgb(164, 164, 164);
   cursor: pointer;
+}
+
+.no-sound.sound_control::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg) translate(0, -50%);
+  display: block;
+  height: 3px;
+  width: 110%;
+  background: rgb(164, 164, 164);
 }
 
 /* For screens less than 700px */

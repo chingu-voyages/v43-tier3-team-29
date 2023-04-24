@@ -28,7 +28,7 @@ import MobileNav from "../MobileNav";
 // Helpers
 import changeCameraPosition from "../../../helpers/changeCameraPosition";
 
-const Navbar = () => {
+const Navbar = ({ soundLevel, controlIsVisible, setControlIsVisible }) => {
   return (
     <header className="header">
       <div className="container">
@@ -52,7 +52,11 @@ const Navbar = () => {
               </button>
             </li> */}
             <li>
-              <button aria-label="sound level control">
+              <button
+                className={`sound_control ${soundLevel == 0 && "no-sound"}`}
+                aria-label="sound level control"
+                onClick={() => setControlIsVisible(!controlIsVisible)}
+              >
                 <HiOutlineMusicNote />
               </button>
             </li>

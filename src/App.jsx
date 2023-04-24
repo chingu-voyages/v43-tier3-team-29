@@ -19,7 +19,14 @@ import SectionDetails from "./components/Overlay/SectionDetails";
 // Custom cursor
 import CustomCursor from "./components/CustomCursor";
 
+// Sound control
+import SoundControl from "./components/Overlay/SoundControl";
+
 export default function App() {
+  // Sound level
+  const [soundLevel, setSoundLevel] = useState(1);
+  const [controlIsVisible, setControlIsVisible] = useState(false);
+
   // Custom cursor state
   const [cursorType, setCursorType] = useState("pointer");
 
@@ -63,11 +70,20 @@ export default function App() {
       </Canvas>
 
       {/* Overlay */}
-      <Navbar />
+      <Navbar
+        soundLevel={soundLevel}
+        controlIsVisible={controlIsVisible}
+        setControlIsVisible={setControlIsVisible}
+      />
       <SectionDetails />
 
       {/* Custom cursor */}
       <CustomCursor cursorType={cursorType} />
+
+      {/* Sound Control */}
+      {controlIsVisible && (
+        <SoundControl soundLevel={soundLevel} setSoundLevel={setSoundLevel} />
+      )}
     </>
   );
 }
