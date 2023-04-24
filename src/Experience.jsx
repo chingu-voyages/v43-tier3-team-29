@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { AudioLoader } from "three";
 import { PositionalAudio } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
@@ -12,11 +12,20 @@ import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
 import Board from "./components/Board/Board";
+import { cameraMovementSheet } from "./animation/theatre";
 import { editable as e, PerspectiveCamera } from "@theatre/r3f";
 import Frog from "./components/Frog/Frog";
 
 export function Experience({ ready }) {
   const islandRef = useRef();
+
+  useEffect(() => {
+    // Sequence Animation
+    cameraMovementSheet.sequence.play({
+      range: [0, 0.7],
+      rate: 0.3,
+    });
+  }, []);
 
   return (
     <>
