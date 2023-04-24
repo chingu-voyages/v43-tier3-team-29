@@ -13,6 +13,10 @@ header {
   margin: 32px 0;
 }
 
+nav {
+  position: relative;
+}
+
 nav > ul {
   list-style: none;
   display: flex;
