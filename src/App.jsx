@@ -22,7 +22,7 @@ import CustomCursor from "./components/CustomCursor";
 // Sound control
 import SoundControl from "./components/Overlay/SoundControl";
 
-export default function App() {
+export default function App({ ready }) {
   // Sound level
   const [soundLevel, setSoundLevel] = useState(1);
   const [controlIsVisible, setControlIsVisible] = useState(false);
@@ -64,7 +64,7 @@ export default function App() {
         <color args={["#111111"]} attach="background" />
         {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
-          <Experience />
+          <Experience ready={ready} />
         </SheetProvider>
         <Effects />
       </Canvas>
