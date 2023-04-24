@@ -21,10 +21,14 @@ export function Experience({ ready }) {
 
   useEffect(() => {
     // Sequence Animation
-    cameraMovementSheet.sequence.play({
-      range: [0, 0.7],
-      rate: 0.3,
-    });
+    setTimeout(
+      () =>
+        cameraMovementSheet.sequence.play({
+          range: [0, 0.7],
+          rate: 0.3,
+        }),
+      2000
+    );
   }, []);
 
   return (
