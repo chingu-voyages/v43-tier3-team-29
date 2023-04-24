@@ -17,6 +17,7 @@
 <div align="center"><img src="https://i.ibb.co/m6LX6hq/intro.jpg" width="800"></img></div>
 
 
+
 ## 😀 User Can
 
 - [x] use navigation and custom cursor to move throught different sections on the website
