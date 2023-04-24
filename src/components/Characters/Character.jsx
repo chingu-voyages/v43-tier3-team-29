@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
+import * as THREE from "three";
 
 const Character = ({ path, scale, position, rotation, actionName }) => {
   const group = useRef();
@@ -11,8 +12,16 @@ const Character = ({ path, scale, position, rotation, actionName }) => {
   // Animate
   useEffect(() => {
     const action = actions[actionName];
-    action.play();
-  }, []);
+    if (actionName === "Waving") {
+      action.reset().fadeIn(0.5).play();
+    } else {
+      action.reset().fadeIn(0.5).play();
+    }
+
+    return () => {
+      action.fadeOut(0.5);
+    };
+  }, [actionName]);
 
   return (
     <group

@@ -1,51 +1,82 @@
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, ScrollControls } from "@react-three/drei";
-import { Perf } from "r3f-perf";
 import { Experience } from "./Experience";
-import { Effects } from "./components/PostProcessing/Effects";
-import { ScrollingIcon } from "./components/ScrollingIcon/ScrollingIcon";
 
+// Performance
+import { Perf } from "r3f-perf";
+
+// Post precessing
+import { Effects } from "./components/PostProcessing/Effects";
+
+// Theatre js
 import { editable as e, SheetProvider } from "@theatre/r3f";
 import { cameraMovementSheet } from "./animation/theatre";
 
 // Overlay
 import Navbar from "./components/Overlay/Navbar";
 import SectionDetails from "./components/Overlay/SectionDetails";
-import BubbleDialogue from "./components/Overlay/BubbleDialogue";
 
-export default function App() {
+// Custom cursor
+import CustomCursor from "./components/CustomCursor";
+
+export default function App({ ready }) {
+  // Sound level
+  const [soundLevel, setSoundLevel] = useState(1);
+  const [controlIsVisible, setControlIsVisible] = useState(false);
+
+  // Custom cursor state
+  const [cursorType, setCursorType] = useState("pointer");
+
+  const handleClick = () => {
+    // Sequence stops: team1, team2, team3, team4, team5, stack
+    const stops = [0.6, 2.1, 3.1, 3.8, 4.7, 5.3, 6.1, 6.7, 7.8, 9, 11];
+
+    if (cursorType === "custom") {
+      if (cameraMovementSheet.sequence.position < stops[stops.length - 1]) {
+        cameraMovementSheet.sequence.play({
+          range: [
+            cameraMovementSheet.sequence.position,
+            stops.find((stop) => stop > cameraMovementSheet.sequence.position),
+          ],
+          rate: 0.3,
+        });
+      } else {
+        cameraMovementSheet.sequence.play({
+          range: [0, stops[0]],
+          rate: 0.3,
+        });
+      }
+    }
+  };
+
   return (
     <>
-      <ScrollingIcon scrollTimeoutValue={300} />
+      {/* Canvas */}
       <Canvas
         shadows
-        // camera={{
-        //   position: [-5, 20, -110],
-        //   fov: 35,
-        // }}
+        onMouseEnter={() => setCursorType("custom")}
+        onMouseLeave={() => setCursorType("pointer")}
+        onClick={handleClick}
       >
         <color args={["#111111"]} attach="background" />
-        {/* <OrbitControls makeDefault target={[0, 0, 5]} zoomSpeed={0.25} /> */}
-        <Perf position="top-left" />
-        {/* <ambientLight color={0x217dc4} intensity={0.05} /> */}
+        {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
-          <ScrollControls
-            infinite
-            pages={4}
-            distance={2}
-            maxSpeed={0.3}
-            damping={0.35}
-          >
-            <Experience />
-          </ScrollControls>
+          <Experience ready={ready} />
         </SheetProvider>
         <Effects />
       </Canvas>
 
       {/* Overlay */}
-      <Navbar />
+      <Navbar
+        soundLevel={soundLevel}
+        setSoundLevel={setSoundLevel}
+        controlIsVisible={controlIsVisible}
+        setControlIsVisible={setControlIsVisible}
+      />
       <SectionDetails />
-      <BubbleDialogue />
+
+      {/* Custom cursor */}
+      <CustomCursor cursorType={cursorType} />
     </>
   );
 }

@@ -13,6 +13,10 @@ header {
   margin: 32px 0;
 }
 
+nav {
+  position: relative;
+}
+
 nav > ul {
   list-style: none;
   display: flex;
@@ -25,6 +29,10 @@ nav > ul {
   flex-direction: row;
   justify-content: end;
   column-gap: 80px;
+}
+
+.navigation-dialogue {
+  display: none;
 }
 
 .navigation > ul {
@@ -42,7 +50,11 @@ button {
   cursor: pointer;
 }
 
-button > svg {
+.sound_control {
+  position: relative;
+}
+
+.sound_control > svg {
   display: block;
   height: 24px;
   width: 24px;
@@ -50,21 +62,21 @@ button > svg {
   cursor: pointer;
 }
 
-.hamburger {
-  display: none;
-}
-
-.hamburger > svg {
-  fill: rgb(164, 164, 164);
+.no-sound.sound_control::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg) translate(0, -50%);
+  display: block;
+  height: 3px;
+  width: 110%;
+  background: rgb(164, 164, 164);
 }
 
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .navigation > ul {
     display: none;
-  }
-
-  .hamburger {
-    display: block;
   }
 }

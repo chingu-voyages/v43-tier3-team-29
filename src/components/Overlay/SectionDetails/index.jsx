@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+// Theatre.js & Framer motion
 import { AnimatePresence, motion } from "framer-motion";
 import { cameraMovementSheet } from "../../../animation/theatre";
 
@@ -8,59 +10,37 @@ import "./style.css";
 // Icons
 import { HiOutlineArrowRight } from "react-icons/hi";
 
-// Components
-import TeamCarousel from "../TeamCarousel";
-
 // Animation variants
-const overlayContainer = {
-  hidden: {
-    x: -48,
-    opacity: 0,
-  },
-  show: { x: 0, opacity: 1, transition: { duration: 0.5 } },
-  exit: {
-    x: -48,
-    opacity: 0,
-    transition: { duration: 0.5, delay: 0.5 },
-  },
-};
+import { overlayContainer, textContainer, btnsContainer } from "./animations";
 
-const textContainer = {
-  hidden: {
-    y: -24,
-    opacity: 0,
-  },
-  show: { y: 0, opacity: 1, transition: { duration: 0.5, delay: 0.5 } },
-  exit: {
-    y: -24,
-    opacity: 0,
-    transition: { duration: 0.5 },
-  },
-};
-
-const btnsContainer = {
-  hidden: {
-    y: 24,
-    opacity: 0,
-  },
-  show: { y: 0, opacity: 1, transition: { duration: 0.5, delay: 0.5 } },
-  exit: {
-    y: 24,
-    opacity: 0,
-    transition: { duration: 0.5 },
-  },
-};
+// Section content Data
+import sectionsContentData from "./sectionContentData";
 
 const SectionDetails = () => {
-  // Section details visibility toggler
+  // Section details content toggler: about, team, credits
+  const [section, setSection] = useState("about");
+
+  // Section details overlay visibility toggler
   const [sectionIsOpen, setSectionIsOpen] = useState(false);
 
-  // Section details content toggler
-  const [isTeamSection, setIsTeamSection] = useState(false);
+  // Sequence stops: team1, team2, team3, team4, team5, stack
+  const stops = [2.1, 3.1, 3.8, 4.7, 5.3, 6.7, 11];
+
+  // Instructions click handler
+  const clickHandler = () => {
+    cameraMovementSheet.sequence.play({
+      range: [
+        cameraMovementSheet.sequence.position,
+        stops.find((stop) => stop > cameraMovementSheet.sequence.position),
+      ],
+      rate: 0.3,
+    });
+  };
 
   // Theatre.js
   const obj = cameraMovementSheet.object("Section Overlay", {
     visible: false,
+    section: "about",
   });
 
   useEffect(() => {
@@ -70,67 +50,63 @@ const SectionDetails = () => {
       } else {
         setSectionIsOpen(false);
       }
+
+      if (obj.section === "about") {
+        setSection("about");
+      } else if (obj.section === "team") {
+        setSection("team");
+      } else {
+        setSection("credits");
+      }
     });
   }, [obj]);
 
   return (
     <AnimatePresence mode="wait">
-      {sectionIsOpen && (
-        <motion.div
-          variants={overlayContainer}
-          initial="hidden"
-          animate="show"
-          exit="exit"
-          key={isTeamSection ? "team-section" : "about-section"}
-          className="section-overlay"
-        >
-          <motion.div
-            variants={textContainer}
-            initial="hidden"
-            animate="show"
-            exit="exit"
-            className="section-text"
-          >
-            <h1>{isTeamSection ? "Our team" : "About us"}</h1>
-            {isTeamSection ? (
-              <TeamCarousel />
-            ) : (
-              <p>
-                The app was build during the wonderful Voyage which was
-                organized by Jim Medlock and his awesome team. Thanks to this
-                opportunity we gained confidence and levelled up soft and
-                technical skills to face any future challenges.
-              </p>
-            )}
-          </motion.div>
-          <motion.div
-            variants={btnsContainer}
-            initial="hidden"
-            animate="show"
-            exit="exit"
-            className="section-btns"
-          >
-            {isTeamSection ? (
-              <button
-                onClick={() => setIsTeamSection(false)}
-                className="section-btn"
+      {sectionIsOpen &&
+        sectionsContentData.map((content) => {
+          if (content.key === section) {
+            return (
+              <motion.div
+                variants={overlayContainer}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                key={content.key}
+                className="section-overlay"
               >
-                About <HiOutlineArrowRight />
-              </button>
-            ) : (
-              <button
-                onClick={() => setIsTeamSection(true)}
-                className="section-btn"
-              >
-                Our team <HiOutlineArrowRight />
-              </button>
-            )}
-            <a className="section-btn" href="/">
-              github repo <HiOutlineArrowRight />
-            </a>
-          </motion.div>
-        </motion.div>
-      )}
+                <motion.div
+                  variants={textContainer}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="section-text"
+                >
+                  {/* Title */}
+                  <h1>{content.title}</h1>
+
+                  {/* Content */}
+                  {content.content}
+                </motion.div>
+                {/* Buttons/Links */}
+                <motion.div
+                  variants={btnsContainer}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="section-btns"
+                >
+                  <button className="section-btn" onClick={clickHandler}>
+                    Next <HiOutlineArrowRight />
+                  </button>
+                  <a className="section-btn" href="/">
+                    github repo <HiOutlineArrowRight />
+                  </a>
+                </motion.div>
+              </motion.div>
+            );
+          }
+        })}
     </AnimatePresence>
   );
 };
