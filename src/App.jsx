@@ -21,9 +21,6 @@ import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   // Custom cursor state
-
-  console.log(cameraMovementSheet.sequence.position);
-
   const [cursorType, setCursorType] = useState("pointer");
 
   const handleClick = () => {
