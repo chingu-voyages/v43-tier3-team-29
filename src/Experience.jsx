@@ -21,15 +21,13 @@ export function Experience({ ready }) {
 
   useEffect(() => {
     // Sequence Animation
-    setTimeout(
-      () =>
-        cameraMovementSheet.sequence.play({
-          range: [0, 0.7],
-          rate: 0.3,
-        }),
-      2000
-    );
-  }, []);
+    if (ready) {
+      cameraMovementSheet.sequence.play({
+        range: [0, 0.7],
+        rate: 0.3,
+      });
+    }
+  }, [ready]);
 
   return (
     <>
