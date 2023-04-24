@@ -19,7 +19,11 @@ import SectionDetails from "./components/Overlay/SectionDetails";
 // Custom cursor
 import CustomCursor from "./components/CustomCursor";
 
-export default function App() {
+export default function App({ ready }) {
+  // Sound level
+  const [soundLevel, setSoundLevel] = useState(1);
+  const [controlIsVisible, setControlIsVisible] = useState(false);
+
   // Custom cursor state
   const [cursorType, setCursorType] = useState("pointer");
 
@@ -57,13 +61,18 @@ export default function App() {
         <color args={["#111111"]} attach="background" />
         {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
-          <Experience />
+          <Experience ready={ready} />
         </SheetProvider>
         <Effects />
       </Canvas>
 
       {/* Overlay */}
-      <Navbar />
+      <Navbar
+        soundLevel={soundLevel}
+        setSoundLevel={setSoundLevel}
+        controlIsVisible={controlIsVisible}
+        setControlIsVisible={setControlIsVisible}
+      />
       <SectionDetails />
 
       {/* Custom cursor */}

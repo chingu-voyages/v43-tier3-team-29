@@ -1,7 +1,7 @@
-import React, { useState, Suspense, useEffect, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { AudioLoader } from "three";
-import { PositionalAudio, useScroll } from "@react-three/drei";
-import { useLoader, useFrame } from "@react-three/fiber";
+import { PositionalAudio } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
 import { WorkStation } from "./components/WorkStation/WorkStation";
 import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
@@ -16,23 +16,21 @@ import { cameraMovementSheet } from "./animation/theatre";
 import { editable as e, PerspectiveCamera } from "@theatre/r3f";
 import Frog from "./components/Frog/Frog";
 
-export function Experience() {
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    // without this, the PositionalAudio causes an error
-    setTimeout(() => setReady(true), 2000);
-
-    // Sequence nimation
-    cameraMovementSheet.sequence.play({
-      range: [0, 0.7],
-      rate: 0.3,
-    });
-  }, []);
-
+export function Experience({ ready }) {
   const islandRef = useRef();
 
+  useEffect(() => {
+    // Sequence Animation
+    if (ready) {
+      cameraMovementSheet.sequence.play({
+        range: [0, 0.7],
+        rate: 0.3,
+      });
+    }
+  }, [ready]);
+
   return (
-    <Suspense fallback={null}>
+    <>
       <hemisphereLight
         skyColor="#ffffff"
         groundColor="#919191"
@@ -91,7 +89,7 @@ export function Experience() {
       <Background />
       <Board />
       <Frog />
-    </Suspense>
+    </>
   );
 }
 
