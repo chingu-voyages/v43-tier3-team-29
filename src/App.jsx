@@ -72,8 +72,9 @@ export default function App({ ready }) {
         setSoundLevel={setSoundLevel}
         controlIsVisible={controlIsVisible}
         setControlIsVisible={setControlIsVisible}
+        setCursorType={setCursorType}
       />
-      <SectionDetails />
+      <SectionDetails setCursorType={setCursorType} />
 
       {/* Custom cursor */}
       <CustomCursor cursorType={cursorType} />

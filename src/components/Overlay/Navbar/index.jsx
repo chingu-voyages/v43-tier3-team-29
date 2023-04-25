@@ -37,6 +37,7 @@ const Navbar = ({
   controlIsVisible,
   setControlIsVisible,
   setSoundLevel,
+  setCursorType,
 }) => {
   return (
     <header className="header">
@@ -46,7 +47,11 @@ const Navbar = ({
           <ul>
             {navList.map((navItem, index) => (
               <li key={`${index}-navLink`}>
-                <button onClick={() => changeCameraPosition(navItem.position)}>
+                <button
+                  onMouseEnter={() => setCursorType("hover")}
+                  onMouseLeave={() => setCursorType("pointer")}
+                  onClick={() => changeCameraPosition(navItem.position)}
+                >
                   {navItem.title}
                 </button>
               </li>
@@ -64,6 +69,8 @@ const Navbar = ({
               <button
                 className={`sound_control ${soundLevel == 0 && "no-sound"}`}
                 aria-label="sound level control"
+                onMouseEnter={() => setCursorType("hover")}
+                onMouseLeave={() => setCursorType("pointer")}
                 onClick={() => setControlIsVisible(!controlIsVisible)}
               >
                 <HiOutlineMusicNote />
@@ -76,6 +83,7 @@ const Navbar = ({
               <SoundControl
                 soundLevel={soundLevel}
                 setSoundLevel={setSoundLevel}
+                setCursorType={setCursorType}
               />
             )}
           </AnimatePresence>

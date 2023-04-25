@@ -19,7 +19,7 @@ export const control = {
 // Styles
 import "./style.css";
 
-const index = ({ soundLevel, setSoundLevel }) => {
+const index = ({ soundLevel, setSoundLevel, setCursorType }) => {
   return (
     <motion.div
       variants={control}
@@ -28,6 +28,8 @@ const index = ({ soundLevel, setSoundLevel }) => {
       animate="show"
       exit="exit"
       className="control"
+      onMouseEnter={() => setCursorType("hover")}
+      onMouseLeave={() => setCursorType("pointer")}
     >
       <input
         type="range"
