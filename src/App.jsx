@@ -61,7 +61,7 @@ export default function App({ ready }) {
         <color args={["#111111"]} attach="background" />
         {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
-          <Experience ready={ready} />
+          <Experience ready={ready} soundLevel={soundLevel} />
         </SheetProvider>
         <Effects />
       </Canvas>
