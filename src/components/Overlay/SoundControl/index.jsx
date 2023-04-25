@@ -1,11 +1,34 @@
 import React from "react";
 
+// Animation
+import { motion } from "framer-motion";
+
+export const control = {
+  hidden: {
+    y: -24,
+    opacity: 0,
+  },
+  show: { y: 0, opacity: 1, transition: { duration: 0.5, delay: 0.5 } },
+  exit: {
+    y: -24,
+    opacity: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 // Styles
 import "./style.css";
 
 const index = ({ soundLevel, setSoundLevel }) => {
   return (
-    <div className="control">
+    <motion.div
+      variants={control}
+      key="control"
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className="control"
+    >
       <input
         type="range"
         min="0"
@@ -14,7 +37,7 @@ const index = ({ soundLevel, setSoundLevel }) => {
         step="1"
         onChange={(e) => setSoundLevel(e.target.value)}
       />
-    </div>
+    </motion.div>
   );
 };
 

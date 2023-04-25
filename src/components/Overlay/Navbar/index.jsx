@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatePresence } from "framer-motion";
 
 // Styles
 import "./style.css";
@@ -70,12 +71,14 @@ const Navbar = ({
             </li>
           </ul>
           {/* Sound Control */}
-          {controlIsVisible && (
-            <SoundControl
-              soundLevel={soundLevel}
-              setSoundLevel={setSoundLevel}
-            />
-          )}
+          <AnimatePresence>
+            {controlIsVisible && (
+              <SoundControl
+                soundLevel={soundLevel}
+                setSoundLevel={setSoundLevel}
+              />
+            )}
+          </AnimatePresence>
         </nav>
 
         {/* Mobile menu */}
