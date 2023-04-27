@@ -23,7 +23,13 @@ const CustomCursor = ({ cursorType }) => {
 
   return (
     <div
-      className={`cursor ${cursorType === "custom" ? "custom" : "pointer"}`}
+      className={`cursor ${
+        cursorType === "custom"
+          ? "custom"
+          : cursorType === "hover"
+          ? "hover"
+          : "pointer"
+      }`}
       style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
     >
       <HiOutlineArrowRight />

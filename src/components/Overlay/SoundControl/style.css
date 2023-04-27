@@ -1,7 +1,8 @@
 .control {
   position: absolute;
-  top: 5px;
+  top: 100%;
   right: 0;
+  padding: 30px 0;
   font-family: "Inter";
   font-weight: 400;
   line-height: 1em;
@@ -28,7 +29,6 @@ input[type="range"]::-webkit-slider-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 

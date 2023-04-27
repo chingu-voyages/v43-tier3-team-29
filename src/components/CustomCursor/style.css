@@ -7,13 +7,14 @@
   align-items: center;
   border-radius: 100%;
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
   transition-property: width, height, border;
   will-change: width, height, transform, border;
   pointer-events: none;
   z-index: 999;
 }
 
+.hover,
 .custom {
   width: 60px;
   height: 60px;
@@ -32,6 +33,7 @@ svg {
   width: 40px;
 }
 
-.pointer > svg {
+.pointer > svg,
+.hover > svg {
   display: none;
 }
