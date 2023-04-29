@@ -24,8 +24,12 @@ import { shallow } from "zustand/shallow";
 import { useStore } from "./store/store";
 
 export default function App({ ready }) {
-  const [cursorType, updateCursorType] = useStore(
-    (store) => [store.cursorType, store.updateCursorType],
+  const [cursorType, updateCursorType, updateActiveNav] = useStore(
+    (store) => [
+      store.cursorType,
+      store.updateCursorType,
+      store.updateActiveNav,
+    ],
     shallow
   );
 
@@ -34,12 +38,25 @@ export default function App({ ready }) {
     const stops = [0.6, 2.1, 3.1, 3.8, 4.7, 5.3, 6.1, 6.7, 7.8, 9, 11];
 
     if (cursorType === "custom") {
+      const nextStop = stops.find(
+        (stop) => stop > cameraMovementSheet.sequence.position
+      );
+
+      if (nextStop < 2.1 || !nextStop) {
+        updateActiveNav("about");
+      } else if (nextStop < 6.7) {
+        updateActiveNav("team");
+      } else if (nextStop < 7.8) {
+        updateActiveNav("stack");
+      } else if (nextStop < 9) {
+        updateActiveNav("portfolio");
+      } else {
+        updateActiveNav("credits");
+      }
+
       if (cameraMovementSheet.sequence.position < stops[stops.length - 1]) {
         cameraMovementSheet.sequence.play({
-          range: [
-            cameraMovementSheet.sequence.position,
-            stops.find((stop) => stop > cameraMovementSheet.sequence.position),
-          ],
+          range: [cameraMovementSheet.sequence.position, nextStop],
           rate: 0.3,
         });
       } else {
