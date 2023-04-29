@@ -32,13 +32,27 @@ import changeCameraPosition from "../../../helpers/changeCameraPosition";
 // Sound control
 import SoundControl from "../SoundControl/";
 
-const Navbar = ({
-  soundLevel,
-  controlIsVisible,
-  setControlIsVisible,
-  setSoundLevel,
-  setCursorType,
-}) => {
+// Store
+import { shallow } from "zustand/shallow";
+import { useStore } from "../../../store/store";
+
+const Navbar = () => {
+  // Get store values/functions
+  const [
+    soundLevel,
+    soundControlIsVisible,
+    toggleSoundControlVisibility,
+    updateCursorType,
+  ] = useStore(
+    (store) => [
+      store.soundLevel,
+      store.soundControlIsVisible,
+      store.toggleSoundControlVisibility,
+      store.updateCursorType,
+    ],
+    shallow
+  );
+
   return (
     <header className="header">
       <div className="container">
@@ -48,8 +62,8 @@ const Navbar = ({
             {navList.map((navItem, index) => (
               <li key={`${index}-navLink`}>
                 <button
-                  onMouseEnter={() => setCursorType("hover")}
-                  onMouseLeave={() => setCursorType("pointer")}
+                  onMouseEnter={() => updateCursorType("hover")}
+                  onMouseLeave={() => updateCursorType("pointer")}
                   onClick={() => changeCameraPosition(navItem.position)}
                 >
                   {navItem.title}
@@ -69,9 +83,11 @@ const Navbar = ({
               <button
                 className={`sound_control ${soundLevel == 0 && "no-sound"}`}
                 aria-label="sound level control"
-                onMouseEnter={() => setCursorType("hover")}
-                onMouseLeave={() => setCursorType("pointer")}
-                onClick={() => setControlIsVisible(!controlIsVisible)}
+                onMouseEnter={() => updateCursorType("hover")}
+                onMouseLeave={() => updateCursorType("pointer")}
+                onClick={() =>
+                  toggleSoundControlVisibility(!soundControlIsVisible)
+                }
               >
                 <HiOutlineMusicNote />
               </button>
@@ -79,13 +95,7 @@ const Navbar = ({
           </ul>
           {/* Sound Control */}
           <AnimatePresence>
-            {controlIsVisible && (
-              <SoundControl
-                soundLevel={soundLevel}
-                setSoundLevel={setSoundLevel}
-                setCursorType={setCursorType}
-              />
-            )}
+            {soundControlIsVisible && <SoundControl />}
           </AnimatePresence>
         </nav>
 

@@ -19,7 +19,21 @@ export const control = {
 // Styles
 import "./style.css";
 
-const index = ({ soundLevel, setSoundLevel, setCursorType }) => {
+// Store
+import { shallow } from "zustand/shallow";
+import { useStore } from "../../../store/store";
+
+const index = () => {
+  // Get store values/functions
+  const [soundLevel, updateSoundLevel, updateCursorType] = useStore(
+    (store) => [
+      store.soundLevel,
+      store.updateSoundLevel,
+      store.updateCursorType,
+    ],
+    shallow
+  );
+
   return (
     <motion.div
       variants={control}
@@ -28,8 +42,8 @@ const index = ({ soundLevel, setSoundLevel, setCursorType }) => {
       animate="show"
       exit="exit"
       className="control"
-      onMouseEnter={() => setCursorType("hover")}
-      onMouseLeave={() => setCursorType("pointer")}
+      onMouseEnter={() => updateCursorType("hover")}
+      onMouseLeave={() => updateCursorType("pointer")}
     >
       <input
         type="range"
@@ -37,7 +51,7 @@ const index = ({ soundLevel, setSoundLevel, setCursorType }) => {
         max="10"
         value={soundLevel}
         step="1"
-        onChange={(e) => setSoundLevel(e.target.value)}
+        onChange={(e) => updateSoundLevel(e.target.value)}
       />
     </motion.div>
   );

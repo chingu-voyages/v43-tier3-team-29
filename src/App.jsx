@@ -19,13 +19,15 @@ import SectionDetails from "./components/Overlay/SectionDetails";
 // Custom cursor
 import CustomCursor from "./components/CustomCursor";
 
-export default function App({ ready }) {
-  // Sound level
-  const [soundLevel, setSoundLevel] = useState(1);
-  const [controlIsVisible, setControlIsVisible] = useState(false);
+// Store
+import { shallow } from "zustand/shallow";
+import { useStore } from "./store/store";
 
-  // Custom cursor state
-  const [cursorType, setCursorType] = useState("pointer");
+export default function App({ ready }) {
+  const [cursorType, updateCursorType] = useStore(
+    (store) => [store.cursorType, store.updateCursorType],
+    shallow
+  );
 
   const handleClick = () => {
     // Sequence stops: team1, team2, team3, team4, team5, stack
@@ -54,30 +56,24 @@ export default function App({ ready }) {
       {/* Canvas */}
       <Canvas
         shadows
-        onMouseEnter={() => setCursorType("custom")}
-        onMouseLeave={() => setCursorType("pointer")}
+        onMouseEnter={() => updateCursorType("custom")}
+        onMouseLeave={() => updateCursorType("pointer")}
         onClick={handleClick}
       >
         <color args={["#111111"]} attach="background" />
         {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
-          <Experience ready={ready} soundLevel={soundLevel} />
+          <Experience ready={ready} />
         </SheetProvider>
         <Effects />
       </Canvas>
 
       {/* Overlay */}
-      <Navbar
-        soundLevel={soundLevel}
-        setSoundLevel={setSoundLevel}
-        controlIsVisible={controlIsVisible}
-        setControlIsVisible={setControlIsVisible}
-        setCursorType={setCursorType}
-      />
-      <SectionDetails setCursorType={setCursorType} />
+      <Navbar />
+      <SectionDetails />
 
       {/* Custom cursor */}
-      <CustomCursor cursorType={cursorType} />
+      <CustomCursor />
     </>
   );
 }
