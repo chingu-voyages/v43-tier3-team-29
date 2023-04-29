@@ -16,7 +16,7 @@ import {
 
 // Nav list
 const navList = [
-  { title: "About", icon: <HiOutlineBookOpen />, position: 0.6 },
+  { title: "About", icon: <HiOutlineBookOpen />, position: 0.7 },
   { title: "Team", icon: <HiOutlineUsers />, position: 2.1 },
   { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
   { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
