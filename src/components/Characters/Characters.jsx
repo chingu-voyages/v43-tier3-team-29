@@ -28,7 +28,7 @@ const Characters = () => {
     <>
       {/* Character 1 / Danney */}
       <Character
-        path="./models/characters/character_01_final-v1-transformed.glb"
+        path="./models/characters/character_01-v1-transformed.glb"
         scale={1.2}
         position={[-10.8, -1, 23]}
         rotation={[0, -0.3, 0]}
@@ -36,7 +36,7 @@ const Characters = () => {
       />
       {/* Character 2 / Sean */}
       <Character
-        path="./models/characters/character_02_final-v1-transformed.glb"
+        path="./models/characters/character_02-v1-transformed.glb"
         scale={1.2}
         position={[-9.5, -0.62, 24.5]}
         rotation={[1.6, 0, 1]}
@@ -44,7 +44,7 @@ const Characters = () => {
       />
       {/* Character 3 / Szymon */}
       <Character
-        path="./models/characters/character_03_final-v1-transformed.glb"
+        path="./models/characters/character_03-v1-transformed.glb"
         scale={1.2}
         position={[-13.2, -1.1, 21.7]}
         rotation={[1.6, 0, 0]}
@@ -52,7 +52,7 @@ const Characters = () => {
       />
       {/* Character 4 / Jane */}
       <Character
-        path="./models/characters/character_04_final-v1-transformed.glb"
+        path="./models/characters/character_04-v1-transformed.glb"
         scale={1.2}
         position={[-12, -1.03, 22]}
         rotation={[1.6, 0, 0.75]}
@@ -60,7 +60,7 @@ const Characters = () => {
       />
       {/* Character 5 / Zoran */}
       <Character
-        path="./models/characters/character_05_final-v1-transformed.glb"
+        path="./models/characters/character_05-v1-transformed.glb"
         scale={1.2}
         position={[-12.3, -1.7, 24.6]}
         rotation={[1.6, 0, 0.6]}
