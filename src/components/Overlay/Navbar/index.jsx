@@ -16,11 +16,11 @@ import {
 
 // Nav list
 const navList = [
-  { title: "About", icon: <HiOutlineBookOpen />, position: 0.7 },
-  { title: "Team", icon: <HiOutlineUsers />, position: 2.1 },
-  { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
-  { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
-  { title: "Credits", icon: <HiOutlineCollection />, position: 9 },
+  { title: "about", icon: <HiOutlineBookOpen />, position: 0.7 },
+  { title: "team", icon: <HiOutlineUsers />, position: 2.1 },
+  { title: "stack", icon: <HiOutlineChip />, position: 6.7 },
+  { title: "portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
+  { title: "credits", icon: <HiOutlineCollection />, position: 9 },
 ];
 
 // Mobile Nav
@@ -43,15 +43,24 @@ const Navbar = () => {
     soundControlIsVisible,
     toggleSoundControlVisibility,
     updateCursorType,
+    activeNav,
+    updateActiveNav,
   ] = useStore(
     (store) => [
       store.soundLevel,
       store.soundControlIsVisible,
       store.toggleSoundControlVisibility,
       store.updateCursorType,
+      store.activeNav,
+      store.updateActiveNav,
     ],
     shallow
   );
+
+  const handleNavBtnClick = (title, position) => {
+    updateActiveNav(title);
+    changeCameraPosition(position);
+  };
 
   return (
     <header className="header">
@@ -62,9 +71,12 @@ const Navbar = () => {
             {navList.map((navItem, index) => (
               <li key={`${index}-navLink`}>
                 <button
+                  className={`${activeNav === navItem.title && "active"}`}
                   onMouseEnter={() => updateCursorType("hover")}
                   onMouseLeave={() => updateCursorType("pointer")}
-                  onClick={() => changeCameraPosition(navItem.position)}
+                  onClick={() =>
+                    handleNavBtnClick(navItem.title, navItem.position)
+                  }
                 >
                   {navItem.title}
                 </button>
