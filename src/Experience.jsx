@@ -2,8 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { AudioLoader } from "three";
 import { PositionalAudio } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
-
-// Models
 import { WorkStation } from "./components/WorkStation/WorkStation";
 import { CustomText3D } from "./components/CustomText3D/CustomText3D";
 import Island from "./components/Island/Island";
@@ -14,18 +12,11 @@ import Background from "./components/Background/Background";
 import Lights from "./components/Lights/Lights";
 import RandomClouds from "./components/RandomClouds/RandomClouds";
 import Board from "./components/Board/Board";
-import Frog from "./components/Frog/Frog";
-
-// Animation
 import { cameraMovementSheet } from "./animation/theatre";
 import { editable as e, PerspectiveCamera } from "@theatre/r3f";
-
-// Store
-import { useStore } from "./store/store";
+import Frog from "./components/Frog/Frog";
 
 export function Experience({ ready }) {
-  const soundLevel = useStore((store) => store.soundLevel);
-
   const islandRef = useRef();
 
   useEffect(() => {
@@ -66,7 +57,7 @@ export function Experience({ ready }) {
             autoplay
             loop
             url="audio/Wind.mp3"
-            distance={0.15 * soundLevel}
+            distance={0.15}
           />
         )}
       </group>
@@ -79,7 +70,7 @@ export function Experience({ ready }) {
             autoplay
             loop
             url="audio/Crickets.mp3"
-            distance={3 * soundLevel}
+            distance={3}
           />
         )}
       </group>
@@ -87,12 +78,7 @@ export function Experience({ ready }) {
       <group position={[-8, -1, 5]}>
         <Campfire />
         {ready && (
-          <PositionalAudio
-            autoplay
-            loop
-            url="audio/Fire.mp3"
-            distance={0.7 * soundLevel}
-          />
+          <PositionalAudio autoplay loop url="audio/Fire.mp3" distance={0.7} />
         )}
       </group>
 
