@@ -159,11 +159,18 @@ a:hover {
   height: 50%;
 }
 
-.play-icon {
-  color: rgba(253, 46, 0, 0.695);
-  font-size: 50px;
+.play-btn {
+  height: 50px;
+  width: 50px;
 }
 
-.play-icon:hover {
+.play-btn > svg {
+  height: 100%;
+  width: 100%;
+  color: rgba(253, 46, 0, 0.695);
+  transition: all 0.3s;
+}
+
+.play-btn:hover > svg {
   color: rgb(253, 30, 0);
 }

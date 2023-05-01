@@ -43,11 +43,17 @@ nav > ul {
 button {
   height: 100%;
   font-family: "Inter", sans-serif;
+  text-transform: capitalize;
   letter-spacing: 1.6px;
   font-size: 18px;
-  color: rgb(164, 164, 164);
+
+  color: rgb(120, 120, 120);
   background: none;
   border: none;
+}
+
+button.active {
+  color: rgb(164, 164, 164);
 }
 
 .sound_control {

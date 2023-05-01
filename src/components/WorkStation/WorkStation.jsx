@@ -31,7 +31,7 @@ export function WorkStation() {
             className={activeTab === 2 ? "active" : ""}
           >
             Project 2
-            <a target="_blank" href="https://nam-cung.com/">
+            <a target="_blank" href="https://seantai.dev/">
               <MdOutlineOpenInNew />
             </a>
           </button>
@@ -40,16 +40,7 @@ export function WorkStation() {
             className={activeTab === 3 ? "active" : ""}
           >
             Project 3
-            <a target="_blank" href="https://www.vrarlesfestival.com/">
-              <MdOutlineOpenInNew />
-            </a>
-          </button>
-          <button
-            onClick={() => handleTabClick(4)}
-            className={activeTab === 4 ? "active" : ""}
-          >
-            Project 4
-            <a target="_blank" href="https://bloquo.cc/">
+            <a target="_blank" href="https://jane-moroz-dev.netlify.app/">
               <MdOutlineOpenInNew />
             </a>
           </button>
@@ -80,11 +71,9 @@ export function WorkStation() {
       case 1:
         return "https://danneytrieu.design/";
       case 2:
-        return "https://nam-cung.com/";
+        return "https://seantai.dev/";
       case 3:
-        return "https://www.vrarlesfestival.com/";
-      case 4:
-        return "https://bloquo.cc/";
+        return "https://jane-moroz-dev.netlify.app/";
       default:
         return "https://danneytrieu.design/";
     }

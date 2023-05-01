@@ -16,7 +16,12 @@ import { overlayContainer, textContainer, btnsContainer } from "./animations";
 // Section content Data
 import sectionsContentData from "./sectionContentData";
 
-const SectionDetails = ({ setCursorType }) => {
+// Store
+import { useStore } from "../../../store/store";
+
+const SectionDetails = () => {
+  const updateCursorType = useStore((store) => store.updateCursorType);
+
   // Section details content toggler: about, team, credits
   const [section, setSection] = useState("about");
 
@@ -97,16 +102,16 @@ const SectionDetails = ({ setCursorType }) => {
                   className="section-btns"
                 >
                   <button
-                    onMouseEnter={() => setCursorType("hover")}
-                    onMouseLeave={() => setCursorType("pointer")}
+                    onMouseEnter={() => updateCursorType("hover")}
+                    onMouseLeave={() => updateCursorType("pointer")}
                     className="section-btn"
                     onClick={clickHandler}
                   >
                     Next <HiOutlineArrowRight />
                   </button>
                   <a
-                    onMouseEnter={() => setCursorType("hover")}
-                    onMouseLeave={() => setCursorType("pointer")}
+                    onMouseEnter={() => updateCursorType("hover")}
+                    onMouseLeave={() => updateCursorType("pointer")}
                     target="_blank"
                     className="section-btn"
                     href="https://github.com/chingu-voyages/v43-tier3-team-29"

@@ -16,11 +16,11 @@ import {
 
 // Nav list
 const navList = [
-  { title: "About", icon: <HiOutlineBookOpen />, position: 0.6 },
-  { title: "Team", icon: <HiOutlineUsers />, position: 2.1 },
-  { title: "Stack", icon: <HiOutlineChip />, position: 6.7 },
-  { title: "Portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
-  { title: "Credits", icon: <HiOutlineCollection />, position: 9 },
+  { title: "about", icon: <HiOutlineBookOpen />, position: 0.7 },
+  { title: "team", icon: <HiOutlineUsers />, position: 2.1 },
+  { title: "stack", icon: <HiOutlineChip />, position: 6.7 },
+  { title: "portfolio", icon: <HiOutlineDesktopComputer />, position: 7.8 },
+  { title: "credits", icon: <HiOutlineCollection />, position: 9 },
 ];
 
 // Mobile Nav
@@ -32,13 +32,36 @@ import changeCameraPosition from "../../../helpers/changeCameraPosition";
 // Sound control
 import SoundControl from "../SoundControl/";
 
-const Navbar = ({
-  soundLevel,
-  controlIsVisible,
-  setControlIsVisible,
-  setSoundLevel,
-  setCursorType,
-}) => {
+// Store
+import { shallow } from "zustand/shallow";
+import { useStore } from "../../../store/store";
+
+const Navbar = () => {
+  // Get store values/functions
+  const [
+    soundLevel,
+    soundControlIsVisible,
+    toggleSoundControlVisibility,
+    updateCursorType,
+    activeNav,
+    updateActiveNav,
+  ] = useStore(
+    (store) => [
+      store.soundLevel,
+      store.soundControlIsVisible,
+      store.toggleSoundControlVisibility,
+      store.updateCursorType,
+      store.activeNav,
+      store.updateActiveNav,
+    ],
+    shallow
+  );
+
+  const handleNavBtnClick = (title, position) => {
+    updateActiveNav(title);
+    changeCameraPosition(position);
+  };
+
   return (
     <header className="header">
       <div className="container">
@@ -48,9 +71,12 @@ const Navbar = ({
             {navList.map((navItem, index) => (
               <li key={`${index}-navLink`}>
                 <button
-                  onMouseEnter={() => setCursorType("hover")}
-                  onMouseLeave={() => setCursorType("pointer")}
-                  onClick={() => changeCameraPosition(navItem.position)}
+                  className={`${activeNav === navItem.title && "active"}`}
+                  onMouseEnter={() => updateCursorType("hover")}
+                  onMouseLeave={() => updateCursorType("pointer")}
+                  onClick={() =>
+                    handleNavBtnClick(navItem.title, navItem.position)
+                  }
                 >
                   {navItem.title}
                 </button>
@@ -69,9 +95,11 @@ const Navbar = ({
               <button
                 className={`sound_control ${soundLevel == 0 && "no-sound"}`}
                 aria-label="sound level control"
-                onMouseEnter={() => setCursorType("hover")}
-                onMouseLeave={() => setCursorType("pointer")}
-                onClick={() => setControlIsVisible(!controlIsVisible)}
+                onMouseEnter={() => updateCursorType("hover")}
+                onMouseLeave={() => updateCursorType("pointer")}
+                onClick={() =>
+                  toggleSoundControlVisibility(!soundControlIsVisible)
+                }
               >
                 <HiOutlineMusicNote />
               </button>
@@ -79,13 +107,7 @@ const Navbar = ({
           </ul>
           {/* Sound Control */}
           <AnimatePresence>
-            {controlIsVisible && (
-              <SoundControl
-                soundLevel={soundLevel}
-                setSoundLevel={setSoundLevel}
-                setCursorType={setCursorType}
-              />
-            )}
+            {soundControlIsVisible && <SoundControl />}
           </AnimatePresence>
         </nav>
 

@@ -1,5 +1,10 @@
 import { Suspense, useEffect, useState, cloneElement } from "react";
+
+// Icons
 import { BsPlayCircleFill } from "react-icons/bs";
+
+// Store
+import { useStore } from "./store/store";
 
 function Ready({ setReady }) {
   useEffect(() => () => void setReady(true), []);
@@ -7,6 +12,8 @@ function Ready({ setReady }) {
 }
 
 export default function Intro({ children }) {
+  const updateCursorType = useStore((store) => store.updateCursorType);
+
   const [clicked, setClicked] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -24,7 +31,14 @@ export default function Intro({ children }) {
           {!ready ? (
             <img className="fox-loader" src="./image/loading.gif" />
           ) : (
-            <BsPlayCircleFill className="play-icon" />
+            <button
+              aria-label="continue"
+              className="play-btn"
+              onMouseEnter={() => updateCursorType("hover")}
+              onMouseLeave={() => updateCursorType("pointer")}
+            >
+              <BsPlayCircleFill />
+            </button>
           )}
         </div>
       </div>
