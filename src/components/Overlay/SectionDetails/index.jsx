@@ -16,15 +16,20 @@ import { overlayContainer, textContainer, btnsContainer } from "./animations";
 // Section content Data
 import sectionsContentData from "./sectionContentData";
 
+// Store
+import { useStore } from "../../../store/store";
+
 const SectionDetails = () => {
+  const updateCursorType = useStore((store) => store.updateCursorType);
+
   // Section details content toggler: about, team, credits
   const [section, setSection] = useState("about");
 
   // Section details overlay visibility toggler
   const [sectionIsOpen, setSectionIsOpen] = useState(false);
 
-  // Sequence stops: team1, team2, team3, team4, team5, stack
-  const stops = [2.1, 3.1, 3.8, 4.7, 5.3, 6.7, 11];
+  // Sequence stops: team1, team2, team3, team4, team5, campfire
+  const stops = [2.1, 3.1, 3.8, 4.7, 5.3, 6.1];
 
   // Instructions click handler
   const clickHandler = () => {
@@ -96,10 +101,21 @@ const SectionDetails = () => {
                   exit="exit"
                   className="section-btns"
                 >
-                  <button className="section-btn" onClick={clickHandler}>
+                  <button
+                    onMouseEnter={() => updateCursorType("hover")}
+                    onMouseLeave={() => updateCursorType("pointer")}
+                    className="section-btn"
+                    onClick={clickHandler}
+                  >
                     Next <HiOutlineArrowRight />
                   </button>
-                  <a className="section-btn" href="/">
+                  <a
+                    onMouseEnter={() => updateCursorType("hover")}
+                    onMouseLeave={() => updateCursorType("pointer")}
+                    target="_blank"
+                    className="section-btn"
+                    href="https://github.com/chingu-voyages/v43-tier3-team-29"
+                  >
                     github repo <HiOutlineArrowRight />
                   </a>
                 </motion.div>

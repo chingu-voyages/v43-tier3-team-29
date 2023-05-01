@@ -10,7 +10,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  margin: 32px 0;
+  margin: 32px 0 0 0;
 }
 
 nav {
@@ -41,13 +41,19 @@ nav > ul {
 }
 
 button {
+  height: 100%;
   font-family: "Inter", sans-serif;
+  text-transform: capitalize;
   letter-spacing: 1.6px;
   font-size: 18px;
-  color: rgb(164, 164, 164);
+
+  color: rgb(120, 120, 120);
   background: none;
   border: none;
-  cursor: pointer;
+}
+
+button.active {
+  color: rgb(164, 164, 164);
 }
 
 .sound_control {
@@ -59,7 +65,6 @@ button {
   height: 24px;
   width: 24px;
   stroke: rgb(164, 164, 164);
-  cursor: pointer;
 }
 
 .no-sound.sound_control::after {

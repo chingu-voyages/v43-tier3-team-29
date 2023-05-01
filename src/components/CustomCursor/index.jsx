@@ -6,7 +6,11 @@ import "./style.css";
 // Icons
 import { HiOutlineArrowRight } from "react-icons/hi";
 
-const CustomCursor = ({ cursorType }) => {
+// Store
+import { useStore } from "../../store/store";
+
+const CustomCursor = () => {
+  const cursorType = useStore((store) => store.cursorType);
   const [mousePosition, setMousePosition] = useState({ x: 400, y: 400 });
 
   const onMouseMove = (e) => {
@@ -23,7 +27,13 @@ const CustomCursor = ({ cursorType }) => {
 
   return (
     <div
-      className={`cursor ${cursorType === "custom" ? "custom" : "pointer"}`}
+      className={`cursor ${
+        cursorType === "custom"
+          ? "custom"
+          : cursorType === "hover"
+          ? "hover"
+          : "pointer"
+      }`}
       style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
     >
       <HiOutlineArrowRight />
