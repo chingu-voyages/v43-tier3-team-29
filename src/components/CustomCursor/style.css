@@ -16,8 +16,8 @@
 
 .hover,
 .custom {
-  width: 60px;
-  height: 60px;
+  width: 2rem;
+  height: 2rem;
   border: 2px solid rgb(164, 164, 164);
 }
 

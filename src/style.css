@@ -86,6 +86,7 @@ canvas {
   background-color: white;
   cursor: pointer;
   font-weight: 200;
+  font-size: 0.7rem;
 }
 .browser-tab > button.active {
   background-color: rgb(233, 106, 106);
@@ -136,16 +137,16 @@ a:hover {
 }
 
 .loader-container {
-  width: 100%;
-  height: 100%;
+  width: 20rem;
+  height: 20rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .fox-loader {
-  width: 30%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 .play-btn {

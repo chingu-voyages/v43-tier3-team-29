@@ -22,8 +22,8 @@ export function CustomText3D({
         bevelOffset={0}
         bevelSegments={1}
         letterSpacing={0.2}
-        position={[-15, 22, 12]}
-        rotation={[1.55, -Math.PI + 0, 2.7]}
+        position={[-15, 17, 12]}
+        rotation={[1.55, -Math.PI + 0, 2.81]}
         {...props}
       >
         {text}

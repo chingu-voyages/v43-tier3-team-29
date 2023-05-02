@@ -46,7 +46,7 @@ export default function Campfire() {
         </e.group>
         <e.group theatreKey="particlesSparks" position={[-0.5, 0.5, -0.5]}>
           <Sparks
-            count={20}
+            count={10}
             colors={["#edad2d", "#fdc555", "#e9bf6b", "#ebd4a7"]}
           />
         </e.group>
