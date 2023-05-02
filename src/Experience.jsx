@@ -14,7 +14,6 @@ import RandomClouds from "./components/RandomClouds/RandomClouds";
 import Board from "./components/Board/Board";
 import { cameraMovementSheet } from "./animation/theatre";
 import { editable as e, PerspectiveCamera } from "@theatre/r3f";
-import Frog from "./components/Frog/Frog";
 
 export function Experience({ ready }) {
   const islandRef = useRef();
@@ -50,16 +49,7 @@ export function Experience({ ready }) {
       <CustomText3D text="Voyage #43" />
 
       <group position={[0, 0, 0]}>
-        <RandomClouds amount={5} />
-        {ready && (
-          <PositionalAudio
-            position={[0, 125, 0]}
-            autoplay
-            loop
-            url="audio/Wind.mp3"
-            distance={0.15}
-          />
-        )}
+        <RandomClouds amount={1} />
       </group>
 
       <group position={[0, -11.9, 0]}>
@@ -70,7 +60,7 @@ export function Experience({ ready }) {
             autoplay
             loop
             url="audio/Crickets.mp3"
-            distance={3}
+            distance={10}
           />
         )}
       </group>
@@ -78,7 +68,7 @@ export function Experience({ ready }) {
       <group position={[-8, -1, 5]}>
         <Campfire />
         {ready && (
-          <PositionalAudio autoplay loop url="audio/Fire.mp3" distance={0.7} />
+          <PositionalAudio autoplay loop url="audio/Fire.mp3" distance={5} />
         )}
       </group>
 
@@ -88,7 +78,6 @@ export function Experience({ ready }) {
       <Lights />
       <Background />
       <Board />
-      <Frog />
     </>
   );
 }
@@ -97,4 +86,3 @@ export function Experience({ ready }) {
 // need to understand why this is necessary, and it's not in the example https://codesandbox.io/s/gkfhr?file=/src/App.js
 useLoader.preload(AudioLoader, "audio/Fire.mp3");
 useLoader.preload(AudioLoader, "audio/Crickets.mp3");
-useLoader.preload(AudioLoader, "audio/Wind.mp3");
