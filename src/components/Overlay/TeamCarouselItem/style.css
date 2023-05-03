@@ -22,7 +22,7 @@ img {
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 500;
 }
 
@@ -35,6 +35,23 @@ a > svg,
 button > svg {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+/* For screens more than 1250px */
+@media only screen and (min-width: 1250px) {
+  .member-details {
+    row-gap: 1rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+  }
+
+  a > svg,
+  button > svg {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 /* For screens less than 700px */

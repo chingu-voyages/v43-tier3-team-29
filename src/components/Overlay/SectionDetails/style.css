@@ -52,6 +52,40 @@
   color: rgb(164, 164, 164);
 }
 
+.credits {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  list-style: none;
+}
+
+a {
+  font-size: 1.2rem;
+  color: rgb(164, 164, 164);
+  cursor: none;
+}
+
+/* For screens more than 1250px */
+@media only screen and (min-width: 1250px) {
+  .section-text > h1 {
+    font-size: 4rem;
+  }
+
+  .section-text > p {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+
+  .section-btn {
+    column-gap: 1.5rem;
+    font-size: 2rem;
+  }
+
+  a {
+    font-size: 2rem;
+  }
+}
+
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .section-container {
@@ -75,17 +109,4 @@
     column-gap: 1.5rem;
     font-size: 1.5rem;
   }
-}
-
-.credits {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  list-style: none;
-}
-
-a {
-  font-size: 1rem;
-  color: rgb(164, 164, 164);
-  cursor: none;
 }

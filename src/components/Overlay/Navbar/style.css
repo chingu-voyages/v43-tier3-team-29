@@ -45,7 +45,7 @@ button {
   font-family: "Inter", sans-serif;
   text-transform: capitalize;
   letter-spacing: 1.6px;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
 
   color: rgb(120, 120, 120);
   background: none;
@@ -62,8 +62,8 @@ button.active {
 
 .sound_control > svg {
   display: block;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.7rem;
+  width: 1.7rem;
   stroke: rgb(164, 164, 164);
 }
 
@@ -77,6 +77,19 @@ button.active {
   height: 3px;
   width: 110%;
   background: rgb(164, 164, 164);
+}
+
+/* For screens more than 1250px */
+@media only screen and (min-width: 1250px) {
+  button {
+    letter-spacing: 1.6px;
+    font-size: 2rem;
+  }
+
+  .sound_control > svg {
+    height: 2.2rem;
+    width: 2.2rem;
+  }
 }
 
 /* For screens less than 700px */
