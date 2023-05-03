@@ -1,84 +1,91 @@
-.section-overlay {
+.section-container {
+  padding: 0 2rem;
   position: absolute;
-  top: 20%;
-  left: 32px;
-  /* transform: translateY(-50%); */
-  width: 600px;
-  border-radius: 20px;
-  padding: 32px 48px;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.section-overlay {
+  width: 37.5rem;
+  border-radius: 1.5rem;
+  padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
-  row-gap: 100px;
+  row-gap: 6.25rem;
   background: rgb(27, 33, 30);
   background: linear-gradient(
     132deg,
-    rgba(27, 33, 30, 0.5) 0%,
-    rgba(25, 37, 30, 0.6) 100%
+    rgba(27, 33, 30, 0.85) 0%,
+    rgba(25, 37, 30, 0.85) 100%
   );
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.125);
 }
 
 .section-text > h1 {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .section-text > p {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 300;
-  line-height: 30px;
+  line-height: 2rem;
 }
 
 .section-btns {
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 1.5rem;
   align-items: start;
 }
 
 .section-btn {
   display: flex;
-  column-gap: 18px;
+  column-gap: 1rem;
   align-items: center;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 300;
   text-transform: uppercase;
   color: rgb(164, 164, 164);
 }
 
-/* For screens less than 700px */
-@media only screen and (max-width: 700px) {
-  .section-overlay {
-    left: 2.5%;
-    row-gap: 32px;
-    width: 75%;
-  }
-
-  .section-text > h1 {
-    font-size: 32px;
-  }
-
-  .section-text > p {
-    font-size: 16px;
-  }
-
-  .section-btn {
-    column-gap: 14px;
-    font-size: 16px;
-  }
-}
-
 .credits {
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
+  row-gap: 1rem;
   list-style: none;
 }
 
 a {
-  font-size: 18px;
+  font-size: 1.2rem;
   color: rgb(164, 164, 164);
   cursor: none;
+}
+
+/* For screens less than 700px */
+@media only screen and (max-width: 700px) {
+  .section-container {
+    width: 100%;
+  }
+
+  .section-overlay {
+    row-gap: 2rem;
+    width: 100%;
+  }
+
+  .section-text > h1 {
+    font-size: 2rem;
+  }
+
+  .section-text > p {
+    font-size: 1.15rem;
+  }
+
+  .section-btn {
+    column-gap: 1.5rem;
+    font-size: 1.5rem;
+  }
 }

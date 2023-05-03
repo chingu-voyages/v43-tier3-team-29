@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 
 // Icons
-import { RiPlayCircleFill } from "react-icons/ri";
+import { RiArrowRightLine } from "react-icons/ri";
 
 // Store
 import { useStore } from "../../store/store";
@@ -36,7 +36,7 @@ const CustomCursor = () => {
       }`}
       style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
     >
-      <RiPlayCircleFill />
+      <RiArrowRightLine />
     </div>
   );
 };
