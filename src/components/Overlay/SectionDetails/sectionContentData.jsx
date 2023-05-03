@@ -8,10 +8,10 @@ const sectionsContentData = [
     title: "About us",
     content: (
       <p>
-        Welcome to our 3D portfolio, created during Voyage #43 on the Chingu platform! This
-        experience helped us boost our confidence and develop our soft and
-        technical skills, gearing us up for future challenges. Check it out and
-        witness the amazing outcome of our teamwork! 📱✨🎉
+        Welcome to our 3D portfolio, created during Voyage #43 on the Chingu
+        platform! This experience helped us boost our confidence and develop our
+        soft and technical skills, gearing us up for future challenges. Check it
+        out and witness the amazing outcome of our teamwork! 📱✨🎉
       </p>
     ),
   },
@@ -21,6 +21,12 @@ const sectionsContentData = [
     title: "Credits",
     content: (
       <ul className="credits">
+        <li>
+          <a href="https://www.chingu.io/">Chingu</a>
+        </li>
+        <li>
+          <a href="https://threejs-journey.com/">Bruno Simon</a>
+        </li>
         <li>
           <a href="https://poly.pizza">Poly Pizza</a>
         </li>

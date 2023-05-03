@@ -109,6 +109,7 @@ canvas {
   justify-content: center;
   align-items: center;
   transition: all 1s;
+  z-index: 2000;
 }
 
 .bg {

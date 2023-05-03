@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Theatre.js & Framer motion
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { cameraMovementSheet } from "../../../animation/theatre";
 
 // Styles
@@ -67,7 +67,7 @@ const SectionDetails = () => {
   }, [obj]);
 
   return (
-    <AnimatePresence mode="wait">
+    <div className="section-container">
       {sectionIsOpen &&
         sectionsContentData.map((content) => {
           if (content.key === section) {
@@ -76,7 +76,7 @@ const SectionDetails = () => {
                 variants={overlayContainer}
                 initial="hidden"
                 animate="show"
-                exit="exit"
+                // exit="exit"
                 key={content.key}
                 className="section-overlay"
               >
@@ -84,7 +84,7 @@ const SectionDetails = () => {
                   variants={textContainer}
                   initial="hidden"
                   animate="show"
-                  exit="exit"
+                  // exit="exit"
                   className="section-text"
                 >
                   {/* Title */}
@@ -98,7 +98,7 @@ const SectionDetails = () => {
                   variants={btnsContainer}
                   initial="hidden"
                   animate="show"
-                  exit="exit"
+                  // exit="exit"
                   className="section-btns"
                 >
                   <button
@@ -123,7 +123,7 @@ const SectionDetails = () => {
             );
           }
         })}
-    </AnimatePresence>
+    </div>
   );
 };
 

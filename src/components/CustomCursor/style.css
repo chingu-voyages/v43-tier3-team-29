@@ -11,7 +11,7 @@
   transition-property: width, height, border;
   will-change: width, height, transform, border;
   pointer-events: none;
-  z-index: 999;
+  z-index: 3000;
 }
 
 .hover,
