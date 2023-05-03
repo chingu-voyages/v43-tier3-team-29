@@ -112,7 +112,7 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu */}
-        <MobileNav navList={navList} />
+        <MobileNav navList={navList} activeNav={activeNav} />
       </div>
     </header>
   );
