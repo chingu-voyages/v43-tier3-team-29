@@ -15,7 +15,7 @@ import Board from "./components/Board/Board";
 import { cameraMovementSheet } from "./animation/theatre";
 import { editable as e, PerspectiveCamera } from "@theatre/r3f";
 
-export function Experience({ ready }) {
+export function Experience({ ready, soundLevel }) {
   const islandRef = useRef();
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export function Experience({ ready }) {
             autoplay
             loop
             url="audio/Crickets.mp3"
-            distance={10}
+            distance={10 * soundLevel}
           />
         )}
       </group>
@@ -68,7 +68,12 @@ export function Experience({ ready }) {
       <group position={[-8, -1, 5]}>
         <Campfire />
         {ready && (
-          <PositionalAudio autoplay loop url="audio/Fire.mp3" distance={5} />
+          <PositionalAudio
+            autoplay
+            loop
+            url="audio/Fire.mp3"
+            distance={5 * soundLevel}
+          />
         )}
       </group>
 
