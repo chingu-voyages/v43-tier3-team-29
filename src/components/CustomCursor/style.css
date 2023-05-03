@@ -11,13 +11,13 @@
   transition-property: width, height, border;
   will-change: width, height, transform, border;
   pointer-events: none;
-  z-index: 999;
+  z-index: 3000;
 }
 
 .hover,
 .custom {
-  width: 2rem;
-  height: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border: 2px solid rgb(164, 164, 164);
 }
 
@@ -29,8 +29,8 @@
 }
 
 svg {
-  height: 40px;
-  width: 40px;
+  height: 3rem;
+  width: 3rem;
 }
 
 .pointer > svg,

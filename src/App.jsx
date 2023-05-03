@@ -24,8 +24,9 @@ import { shallow } from "zustand/shallow";
 import { useStore } from "./store/store";
 
 export default function App({ ready }) {
-  const [cursorType, updateCursorType, updateActiveNav] = useStore(
+  const [soundLevel, cursorType, updateCursorType, updateActiveNav] = useStore(
     (store) => [
+      store.soundLevel,
       store.cursorType,
       store.updateCursorType,
       store.updateActiveNav,
@@ -80,7 +81,7 @@ export default function App({ ready }) {
         <color args={["#111111"]} attach="background" />
         {/* <Perf position="top-left" /> */}
         <SheetProvider sheet={cameraMovementSheet}>
-          <Experience ready={ready} />
+          <Experience ready={ready} soundLevel={soundLevel} />
         </SheetProvider>
         <Effects />
       </Canvas>

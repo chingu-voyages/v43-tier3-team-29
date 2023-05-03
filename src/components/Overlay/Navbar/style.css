@@ -2,7 +2,7 @@
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 2rem;
 }
 
 header {
@@ -10,7 +10,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  margin: 32px 0 0 0;
+  margin: 2rem 0 0 0;
 }
 
 nav {
@@ -21,14 +21,14 @@ nav > ul {
   list-style: none;
   display: flex;
   flex-direction: row;
-  column-gap: 32px;
+  column-gap: 2rem;
 }
 
 .navigation {
   display: flex;
   flex-direction: row;
   justify-content: end;
-  column-gap: 80px;
+  column-gap: 5rem;
 }
 
 .navigation-dialogue {
@@ -37,7 +37,7 @@ nav > ul {
 
 .navigation > ul {
   flex-direction: row;
-  column-gap: 32px;
+  column-gap: 2rem;
 }
 
 button {
@@ -45,7 +45,7 @@ button {
   font-family: "Inter", sans-serif;
   text-transform: capitalize;
   letter-spacing: 1.6px;
-  font-size: 18px;
+  font-size: 1.35rem;
 
   color: rgb(120, 120, 120);
   background: none;
@@ -62,8 +62,8 @@ button.active {
 
 .sound_control > svg {
   display: block;
-  height: 24px;
-  width: 24px;
+  height: 1.7rem;
+  width: 1.7rem;
   stroke: rgb(164, 164, 164);
 }
 

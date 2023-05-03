@@ -1,16 +1,16 @@
 .carousel {
   display: flex;
-  column-gap: 24px;
-  padding: 32px 48px;
+  column-gap: 1.5rem;
+  padding: 2rem 2.5rem;
   width: 100%;
   border: 1px solid rgb(164, 164, 164);
-  border-radius: 20px;
+  border-radius: 2rem;
   transition: all 0.3s linear;
 }
 
 img {
-  height: 70px;
-  width: 70px;
+  height: 4.75rem;
+  width: 4.75rem;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -22,19 +22,19 @@ img {
 }
 
 p {
-  font-size: 20px;
+  font-size: 1.35rem;
   font-weight: 500;
 }
 
 .member-links {
   display: flex;
-  column-gap: 24px;
+  column-gap: 1.5rem;
 }
 
 a > svg,
 button > svg {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* For screens less than 700px */
@@ -42,11 +42,11 @@ button > svg {
   .carousel {
     flex-direction: column;
     align-items: center;
-    row-gap: 20px;
+    row-gap: 1rem;
   }
 
   .member-details {
     align-items: center;
-    row-gap: 12px;
+    row-gap: 1rem;
   }
 }

@@ -3,13 +3,13 @@
   width: 100%;
   display: flex;
   align-items: center;
-  column-gap: 32px;
+  column-gap: 2rem;
 }
 
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .carousel-wrapper {
     flex-direction: column;
-    row-gap: 24px;
+    row-gap: 1.5rem;
   }
 }
