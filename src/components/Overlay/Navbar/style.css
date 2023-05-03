@@ -79,19 +79,6 @@ button.active {
   background: rgb(164, 164, 164);
 }
 
-/* For screens more than 1250px */
-@media only screen and (min-width: 1250px) {
-  button {
-    letter-spacing: 1.6px;
-    font-size: 2rem;
-  }
-
-  .sound_control > svg {
-    height: 2.2rem;
-    width: 2.2rem;
-  }
-}
-
 /* For screens less than 700px */
 @media only screen and (max-width: 700px) {
   .navigation > ul {
